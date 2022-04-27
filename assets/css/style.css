@@ -427,14 +427,14 @@ Separator
 	width: 85px;
 	height: 2px;
 	margin: 20px 0px;
-	background: #ff6863;
+	background: #064420;
 }
 
 .separator_auto {
 	width: 85px;
 	height: 2px;
 	margin: 20px auto;
-	background: #ff6863;
+	background: #064420;
 }
 
 .separator_small {
@@ -821,8 +821,8 @@ About section style
 
 .main_about {
 	display: flex;
-	flex-basis: 100%;
 	flex-wrap: wrap;
+	width: 500px;
 }
 
 .about_bottom_content {
@@ -858,7 +858,13 @@ About section style
 
 }
 
-
+.about_img{
+	position: absolute;
+	border: 1px solid black;
+	left: 1010px;
+	width: 500px;
+	height: 298px;
+}
 /*
 Featured section style
 ========================*/
