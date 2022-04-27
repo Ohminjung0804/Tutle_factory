@@ -427,7 +427,7 @@ Separator
 	width: 85px;
 	height: 2px;
 	margin: 20px 0px;
-	background: #064420;
+	background: #ff6863;
 }
 
 .separator_auto {
@@ -880,15 +880,15 @@ Featured section style
 
 .slick-center .featured_img:before {
 	content: "+";
-	width: 50px;
-	height: 50px;
-	line-height: 50px;
+	width: 30px;
+	height: 30px;
+	line-height: 30px;
 	position: absolute;
-	left: 43.5%;
-	right: 43.5%;
-	top: 35%;
-	color: #000;
-	background-color: #fff;
+	left: 90%;
+	right: 10%;
+	top: 85%;
+	color: rgb(106, 106, 106);
+	background-color: #E4EFE7;
 	border-radius: 50%;
 	font-size: 3rem;
 	z-index: 2;
@@ -897,9 +897,9 @@ Featured section style
 
 .slick-center .featured_img a {
 	position: absolute;
-	left: 43.5%;
-	right: 43.5%;
-	top: 35%;
+	left: 90%;
+	right: 10%;
+	top: 85%;
 	display: block;
 	width: 50px;
 	height: 50px;
