@@ -45,14 +45,14 @@ nav.navbar.bootsnav{
     -webkit-border-radius: 0px;
     -o-border-radius: 0px;
     border-radius: 0px;
-    background-color: #FDFAF6;
+    background-color: #E4EFE7;;
     border: none;
     border-bottom: solid 1px #e0e0e0;
     z-index: 9;
 }
 
 nav.navbar.bootsnav ul.nav > li > a{
-    color: #6f6f6f;
+    color: #5e5e5e;
     background-color: transparent !important;
 }
 
@@ -226,7 +226,7 @@ li.close-full-menu{
 }
 
 .attr-nav > ul > li > a{
-    color: #6f6f6f;
+    color: #000000;
     display: block;
     padding: 28px 15px;
     position: relative;

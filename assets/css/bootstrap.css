@@ -3632,7 +3632,7 @@ tbody.collapse.show {
 .navbar-dark .navbar-nav .active > .nav-link,
 .navbar-dark .navbar-nav .nav-link.show,
 .navbar-dark .navbar-nav .nav-link.active {
-  color: white;
+  color: rgb(149, 0, 0);
 }
 
 .navbar-dark .navbar-toggler {
@@ -3925,7 +3925,7 @@ tbody.collapse.show {
 .page-link:focus, .page-link:hover {
   color: #0056b3;
   text-decoration: none;
-  background-color: #e9ecef;
+  background-color: #2766a4;
   border-color: #ddd;
 }
 

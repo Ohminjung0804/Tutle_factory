@@ -26,7 +26,7 @@
 
 html,
 body {
-	background-color: #FDFAF6;
+	background-color: #ffffff;
 	font-size: 14px;
 	color: #797979;
 	width: 100%;
@@ -862,7 +862,7 @@ About section style
 .about_img{
 	position: absolute;
 	border: 1px solid black;
-	left: 1010px;
+	left: 900px;
 	width: 500px;
 	height: 298px;
 }
@@ -888,7 +888,7 @@ Featured section style
 	left: 90%;
 	right: 10%;
 	top: 85%;
-	color: rgb(106, 106, 106);
+	color: rgb(34, 34, 34);
 	background-color: #E4EFE7;
 	border-radius: 50%;
 	font-size: 3rem;
