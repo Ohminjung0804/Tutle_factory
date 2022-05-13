@@ -1,4 +1,11 @@
 
+/*mypage icon*/
+.btn-mypage{
+  text-align: center;
+}
+.div-mypage{
+  text-align: center;
+}
 /* contact */
 
 .team-member {
@@ -75,4 +82,9 @@
 }
 
 
-/* login page */
+/*로그인 버튼*/
+.login-btn{
+  width: 300px;
+  height: 50px;
+  text-align: center;
+}
