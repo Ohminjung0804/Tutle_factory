@@ -92,12 +92,18 @@
 }
 
 /*mypage css*/
+.mypage-txt{
+  margin-top: 130px;
+  font-size: 40px;
+  color: #075427;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
 /* 사용자 정보 전체 박스 */
 .info-container{
-  margin-top: 140px;
+  margin-top: 10px;
   height: 316px;
   /* border: 1px solid salmon; */
-  border-bottom: 1px solid #c3c3c3;
+  /* border-bottom: 1px solid #c3c3c3; */
 }
 
 /* 사용자 캐릭터, 이름 상자 */
