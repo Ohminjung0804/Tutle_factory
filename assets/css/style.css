@@ -794,7 +794,7 @@ Home Section style
 ==================*/
 
 .home {
-	background: url(../images/background/header.jpg) no-repeat bottom center;
+	background: url(../images/background/header_main.png) no-repeat bottom center;
 	background-size: cover;
 	position: relative;
 }
