@@ -93,7 +93,7 @@
 
 /*mypage css*/
 .mypage-txt{
-  margin-top: 130px;
+  margin-top: 110px;
   font-size: 40px;
   color: #075427;
   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -139,10 +139,10 @@
   margin-bottom: 50px;
   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-size: 25px;
-  color: #075427;
 }
 #todo-date{
   font-size: 40px;
+  color: #075427;
 }
 .dash{
   width: 0.5px;

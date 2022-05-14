@@ -1960,6 +1960,7 @@ select.form-control-lg:not([size]):not([multiple]), .input-group-lg > select.for
   line-height: 1.25;
   border-radius: 0.25rem;
   transition: all 0.15s ease-in-out;
+  cursor: pointer;
 }
 
 .btn:focus, .btn:hover {
