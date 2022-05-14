@@ -1,8 +1,5 @@
 
-/*mypage icon*/
-.btn-mypage{
-  text-align: center;
-}
+
 .div-mypage{
   text-align: center;
 }
@@ -87,4 +84,74 @@
   width: 300px;
   height: 50px;
   text-align: center;
+}
+
+/*mypage icon*/
+.btn-mypage{
+  text-align: center;
+}
+
+/*mypage css*/
+/* 사용자 정보 전체 박스 */
+.info-container{
+  margin-top: 140px;
+  height: 316px;
+  /* border: 1px solid salmon; */
+  border-bottom: 1px solid #c3c3c3;
+}
+
+/* 사용자 캐릭터, 이름 상자 */
+.profile-container{
+  height: 256px;
+  left: 0%;
+  margin-top: 30px;
+  display: inline-block;
+  border-right: 1px solid #c3c3c3;
+}
+.profile-img{
+  /* border: 1px solid burlywood; */
+}
+.profile-name{
+  text-align: center;
+  border-radius: 8px;
+  font-size: 20px;
+  border: 1px solid #a1a1a1;
+}
+
+/* 사용자 현황 정도 */
+.progress-container{
+  height: 256px;
+  margin-top: 30px;
+  margin-left: 10px;
+  display: inline-block;
+  position: absolute;
+  /* border: 1px solid violet; */
+}
+.todo-date{
+  display: inline-block;
+  margin-top: 20px;
+  margin-bottom: 50px;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 25px;
+  color: #075427;
+}
+#todo-date{
+  font-size: 40px;
+}
+.dash{
+  width: 0.5px;
+  height: 15px;
+  margin-left: 2%;
+  margin-right: 2%;
+  display: inline-block;
+  border-left:2px solid #888888;
+}
+.date-label{
+  display: inline-block;
+  font-size: medium;
+}
+.start-date{
+  display: inline-block;
+  font-size: medium;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
