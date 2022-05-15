@@ -117,7 +117,7 @@
                 <div class="profile-name container m-top-20 text-dark">꼬부기</div>
             </div>
             <div class="progress-container col-md-6">
-                <p class="todo-date">치료 종료 까지&nbsp; </p>
+                <p class="todo-date text-muted">치료 종료 까지&nbsp; </p>
                 <p id="todo-date" class="todo-date">96일 9시간 30분 </p>
                 <p class="todo-date">&nbsp;남았습니다. </p><br>
 
@@ -129,13 +129,28 @@
                 <div class="dash text-dark"></div>
                 <p class="start-date text-dark">2020.08.20</p><br>
 
-                <button class="btn-primary btn w-2 m-top-30">수정하기</button>
+                <div class="btn w-2 m-top-50">수정하기</biv>
             </div>
         </div>
-	
-
 		
     </div>
+
+	<div class="container">
+		<p class="current-label m-top-20">현재 진도율</p>
+		<p class="current-value">3%</p>
+		<progress value="3" max="100" class="bar progress m-top-10">
+			<div pseudo="-webkit-progress-inner-element">
+				<div pseudo="-webkit-progress-bar">
+					<di pseudo="-webkit-progress-value"></div>
+				</div>
+			</div>
+		</progress>
+	</div>
+
+	<div class="container m-top-50 text-center">
+			<div class="btn">로그아웃</div>
+			<div class="btn">탈퇴하기</div>
+	</div>
 
     <script src="assets/js/vendor/jquery-1.11.2.min.js"></script>
 	<script src="assets/js/vendor/popper.min.js"></script>

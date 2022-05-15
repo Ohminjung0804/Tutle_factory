@@ -141,7 +141,7 @@
   font-size: 25px;
 }
 #todo-date{
-  font-size: 40px;
+  font-size: 35px;
   color: #075427;
 }
 .dash{
@@ -160,4 +160,46 @@
   display: inline-block;
   font-size: medium;
   font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/* 현재 진도율 */
+.current-label{
+  font-size: 20px;
+  margin-bottom: 10px;
+  /* border: 1px solid darkblue; */
+}
+.current-value{
+  text-align: right;
+  font-size: 20px;
+}
+/* 현재진행바 */
+.progress{
+  box-sizing: border-box;
+  -webkit-appearance: progress-bar;
+  width: 100%;
+  animation: progressbar 1s ease-out;
+  border-radius: 10px;
+  height: 20px;
+}
+/*  animation */
+@keyframes progressbar { 
+  0% { width: 0%; } 
+  100% { width: 100%; } 
+}
+progress::-webkit-progress-bar{
+  
+}
+progress[value]::-webkit-progress-bar {
+  background-color: rgba(238, 238, 238, 0.958);
+  border-radius: 10px;
+  /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset; */
+}
+/* 그라데이션 */
+progress[value]::-webkit-progress-value {
+  background-image:
+	   
+	   -webkit-linear-gradient(left, rgb(213, 255, 174), #075427);
+
+    border-radius: 10px; 
+    background-size: 35px 20px, 100% 100%, 100% 100%;
 }
