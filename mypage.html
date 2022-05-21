@@ -113,7 +113,7 @@
         <div class="container mypage-txt">MY PAGE</div>
         <div class="info-container container">
             <div class="profile-container col-sm-4">
-                <div class="profile-img container col-sm-8"><img src="assets/images/frofile/img1.png" alt=""></div>
+                <div class="profile-img container col-sm-8"><img src="assets/images/profile/img1.png" alt=""></div>
                 <div class="profile-name container m-top-20 text-dark">꼬부기</div>
             </div>
             <div class="progress-container col-md-6">
@@ -129,7 +129,7 @@
                 <div class="dash text-dark"></div>
                 <p class="start-date text-dark">2020.08.20</p><br>
 
-                <div class="btn w-2 m-top-50">수정하기</biv>
+                <div class="btn w-2 m-top-50" id="btn-modal-open">수정하기</biv>
             </div>
         </div>
 		
@@ -151,6 +151,29 @@
 			<div class="btn">로그아웃</div>
 			<div class="btn">탈퇴하기</div>
 	</div>
+
+	<p id="close-area">X</p>
+    <div id="modal" class="modal-overlay">
+        <div class="modal-window">
+            <p class="title">
+                프로필 수정
+			</p>
+			<div class="modal_content">
+			<table class="profile-table">
+				<tr>
+					<td><div class="select-round"><img class="select-img" src="assets/images/profile/신짱구.png"></div></td>
+					<td><div class="select-round"><img class="select-img" src="assets/images/profile/짱아.png"></div></td>
+				</tr>
+				<tr>
+					<td><div class="select-round"><img class="select-img" src="assets/images/profile/훈이.png"></div></td>
+					<td><div class="select-round"><img class="select-img" src="assets/images/profile/유리.png"></div></td>
+				</tr>
+			</table>
+
+			<input type="text" class="nickname_input" placeholder="이름 변경"><br/>
+			<div class="btn modal-save">저장</div>
+        </div>
+    </div>
 
     <script src="assets/js/vendor/jquery-1.11.2.min.js"></script>
 	<script src="assets/js/vendor/popper.min.js"></script>
