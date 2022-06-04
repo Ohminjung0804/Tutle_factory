@@ -949,7 +949,6 @@ Impress section style
 ========================*/
 
 .impress {
-	background: url(../images/background/work-together.jpg) no-repeat center center;
 	background-size: cover;
 	position: relative;
 }
@@ -968,7 +967,18 @@ Impress section style
 	padding: 1rem 4rem;
 }
 
-
+.banner_img1{
+	background: url(../images/banner1.png) no-repeat center center;
+	
+}
+.banner_img2{
+	background: url(../images/banner2.png) no-repeat center center;
+	
+}
+.banner_img3{
+	background: url(../images/banner3.png) no-repeat center center;
+	
+}
 
 /* scrollup */
 
