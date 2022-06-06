@@ -13,7 +13,7 @@
 	<title>거북이 공장</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="icon" type="image/png" href="favicon.ico">
+	<link rel="icon" href="E:\Tutle_factory/favicon.ico" type="image/x-icon">
 
 	<!--Google Font link-->
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
@@ -24,8 +24,9 @@
 	<link rel="stylesheet" href="assets/css/font-awesome.min.css">
 	<link rel="stylesheet" href="assets/css/bootstrap.css">
 	<link rel="stylesheet" href="assets/css/bootsnav.css">
-	
 
+	<script src="assets/js/mypage.js"></script>
+	
 
 	<!--For Plugins external css-->
 	<!--<link rel="stylesheet" href="assets/css/plugins.css" />-->
@@ -89,7 +90,7 @@
 					<a class="navbar-brand" href="index.html">
 
                             <img src="assets/images/logo.png" class="logo logo-display m-top-10" alt="">
-                            <img src="assets/images/logo.jpg" class="logo logo-scrolled" alt="">
+                            <img src="assets/images/logo.png" class="logo logo-scrolled" alt="">
 
                         </a>
 				</div>
@@ -113,24 +114,28 @@
         <div class="container mypage-txt">MY PAGE</div>
         <div class="info-container container">
             <div class="profile-container col-sm-4">
-                <div class="profile-img container col-sm-8"><img src="assets/images/profile/img1.png" alt=""></div>
-                <div class="profile-name container m-top-20 text-dark">꼬부기</div>
+                <div class="profile-img container col-sm-8"><img class="mx-auto rounded-circle" src="assets/images/team/1.png" alt="..." /></div>
             </div>
             <div class="progress-container col-md-6">
                 <p class="todo-date text-muted">치료 종료 까지&nbsp; </p>
-                <p id="todo-date" class="todo-date">96일 9시간 30분 </p>
+                <p id="todo-date" class="todo-date"></p>
                 <p class="todo-date">&nbsp;남았습니다. </p><br>
+
+				<p class="date-label text-dark">닉네임</p>
+                <div class="dash text-dark"></div>
+                <p class="start-date text-dark">짱구</p><br>
 
                 <p class="date-label text-dark">치료 시작일</p>
                 <div class="dash text-dark"></div>
-                <p class="start-date text-dark">2020.05.13</p><br>
+                <p class="start-date text-dark" id="start-day"></p><br>
 
                 <p class="date-label text-dark">치료 종료일</p>
                 <div class="dash text-dark"></div>
-                <p class="start-date text-dark">2020.08.20</p><br>
+                <p class="start-date text-dark" id="end-day"></p><br>
 
-                <div class="btn w-2 m-top-50" id="btn-modal-open">수정하기</biv>
-            </div>
+                <div class="btn w-2 m-top-20" id="btn-modal-open">수정하기</biv>
+				
+            </div><div class="btn m-top-20">로그아웃</div>
         </div>
 		
     </div>
@@ -148,8 +153,7 @@
 	</div>
 
 	<div class="container m-top-50 text-center">
-			<div class="btn">로그아웃</div>
-			<div class="btn">탈퇴하기</div>
+			
 	</div>
 
 	<p id="close-area">X</p>
@@ -161,12 +165,12 @@
 			<div class="modal_content">
 			<table class="profile-table">
 				<tr>
-					<td><div class="select-round"><img class="select-img" src="assets/images/profile/신짱구.png"></div></td>
-					<td><div class="select-round"><img class="select-img" src="assets/images/profile/짱아.png"></div></td>
+					<td><div class="select-round"><img class="select-img" onclick="profile(1)" src="assets/images/profile/1.png"></div></td>
+					<td><div class="select-round"><img class="select-img" src="assets/images/profile/2.png"></div></td>
 				</tr>
 				<tr>
-					<td><div class="select-round"><img class="select-img" src="assets/images/profile/훈이.png"></div></td>
-					<td><div class="select-round"><img class="select-img" src="assets/images/profile/유리.png"></div></td>
+					<td><div class="select-round"><img class="select-img" src="assets/images/profile/3.png"></div></td>
+					<td><div class="select-round"><img class="select-img" src="assets/images/profile/4.png"></div></td>
 				</tr>
 			</table>
 
@@ -191,7 +195,7 @@
 
 	<script src="assets/js/plugins.js"></script>
 	<script src="assets/js/main.js"></script>
-	<script src="assets/js/custom.js"></script>
+	<script src="assets/js/mypage.js"></script>
 
 	
     </body>
