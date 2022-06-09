@@ -253,7 +253,7 @@ li.close-full-menu{
     -webkit-box-shadow: 0px 0px 0px;
     -o-box-shadow: 0px 0px 0px;
     box-shadow: 0px 0px 0px;
-    border: solid 1px #e0e0e0;
+    border: solid 1px #5e5e5e;
 }
 
 ul.cart-list{
@@ -263,7 +263,7 @@ ul.cart-list{
 
 ul.cart-list > li{
     position: relative;
-    border-bottom: solid 1px #efefef;
+    border-bottom: solid 1px #5e5e5e;
     padding: 15px 15px 23px 15px !important;
 }
 
@@ -298,13 +298,13 @@ ul.cart-list > li > p{
 }
 
 ul.cart-list > li.total{
-    background-color: #f5f5f5;
+    background-color: #5e5e5e;
     padding-bottom: 15px !important;
 }
 
 ul.cart-list > li.total > .btn{
     display: inline-block;
-    border-bottom: solid 1px #efefef !important;
+    border-bottom: solid 1px #5e5e5e !important;
 }
 
 ul.cart-list > li .price{
@@ -347,7 +347,7 @@ nav.navbar.bootsnav .share ul > li > a{
     -o-border-radius: 50%;
     border-radius: 50%;
     background-color: #cfcfcf;
-    color: #fff;
+    color: #5e5e5e;
 }
 
 /* Transparent
@@ -418,7 +418,7 @@ nav.navbar.bootsnav.no-background{
     
     nav.navbar.bootsnav li.dropdown ul.dropdown-menu > li a:hover,
     nav.navbar.bootsnav li.dropdown ul.dropdown-menu > li a:hover{
-        background-color: transparent;
+        background-color: #5e5e5e;
     }
     
     nav.navbar.bootsnav li.dropdown ul.dropdown-menu > li > a{
@@ -539,12 +539,12 @@ nav.navbar.bootsnav.no-background{
     nav.navbar.bootsnav.navbar-transparent.white .attr-nav > ul > li > a,
     nav.navbar.bootsnav.navbar-transparent.white ul.nav > li > a,
     nav.navbar.bootsnav.no-background.white ul.nav > li > a{
-        color: #fff;
+        color: #5e5e5e;
     }
     
     nav.navbar.bootsnav.navbar-transparent.dark .attr-nav > ul > li > a,
     nav.navbar.bootsnav.navbar-transparent.dark ul.nav > li > a{
-        color: #eee;
+        color: #5e5e5e;
     }
     
     nav.navbar.bootsnav.navbar-fixed.navbar-transparent .logo-scrolled,

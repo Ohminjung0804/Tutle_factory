@@ -794,15 +794,15 @@ Home Section style
 ==================*/
 
 .home {
-	background: url(../images/background/header_main.png) no-repeat bottom center;
-	background-size: cover;
+	background: url(../images/background/header-main.gif);
 	position: relative;
+
 }
 
 .main_home {
-	overflow: hidden;
+	/* overflow: hidden; */
 	padding-top: 300px;
-	padding-bottom: 230px;
+	padding-bottom: 700px;
 	position: relative;
 	z-index: 1;
 }
