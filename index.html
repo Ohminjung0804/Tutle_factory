@@ -45,6 +45,11 @@
 	<link rel="stylesheet" href="assets/css/responsive.css" />
 	
 	<script src="assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+	
+	<!-- 거북이 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/pose@0.8/dist/teachablemachine-pose.min.js"></script>
+    <script src="JS/turtlecheck.js"></script>
 </head>
 
 <body data-spy="scroll" data-target=".navbar-collapse">
@@ -146,7 +151,7 @@
 					<div class="main_about">
 						
 						<div class="about_content">
-							<h2>ABOUT SERVICE</h2>
+							<h2>거북목 테스트</h2>
 							<div class="separator_left"></div>
 
 							<p>거북목 자세는 아래쪽 목뼈는 과하게 구부러지는 방향으로 배열되고 위쪽 목뼈와 머리뼈는 머리를 젖히는 방향으로 배열되어 전체적으로 목뼈 전만이 소실되고 머리가 숙여지지 않은 상태에서 고개가 앞으로 빠진 자세이다. 
@@ -156,13 +161,18 @@
 									</p>
 
 							<div class="about_btns m-top-40">
-								<a href="" class="btn btn-primary">거북목 치료하기</a>
+								<h4>Test Result</h4>
+								<div id="label-container" style="font-size: 20px; border: 1px solid black; width: 550px; height: 60px; padding: 15px"></div>
+								<button id="startbtn" class="btn btn-primary" type="button" onclick="init()" style="margin-top: 30px;">결과보기</button>
 							</div>
 						</div>
 		
 						<div class="about_img">
-							500X298
+							<canvas id="canvas">
+							</canvas>
 						</div>
+						
+						
 						
 					</div>
 					
@@ -394,6 +404,8 @@
 	<script src="assets/js/plugins.js"></script>
 	<script src="assets/js/main.js"></script>
 
+
 </body>
+
 
 </html>

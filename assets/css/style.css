@@ -861,10 +861,7 @@ About section style
 
 .about_img{
 	position: absolute;
-	border: 1px solid black;
-	left: 900px;
-	width: 500px;
-	height: 298px;
+	left: 1100px;
 }
 /*
 Featured section style
