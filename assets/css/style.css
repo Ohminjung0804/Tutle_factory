@@ -428,7 +428,7 @@ Separator
 	height: 2px;
 	margin: 20px 0px;
 	background: #064420;
-	
+
 }
 
 .separator_auto {
@@ -859,10 +859,23 @@ About section style
 
 }
 
-.about_img{
+.about_img {
 	position: absolute;
 	left: 1100px;
 }
+
+#label-container {
+	font-size: 20px;
+	border: 1px solid black;
+	width: 550px;
+	height: 60px;
+	padding: 15px
+}
+
+#startbtn{
+	margin-top: 30px;
+}
+
 /*
 Featured section style
 ========================*/
@@ -964,17 +977,19 @@ Impress section style
 	padding: 1rem 4rem;
 }
 
-.banner_img1{
+.banner_img1 {
 	background: url(../images/banner1.png) no-repeat center center;
-	
+
 }
-.banner_img2{
+
+.banner_img2 {
 	background: url(../images/banner2.png) no-repeat center center;
-	
+
 }
-.banner_img3{
+
+.banner_img3 {
 	background: url(../images/banner3.png) no-repeat center center;
-	
+
 }
 
 /* scrollup */
@@ -1077,7 +1092,7 @@ Impress section style
 	display: none
 }
 
-.attr-nav > ul > li > a span.badge {
+.attr-nav>ul>li>a span.badge {
 	background: #777;
 	border-radius: 50%;
 	margin-right: -4px;
@@ -1091,10 +1106,11 @@ Impress section style
 }
 
 @media (max-width: 1023px) {
-	nav.navbar.bootsnav ul.nav > li > a {
+	nav.navbar.bootsnav ul.nav>li>a {
 		font-weight: 600;
 	}
-	.navbar-expand-lg .navbar-nav > li {
+
+	.navbar-expand-lg .navbar-nav>li {
 		margin-left: 30px;
 	}
 }
@@ -1103,22 +1119,25 @@ Impress section style
 	.navbar-expand-md .navbar-toggler {
 		display: block !important;
 	}
+
 	nav.navbar.bootsnav .navbar-brand {
 		position: absolute;
 		left: 50%;
 		transform: translate(-50%, -50%)
 	}
+
 	nav.navbar.bootsnav .navbar-collapse.collapse.show {
 		display: block !important;
 		overflow-x: hidden;
 	}
+
 	nav.navbar.bootsnav .navbar-nav {
 
 		padding-top: 25px;
 		margin-left: 0px;
 	}
 
-	.navbar-expand-lg .navbar-nav > li {
+	.navbar-expand-lg .navbar-nav>li {
 		margin-left: 0px;
 	}
 }
