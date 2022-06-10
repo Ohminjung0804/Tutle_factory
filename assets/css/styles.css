@@ -107,16 +107,26 @@
   /* border-bottom: 1px solid #c3c3c3; */
 }
 
-/* 사용자 캐릭터, 이름 상자 */
+/* 사용자 캐릭터 */
 .profile-container{
   height: 256px;
   left: 0%;
   margin-top: 30px;
   display: inline-block;
   border-right: 1px solid #c3c3c3;
+  
 }
 .profile-img{
   /* border: 1px solid burlywood; */
+  margin-top: 30px;
+  width: 200px;
+  height: 200px;
+  /* margin-left: 10px; */
+}
+.profile-div{
+  margin-right: 0px;
+  margin-left: 45px;
+  /* border: 1px solid firebrick; */
 }
 .profile-name{
   text-align: center;
@@ -129,7 +139,7 @@
 .progress-container{
   height: 256px;
   margin-top: 30px;
-  margin-left: 10px;
+  /* margin-left: 5px; */
   display: inline-block;
   position: absolute;
   /* border: 1px solid violet; */
@@ -169,19 +179,8 @@
   margin-bottom: 10px;
   /* border: 1px solid darkblue; */
 }
-.current-value{
-  text-align: right;
-  font-size: 20px;
-}
-/* 현재진행바 */
-.progress{
-  box-sizing: border-box;
-  -webkit-appearance: progress-bar;
-  width: 100%;
-  animation: progressbar 1s ease-out;
-  border-radius: 10px;
-  height: 20px;
-}
+
+
 /*  animation */
 @keyframes progressbar { 
   0% { width: 0%; } 
@@ -354,4 +353,42 @@ progress[value]::-webkit-progress-value {
 }
 .char4{
   background:url('/assets/images/profile/4.png')no-repeat center;
+}
+
+/* progress 진행도 div */
+#myProgress {
+  width: 100%;
+  background-color: #ddd;
+}
+
+#myBar {
+  width: 0%;
+  height: 30px;
+  background-color: #a1d2c0;
+  text-align: center;
+  line-height: 30px;
+  color: white;
+  /* position:absolute; */
+  /* position: relative; */
+  
+}
+#progressImg{
+  z-index: 1;
+  text-align: right;
+  float: right;
+  transform: scaleX(-1);
+  height: 70px;
+  width:70px;
+  bottom: 30px;
+  /* position:absolute; */
+  /* margin-bottom: 10px; */
+  /* border: 1px solid darkmagenta; */
+
+}
+#progressImgDiv{
+    width: 0%;
+    height: 20px;
+    /* border: 1px solid darkmagenta; */
+    position:relative;
+    
 }

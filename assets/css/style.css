@@ -229,9 +229,9 @@ p {
 	clear: both;
 }
 
-img {
+/* img {
 	max-width: 100%;
-}
+} */
 
 textarea,
 input[type="text"],
@@ -794,13 +794,14 @@ Home Section style
 ==================*/
 
 .home {
-	background: url(../images/background/header-main.gif);
+	background: url(../images/background/header-main.png)no-repeat bottom center;
+	background-size: cover;
 	position: relative;
 
 }
 
 .main_home {
-	/* overflow: hidden; */
+	overflow: hidden;
 	padding-top: 300px;
 	padding-bottom: 700px;
 	position: relative;
