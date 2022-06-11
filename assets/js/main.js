@@ -199,9 +199,24 @@ jQuery(document).ready(function ($) {
 
 
 
+// 체크박스
+function testChk(num){
+    let getClassName = "testchk"+num;
+    console.log(getClassName);
+    if(num == 1){
+        let getClass = document.getElementById(getClassName);
+        console.log(getClass);
+        getClass.style.display = 'inline-block';
+    }else if(num == 2){
+        let getClass = document.getElementById(getClassName);
+        getClass.style.display = 'inline-block';
+    }else if(num == 3){
+        let getClass = document.getElementById(getClassName);
+        getClass.style.display = 'inline-block';
+    }
+}
 
-
-
+testChk(1);
 
 
 
