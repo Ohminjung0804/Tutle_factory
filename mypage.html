@@ -114,7 +114,7 @@
         <div class="container mypage-txt">MY PAGE</div>
         <div class="info-container container">
             <div class="profile-container col-sm-4">
-                <div class="profile-img container col-sm-8"><img class="mx-auto rounded-circle" src="assets/images/team/1.png" alt="..." /></div>
+                <div class="profile-div container col-sm-8"><img class="profile-img  rounded-circle" id="profile-img" src="assets/images/profile/1.png" alt="..." /></div>
             </div>
             <div class="progress-container col-md-6">
                 <p class="todo-date text-muted">치료 종료 까지&nbsp; </p>
@@ -123,7 +123,7 @@
 
 				<p class="date-label text-dark">닉네임</p>
                 <div class="dash text-dark"></div>
-                <p class="start-date text-dark">짱구</p><br>
+                <p class="start-date text-dark" id="show-name">짱구</p><br>
 
                 <p class="date-label text-dark">치료 시작일</p>
                 <div class="dash text-dark"></div>
@@ -133,7 +133,7 @@
                 <div class="dash text-dark"></div>
                 <p class="start-date text-dark" id="end-day"></p><br>
 
-                <div class="btn w-2 m-top-20" id="btn-modal-open">수정하기</biv>
+                <div class="btn w-2 m-top-20" id="btn-modal-open" onclick="showModal">수정하기</biv>
 				
             </div><div class="btn m-top-20">로그아웃</div>
         </div>
@@ -142,40 +142,33 @@
 
 	<div class="container">
 		<p class="current-label m-top-20">현재 진도율</p>
-		<p class="current-value">3%</p>
-		<progress value="3" max="100" class="bar progress m-top-10">
-			<div pseudo="-webkit-progress-inner-element">
-				<div pseudo="-webkit-progress-bar">
-					<di pseudo="-webkit-progress-value"></div>
-				</div>
-			</div>
-		</progress>
-	</div>
-
-	<div class="container m-top-50 text-center">
+		<div id="progressImgDiv"><img src="/assets/images/profile/3.png" alt="" id="progressImg"></div>
+		<div id="myProgress">
 			
+			
+			<div id="myBar"></div>
+		</div>
 	</div>
 
-	<p id="close-area">X</p>
-    <div id="modal" class="modal-overlay">
-        <div class="modal-window">
-            <p class="title">
-                프로필 수정
-			</p>
-			<div class="modal_content">
-			<table class="profile-table">
-				<tr>
-					<td><div class="select-round"><img class="select-img" onclick="profile(1)" src="assets/images/profile/1.png"></div></td>
-					<td><div class="select-round"><img class="select-img" src="assets/images/profile/2.png"></div></td>
-				</tr>
-				<tr>
-					<td><div class="select-round"><img class="select-img" src="assets/images/profile/3.png"></div></td>
-					<td><div class="select-round"><img class="select-img" src="assets/images/profile/4.png"></div></td>
-				</tr>
-			</table>
+	
 
-			<input type="text" class="nickname_input" placeholder="이름 변경"><br/>
-			<div class="btn modal-save">저장</div>
+    <div id="modal" class="modal-overlay">
+        <div class="modal-window container">
+
+			<p class="popup-title">프로필 수정</p>
+		
+			<div class="popup-line"></div>
+			<input type="text" id="name-info" placeholder="수정할 이름을 입력하세요." class="nickname_input">
+			
+			<div class="radio-div">
+				
+				<input type="radio" name="chk_char" value=1 id="radio1"><label class="char char1 rounded-circle m-top-60" for="radio1"></label></input>
+				<input type="radio" name="chk_char" value=2 id="radio2"><label class="char char2 rounded-circle m-top-60" for="radio2"></label></input>
+				<input type="radio" name="chk_char" value=3 id="radio3"><label class="char char3 rounded-circle m-top-60" for="radio3"></label></input>
+				<input type="radio" name="chk_char" value=4 id="radio4"><label class="char char4 rounded-circle m-top-60" for="radio4"></label></input>
+			</div>
+            <p class="m-top-30 text-dark">원하는 캐릭터를 선택해보세요!</p>
+			<button class="edit_save" id="save-info" onclick="save_info()">수정</button>
         </div>
     </div>
 
@@ -196,6 +189,8 @@
 	<script src="assets/js/plugins.js"></script>
 	<script src="assets/js/main.js"></script>
 	<script src="assets/js/mypage.js"></script>
+	<script src="assets/js/popup.js"></script>
+	
 
 	
     </body>
