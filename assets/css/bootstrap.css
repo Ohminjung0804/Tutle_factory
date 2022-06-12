@@ -353,9 +353,9 @@ legend {
   white-space: normal;
 }
 
-progress {
+/* progress {
   vertical-align: baseline;
-}
+} */
 
 [type="number"]::-webkit-inner-spin-button,
 [type="number"]::-webkit-outer-spin-button {
@@ -606,6 +606,17 @@ pre code {
   height: 100%;
 }
 
+.container-chart {
+  /* margin-right: auto;
+  margin-left: auto; */
+  /* padding-right: 15px;
+  padding-left: 15px; */
+  position: absolute;
+  display: inline-block;
+  width: 35%;
+  height: 35%;
+  /* border: 1px solid darkcyan; */
+}
 @media (min-width: 576px) {
   .container {
     max-width: 540px;
@@ -627,6 +638,11 @@ pre code {
 @media (min-width: 1200px) {
   .container {
     max-width: 1140px;
+  }
+}
+@media (min-width: 1200px) {
+  .container-chart {
+    max-width: 3000px;
   }
 }
 
@@ -1965,7 +1981,9 @@ select.form-control-lg:not([size]):not([multiple]), .input-group-lg > select.for
 }
 
 .btn:focus, .btn:hover {
-  text-decoration: none;
+  /* text-decoration: none; */
+  background-color: #4e926b;
+  border: 0px;
 }
 
 .btn:focus, .btn.focus {
@@ -3253,7 +3271,7 @@ tbody.collapse.show {
   padding: 0.5rem 1rem;
 }
 
-.navbar > .container,
+.navbar > .container, .container-chart,
 .navbar > .container-fluid {
   display: -ms-flexbox;
   display: flex;
@@ -3336,7 +3354,7 @@ tbody.collapse.show {
 }
 
 @media (max-width: 575px) {
-  .navbar-expand-sm > .container,
+  .navbar-expand-sm > .container, .container-chart,
   .navbar-expand-sm > .container-fluid {
     padding-right: 0;
     padding-left: 0;
@@ -4231,7 +4249,7 @@ tbody.collapse.show {
   color: #040505;
 }
 
-@-webkit-keyframes progress-bar-stripes {
+/* @-webkit-keyframes progress-bar-stripes {
   from {
     background-position: 1rem 0;
   }
@@ -4276,7 +4294,7 @@ tbody.collapse.show {
 .progress-bar-animated {
   -webkit-animation: progress-bar-stripes 1s linear infinite;
           animation: progress-bar-stripes 1s linear infinite;
-}
+} */
 
 .media {
   display: -ms-flexbox;
