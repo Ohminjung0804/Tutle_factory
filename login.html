@@ -124,16 +124,7 @@
 				</div><br><br>
 				<table class="table text-center">
 					<tr>
-						<a id="kakao-login-btn"></a>
-					</tr>
-					<tr>
-						<button class="api-btn" onclick="unlinkApp()">앱 탈퇴하기</button>
-					</tr>
-					<tr>
-						<button class="api-btn" onclick="Logout()">로그아웃</button>
-					</tr>
-					<tr>
-						<div id="result"></div>
+						<a id="kakao-login-btn" style="margin-left: 440px;"></a>
 					</tr>
 				</table>
 			</div>
@@ -159,25 +150,6 @@
 	<script src="assets/js/main.js"></script>
 	<script src="assets/js/custom.js"></script>
 
-	<script type="text/javascript">
-        function unlinkApp() {
-            Kakao.API.request({
-                url: '/v1/user/unlink',
-                success: function (res) {
-                    alert('success: ' + JSON.stringify(res))
-					localStorage.clear();
-                },
-                fail: function (err) {
-                    alert('fail: ' + JSON.stringify(err))
-                },
-            })
-        }
-
-        function Logout() {
-            localStorage.clear();
-        }
-    </script>
-
     <script type="text/javascript">
         Kakao.init('c550e7389ae587f38e4478dd047e9df0');
         console.log(Kakao.isInitialized());
@@ -193,20 +165,16 @@
                         connected_at = result.connected_at
                         kakao_account = result.kakao_account
                         $('#result').append(kakao_account);
-                        resultdiv = "<h2>로그인 성공 !!"
-                        resultdiv += '<h4>id: ' + id + '<h4>'
-                        resultdiv += '<h4>connected_at: ' + connected_at + '<h4>'
-                        email = "";
-                        gender = "";
                         if (typeof kakao_account != 'undefined') {
+							// 이메일 받아온 변수
                             email = kakao_account.email;
                             gender = kakao_account.gender;
                         }
-                        resultdiv += '<h4>email: ' + email + '<h4>'
                         localStorage.setItem("key", email);
-                        resultdiv += '<h4>gender: ' + gender + '<h4>'
                         $('#result').append(resultdiv);
 
+						// 이메일 콘솔 출력
+						console.log(email);
                     },
                     fail: function (error) {
                         alert(
