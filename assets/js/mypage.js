@@ -84,8 +84,33 @@ function char_img(num){
     }
 }
 
+// progress 진행도 표시
+function progressMove(num) {
+    i = 0;
+    if (i == 0) {
+      i = 1;
+      var elem = document.getElementById("myBar");
+      var imgDiv = document.getElementById("progressImgDiv");
+      var imgDivW =0;
+      var width = 0;
+      var id = setInterval(frame, 50);
+      function frame() {
+        if (width >= num) {
+          clearInterval(id);
+          i = 0;
+        } else {
+          width++;
+        
+          elem.style.width = width + "%";
+          elem.innerHTML = width  + "%";
+          imgDiv.style.width = width + "%";
+        }
+      }
+    }
+  }
 countDownTimer('todo-date','04/01/2024');
 dateCalcul();
+progressMove(70);
 
 
 
