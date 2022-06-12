@@ -1,3 +1,13 @@
+/* 스트레칭 확인 체크 */
+#testchk1{
+  display: none;
+}
+#testchk2{
+  display: none;
+}
+#testchk3{
+  display: none;
+}
 
 
 .div-mypage{
@@ -360,7 +370,6 @@ progress[value]::-webkit-progress-value {
   width: 100%;
   background-color: #ddd;
 }
-
 #myBar {
   width: 0%;
   height: 30px;
@@ -391,4 +400,22 @@ progress[value]::-webkit-progress-value {
     /* border: 1px solid darkmagenta; */
     position:relative;
     
+}
+
+
+/* 차트 css */
+/* .cart-div{
+  margin-right: 15px;
+  margin-left: 15px;
+  padding-right: 25px;
+  padding-left: 25px;
+} */
+#pie-chart{
+  width: 30px;
+  height: 30px;
+  
+}
+.chart2{
+  margin-left: 590px;
+  margin-top: 80px;
 }
