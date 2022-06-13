@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>#3 으쓱으쓱</title>
+    <title>으쓱으쓱</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="http://www.yoursite.com/favicon.ico?v=2" />
@@ -112,8 +112,11 @@
                         <li><img src="Img/003.png"></li>
                         <li><img src="Img/004.png"></li>
                         <li><img src="Img/005.png"></li>
-                        <li><img src="Img/006.png">
-                            <button id="startbtn" type="button" onclick="init(); move();"></button>
+                        <li><img src="Img/last.png">
+                            <button id="startbtn" type="button" onclick="init(); move();">START</button>
+                            <div id="label-containers"></div><br>
+                            <button id="pausebtn" onclick="pause()">화면 일시정지</button>
+                            <button id="restartbtn" onclick="restart()">화면 재시작</button>
                         </li>
                     </ul>
                     <p class="controller">
@@ -127,12 +130,17 @@
             <script src="/slideShow.js"></script>
             <!-- 슬라이드 끝 -->
 
-            <div class="result">
+            <div id="result" style="display: none;">
+                <br><br><br>
                 <canvas id="canvas">
-                </canvas><br><br>
-                <div id="label-containers"></div><br>
-                <button id="pausebtn" onclick="pause()">화면 일시정지</button>
-                <button id="restartbtn" onclick="restart()">화면 재시작</button>
+                </canvas>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <p class="large text-muted">대표 : 전유리 | 주소 : 서울특별시 관악구 호암로 546 (신림동)<br>Backend : 전유리, 조윤아 Frontend :
+                    오민정<br><br>거북목 치료 서비스<br><br><br></p>
             </div>
         </div>
 
