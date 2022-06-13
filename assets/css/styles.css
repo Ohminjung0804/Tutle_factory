@@ -1,3 +1,14 @@
+/* 메인 이미지 div */
+.img-ani{
+  width: 500px;
+  height: 500px;
+  border: 1px solid lightcoral;
+  /* position:absolute; */
+  margin-left: 800px;
+  margin-top: 300px;
+  z-index: 3;
+}
+
 /* 스트레칭 확인 체크 */
 #testchk1{
   display: none;
@@ -369,10 +380,12 @@ progress[value]::-webkit-progress-value {
 #myProgress {
   width: 100%;
   background-color: #ddd;
+  border-radius: 5px;
 }
 #myBar {
   width: 0%;
   height: 30px;
+  border-radius: 5px;
   background-color: #a1d2c0;
   text-align: center;
   line-height: 30px;

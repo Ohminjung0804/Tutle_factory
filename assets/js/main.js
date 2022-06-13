@@ -197,7 +197,19 @@ jQuery(document).ready(function ($) {
 
 });
 
-
+// main animation
+function ani(){
+    var imgArray = new Array();
+        imgArray[0] = "/assets/images/ani1.png";
+        imgArray[1] = "/assets/images/ani2.png";
+ 
+        function showImage() {
+            var imgNum = Math.round(Math.random()*2);
+            var objImg = document.getElementById("img-ani");
+            objImg.src = imgArray[imgNum];
+            setTimeout("showImage()", 3000);
+        }
+}
 
 // 체크박스
 function testChk(num){
@@ -217,6 +229,7 @@ function testChk(num){
 }
 
 testChk(1);
+ani();
 
 
 
