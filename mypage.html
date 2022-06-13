@@ -141,7 +141,6 @@
     </div>
 
 	<div class="container">
-		<p class="current-label m-top-20">현재 진도율</p>
 		<div id="progressImgDiv"><img src="/assets/images/profile/3.png" alt="" id="progressImg"></div>
 		<div id="myProgress">
 			<div id="myBar"></div>
@@ -149,17 +148,26 @@
 	</div>
 
 	<!-- chart -->
-	<div class="chart-div container m-top-100">
-		<div class="container-chart">
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
-			<canvas id="pie-chart"></canvas>
-		</div>
-		<div class="container-chart chart2">
+	<!-- line chart -->
+	<h3 class=" text-center m-top-100 text-muted">스트레칭 분석 차트</h3>
+	<div class="container m-top-20">
+		<div class="">
 			<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 			<canvas id="myChart"></canvas>
 		</div>
 	</div>
+	<!-- pie chart -->
+	<div class="container m-top-100 pie-chart">
+		<div class="container-chart">
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+			<canvas id="pie-chart"></canvas>
+			<div class="chart-result"></div>
+		</div>
+	</div>
 	
+	<div class="container m-top-100">
+		<div class="recommend"></div>
+	</div>
 	
 
     <div id="modal" class="modal-overlay">

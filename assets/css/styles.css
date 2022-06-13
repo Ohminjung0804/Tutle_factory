@@ -410,12 +410,24 @@ progress[value]::-webkit-progress-value {
   padding-right: 25px;
   padding-left: 25px;
 } */
-#pie-chart{
-  width: 30px;
-  height: 30px;
+.pie-chart{
+  /* width: 30px; */
+  height:500px;
+  border: 1px solid lavender;
   
 }
-.chart2{
+.chart-result{
+  width: 500px;
+  height: 400px;
   margin-left: 590px;
-  margin-top: 80px;
+  margin-top: 250px;
+  position:absolute;
+  border: 1px solid lightblue;
+}
+
+
+/* 추천div */
+.recommend{
+  height: 200px;
+  border: 1px solid lightcoral
 }
