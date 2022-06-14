@@ -39,6 +39,12 @@ async function init() {
     const modelURL = URL + "model.json";
     const metadataURL = URL + "metadata.json";
 
+    // 시작 버튼 누르면 캔버스 나타내기
+    document.getElementById("result").style.display = "";
+
+    // 시작 버튼 누르면 시작 버튼 사라짐
+    document.getElementById("startbtn").style.visibility = "hidden";
+
     // 버튼 누르면 버튼 보임
     setTimeout(function () {
         document.getElementById("pausebtn").style.visibility = "visible";
