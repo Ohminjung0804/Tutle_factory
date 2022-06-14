@@ -151,6 +151,43 @@
 	<script src="assets/js/custom.js"></script>
 
     <script type="text/javascript">
+		
+		let create_turtle = function (email) {
+            var data1 = null
+            $(document).ready(function () {
+                $.ajax({
+                    type: "POST",
+					contentType:"application/json; charset=utf-8",
+					data: JSON.stringify({"email":email, "name":"거북이","num":1}),
+					url: 'http://107.21.77.37/turtle/new',
+					dataType:"json",
+					accept: "application/json",
+                    //전달할 때 사용되는 파라미터 변수명
+                    // 이 속성을 생략하면 callback 파라미터 변수명으로 전달된다.
+                    success: function (data, textStatus, jqXHR) {
+                        console.log('success');
+                        console.log(data);
+                        var data1 = {
+                            email: data[0].email,
+                            name: data[0].name,
+                            number: data[0].num,
+                        }
+                        // console.log(JSON.parse(data[0]));
+                        console.log(data1)
+                        $('.result').html('dfdjflks' + data1.email);
+                    },
+                    complete: function (d) {
+                        console.log('d')
+                    },
+                    error: function (xhr, textStatus, error) {
+                        console.log(xhr.responseText);
+                        console.log(textStatus);
+                        console.log(error);
+                    }
+                });
+            });
+        }
+
         Kakao.init('c550e7389ae587f38e4478dd047e9df0');
         console.log(Kakao.isInitialized());
 
@@ -162,6 +199,7 @@
                     success: function (result) {
                         $('#result').append(result);
                         id = result.id
+						email = ''
                         connected_at = result.connected_at
                         kakao_account = result.kakao_account
                         $('#result').append(kakao_account);
@@ -171,10 +209,12 @@
                             gender = kakao_account.gender;
                         }
                         localStorage.setItem("key", email);
-                        $('#result').append(resultdiv);
 
 						// 이메일 콘솔 출력
-						console.log(email);
+						console.log(kakao_account.email);
+						
+						// 거북이 생성하기
+						create_turtle(email)
                     },
                     fail: function (error) {
                         alert(
