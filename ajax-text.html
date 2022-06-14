@@ -1,0 +1,72 @@
+<body>
+
+    <div class="result"></div>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script>
+        var data1 = null
+        // $(document).ready(function () {
+        //     $.ajax({
+        //         type: 'GET',
+        //         url: 'http://107.21.77.37/turtle/',
+        //         // jsonp 값을 전달할 때 사용되는 파라미터 변수명
+        //         // 이 속성을 생략하면 callback 파라미터 변수명으로 전달된다.
+        //         success: function (data, textStatus, jqXHR) {
+        //             console.log('success');
+        //             console.log(data);
+        //             var data1 = {
+        //                 email : data[0].email,
+        //                 name : data[0].name,
+        //                 number : data[0].num,
+        //             }
+        //             // console.log(JSON.parse(data[0]));
+        //             console.log(data1)
+        //             $('.result').html('dfdjflks'+data1.email);
+        //         },
+        //         complete:function(d){
+        //             console.log('d')
+        //         },
+        //         error:function(d){
+        //             console.log('실패'+d.responseText)
+        //         }
+        //     });
+        // });
+
+        let create_turtle = function (email) {
+            var data1 = null
+            console.log(email)
+            $(document).ready(function () {
+                $.ajax({
+                    type: "POST",
+					contentType:"application/json; charset=utf-8",
+					data: JSON.stringify({"email":email, "name":"거북이","num":1}),
+					url: 'http://107.21.77.37/turtle/new',
+					dataType:"json",
+					accept: "application/json",
+                    //전달할 때 사용되는 파라미터 변수명
+                    // 이 속성을 생략하면 callback 파라미터 변수명으로 전달된다.
+                    success: function (data, textStatus, jqXHR) {
+                        console.log('success');
+                        console.log(data);
+                        var data1 = {
+                            email: data[0].email,
+                            name: data[0].name,
+                            number: data[0].num,
+                        }
+                        // console.log(JSON.parse(data[0]));
+                        console.log(data1)
+                        $('.result').html('dfdjflks' + data1.email);
+                    },
+                    complete: function (d) {
+                        console.log('d')
+                    },
+                    error: function (xhr, textStatus, error) {
+                        console.log(xhr.responseText);
+                        console.log(textStatus);
+                        console.log(error);
+                    }
+                });
+            });
+        }
+        create_turtle("w2019@e-mirim.hs.kr")
+    </script>
+</body>
