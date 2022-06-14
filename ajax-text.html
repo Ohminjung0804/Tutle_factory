@@ -31,17 +31,14 @@
         //     });
         // });
 
-        let create_turtle = function (email) {
+        let get_turtle = function (email) {
             var data1 = null
             console.log(email)
             $(document).ready(function () {
                 $.ajax({
-                    type: "POST",
-					contentType:"application/json; charset=utf-8",
-					data: JSON.stringify({"email":email, "name":"거북이","num":1}),
-					url: 'http://107.21.77.37/turtle/new',
-					dataType:"json",
-					accept: "application/json",
+                    type: "GET",
+					url: 'http://107.21.77.37/turtle/user?user_email=w2019@e-mirim.hs.kr',
+					
                     //전달할 때 사용되는 파라미터 변수명
                     // 이 속성을 생략하면 callback 파라미터 변수명으로 전달된다.
                     success: function (data, textStatus, jqXHR) {
@@ -52,6 +49,7 @@
                             name: data[0].name,
                             number: data[0].num,
                         }
+                        console.log(data1)
                         // console.log(JSON.parse(data[0]));
                         console.log(data1)
                         $('.result').html('dfdjflks' + data1.email);
@@ -67,6 +65,66 @@
                 });
             });
         }
-        create_turtle("w2019@e-mirim.hs.kr")
+
+        let edit_turtle = function (email) {
+            var data1 = null
+            console.log(email)
+            $(document).ready(function () {
+                $.ajax({
+                    type: "PUT",
+					url: 'http://107.21.77.37/turtle/user?user_email=w2015@e-mirim.hs.kr',
+					dataType:"json",
+					accept: "application/json",
+                    data: JSON.stringify({"email":email, "name":"거북이","num":2}),
+                    //전달할 때 사용되는 파라미터 변수명
+                    // 이 속성을 생략하면 callback 파라미터 변수명으로 전달된다.
+                    success: function (data, textStatus, jqXHR) {
+                        console.log('success');
+                        
+                        console.log(data)
+                        // console.log(JSON.parse(data[0]));
+                    },
+                    complete: function (d) {
+                        console.log('d')
+                    },
+                    error: function (xhr, textStatus, error) {
+                        console.log(xhr.responseText);
+                        console.log(textStatus);
+                        console.log(error);
+                    }
+                });
+            });
+        }
+
+        let delete_turtle = function (email) {
+            var data1 = null
+            console.log(email)
+            $(document).ready(function () {
+                $.ajax({
+                    type: "DELETE",
+					url: 'http://107.21.77.37/turtle/user?user_email=w2018@e-mirim.hs.kr',
+					
+                    //전달할 때 사용되는 파라미터 변수명
+                    // 이 속성을 생략하면 callback 파라미터 변수명으로 전달된다.
+                    success: function (data, textStatus, jqXHR) {
+                        console.log('success');
+                        
+                        // console.log(JSON.parse(data[0]));
+                        console.log(data1)
+                        $('.result').html('dfdjflks' + data1.email);
+                    },
+                    complete: function (d) {
+                        console.log('d')
+                    },
+                    error: function (xhr, textStatus, error) {
+                        console.log(xhr.responseText);
+                        console.log(textStatus);
+                        console.log(error);
+                    }
+                });
+            });
+        }
+        // get_turtle("w2019@e-mirim.hs.kr")
+        edit_turtle("w2015@e-mirim.hs.kr")
     </script>
 </body>
