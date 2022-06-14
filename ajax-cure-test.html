@@ -1,0 +1,284 @@
+<body>
+
+    <div class="result"></div>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script>
+        // 모든 스트레칭 조회
+        let all_cure = function () {
+            var data1 = null
+            $(document).ready(function () {
+                $.ajax({
+                    type: 'GET',
+                    url: 'http://107.21.77.37/cure/',
+                    // jsonp 값을 전달할 때 사용되는 파라미터 변수명
+                    // 이 속성을 생략하면 callback 파라미터 변수명으로 전달된다.
+                    success: function (data, textStatus, jqXHR) {
+                        console.log('success');
+                        console.log(data);
+                        var data1 = {
+                            id: data[0].id,
+                            craeted: data[0].created,
+                            start: data[0].start,
+                            end: data[0].end,
+                            stretch: data[0].stretch,
+                            status: data[0].status,
+                            user_email: data[0].user_email,
+                        }
+                        // console.log(JSON.parse(data[0]));
+                        console.log(data1)
+                    },
+                    complete: function (d) {
+                        console.log('d')
+                    },
+                    error: function (d) {
+                        console.log('실패' + d.responseText)
+                    }
+                });
+            });
+        }
+
+        // 스트레칭 생성
+        let create_cure = function () {
+            var data1 = null
+            $(document).ready(function () {
+                $.ajax({
+                    type: "POST",
+                    contentType: "application/json; charset=utf-8",
+                    data: JSON.stringify({
+                        "end": "18:50:00",
+                        "stretch": 1,
+                        "status": 2,
+                        "user_email": "email1234@gmail.com"
+                    }),
+                    url: '	http://107.21.77.37/cure/',
+                    dataType: "json",
+                    accept: "application/json",
+                    //전달할 때 사용되는 파라미터 변수명
+                    // 이 속성을 생략하면 callback 파라미터 변수명으로 전달된다.
+                    success: function (data, textStatus, jqXHR) {
+                        console.log('success');
+                        console.log(data);
+                        var data1 = {
+                            id: data[0].id,
+                            craeted: data[0].created,
+                            start: data[0].start,
+                            end: data[0].end,
+                            stretch: data[0].stretch,
+                            status: data[0].status,
+                            user_email: data[0].user_email,
+                        }
+                        // console.log(JSON.parse(data[0]));
+                        console.log(data1)
+                        // console.log(JSON.parse(data[0]));
+                        console.log(data1)
+                        $('.result').html('dfdjflks' + data1.email);
+                    },
+                    complete: function (d) {
+                        console.log('d')
+                    },
+                    error: function (xhr, textStatus, error) {
+                        console.log(xhr.responseText);
+                        console.log(textStatus);
+                        console.log(error);
+                    }
+                });
+            });
+        }
+
+
+        // 해당 유저 스트레칭 조회
+        let user_cure = function () {
+            var data1 = null
+            $(document).ready(function () {
+                $.ajax({
+                    type: "GET",
+                    url: 'http://107.21.77.37/cure/user?user_email=jeon1310@gmail.com',
+
+                    //전달할 때 사용되는 파라미터 변수명
+                    // 이 속성을 생략하면 callback 파라미터 변수명으로 전달된다.
+                    success: function (data, textStatus, jqXHR) {
+                        console.log('success');
+                        console.log(data);
+                        var data1 = {
+                            id: data[0].id,
+                            craeted: data[0].created,
+                            start: data[0].start,
+                            end: data[0].end,
+                            stretch: data[0].stretch,
+                            status: data[0].status,
+                            user_email: data[0].user_email,
+                        }
+                        // console.log(JSON.parse(data[0]));
+                        console.log(data1)
+                        // console.log(JSON.parse(data[0]));
+                        $('.result').html('dfdjflks' + data1.email);
+                    },
+                    complete: function (d) {
+                        console.log('d')
+                    },
+                    error: function (xhr, textStatus, error) {
+                        console.log(xhr.responseText);
+                        console.log(textStatus);
+                        console.log(error);
+                    }
+                });
+            });
+        }
+
+        // 해당 유저 날짜 스트레칭 조회
+        let user_day_cure = function () {
+            var data1 = null
+            $(document).ready(function () {
+                $.ajax({
+                    type: "GET",
+                    url: 'http://107.21.77.37/cure/user?user_email=jeon1310@gmail.com&date=2022-06-04',
+
+                    //전달할 때 사용되는 파라미터 변수명
+                    // 이 속성을 생략하면 callback 파라미터 변수명으로 전달된다.
+                    success: function (data, textStatus, jqXHR) {
+                        console.log('success');
+                        console.log(data);
+                        var data1 = {
+                            id: data[0].id,
+                            craeted: data[0].created,
+                            start: data[0].start,
+                            end: data[0].end,
+                            stretch: data[0].stretch,
+                            status: data[0].status,
+                            user_email: data[0].user_email,
+                        }
+                        // console.log(JSON.parse(data[0]));
+                        console.log(data1)
+                        // console.log(JSON.parse(data[0]));
+                        $('.result').html('dfdjflks' + data1.email);
+                    },
+                    complete: function (d) {
+                        console.log('d')
+                    },
+                    error: function (xhr, textStatus, error) {
+                        console.log(xhr.responseText);
+                        console.log(textStatus);
+                        console.log(error);
+                    }
+                });
+            });
+        }
+
+        // 스트레칭 로그 구체적 데이터 날짜 스트레칭 조회
+        let get_cure = function () {
+            var data1 = null
+            $(document).ready(function () {
+                $.ajax({
+                    type: "GET",
+                    url: 'http://107.21.77.37/cure/3',
+
+                    //전달할 때 사용되는 파라미터 변수명
+                    // 이 속성을 생략하면 callback 파라미터 변수명으로 전달된다.
+                    success: function (data, textStatus, jqXHR) {
+                        console.log('success');
+                        console.log(data);
+                        var data1 = {
+                            id: data[0].id,
+                            craeted: data[0].created,
+                            start: data[0].start,
+                            end: data[0].end,
+                            stretch: data[0].stretch,
+                            status: data[0].status,
+                            user_email: data[0].user_email,
+                        }
+                        // console.log(JSON.parse(data[0]));
+                        console.log(data1)
+                        // console.log(JSON.parse(data[0]));
+                        $('.result').html('dfdjflks' + data1.email);
+                    },
+                    complete: function (d) {
+                        console.log('d')
+                    },
+                    error: function (xhr, textStatus, error) {
+                        console.log(xhr.responseText);
+                        console.log(textStatus);
+                        console.log(error);
+                    }
+                });
+            });
+        }
+
+        // 스트레칭 정보 수정
+        let edit_cure = function () {
+            var data1 = null
+            $(document).ready(function () {
+                $.ajax({
+                    type: "PUT",
+                    url: 'http://107.21.77.37/cure/7',
+                    dataType: "json",
+                    accept: "application/json",
+                    data: JSON.stringify({
+                        "id": 7,
+                        "created": "2022-06-14",
+                        "start": "19:23:12.461959",
+                        "end": "18:50:00",
+                        "stretch": 8,
+                        "status": 2,
+                        "user_email": "email1234@gmail.com"
+                    }),
+                    //전달할 때 사용되는 파라미터 변수명
+                    // 이 속성을 생략하면 callback 파라미터 변수명으로 전달된다.
+                    success: function (data, textStatus, jqXHR) {
+                        console.log('success');
+
+                        console.log(data)
+                        // console.log(JSON.parse(data[0]));
+                    },
+                    complete: function (d) {
+                        console.log('d')
+                    },
+                    error: function (xhr, textStatus, error) {
+                        console.log(xhr.responseText);
+                        console.log(textStatus);
+                        console.log(error);
+                    }
+                });
+            });
+        }
+
+        // 스트레칭 삭제
+        let delete_cure = function () {
+            var data1 = null
+            $(document).ready(function () {
+                $.ajax({
+                    type: "DELETE",
+                    url: 'http://107.21.77.37/cure/7',
+
+                    //전달할 때 사용되는 파라미터 변수명
+                    // 이 속성을 생략하면 callback 파라미터 변수명으로 전달된다.
+                    success: function (data, textStatus, jqXHR) {
+                        console.log('success');
+
+                        // console.log(JSON.parse(data[0]));
+                        console.log(data1)
+                        $('.result').html('dfdjflks' + data1.email);
+                    },
+                    complete: function (d) {
+                        console.log('d')
+                    },
+                    error: function (xhr, textStatus, error) {
+                        console.log(xhr.responseText);
+                        console.log(textStatus);
+                        console.log(error);
+                    }
+                });
+            });
+        }
+
+
+        // 테스트 호출
+        // get_turtle("w2019@e-mirim.hs.kr")
+        // all_cure()
+        // create_cure() // 생성하기
+        // user_cure() // 해당 유저 로그들
+        // user_day_cure() // 해당 유저 날짜 로그들
+        // get_cure() // 해당 아이디 데이터
+        // edit_cure() // 해당 로그 수정
+        // delete_cure() // 해당 로그 삭제
+    </script>
+</body>

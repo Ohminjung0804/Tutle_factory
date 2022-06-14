@@ -3,34 +3,38 @@
     <div class="result"></div>
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script>
-        var data1 = null
-        // $(document).ready(function () {
-        //     $.ajax({
-        //         type: 'GET',
-        //         url: 'http://107.21.77.37/turtle/',
-        //         // jsonp 값을 전달할 때 사용되는 파라미터 변수명
-        //         // 이 속성을 생략하면 callback 파라미터 변수명으로 전달된다.
-        //         success: function (data, textStatus, jqXHR) {
-        //             console.log('success');
-        //             console.log(data);
-        //             var data1 = {
-        //                 email : data[0].email,
-        //                 name : data[0].name,
-        //                 number : data[0].num,
-        //             }
-        //             // console.log(JSON.parse(data[0]));
-        //             console.log(data1)
-        //             $('.result').html('dfdjflks'+data1.email);
-        //         },
-        //         complete:function(d){
-        //             console.log('d')
-        //         },
-        //         error:function(d){
-        //             console.log('실패'+d.responseText)
-        //         }
-        //     });
-        // });
+        // 모든 거북이 조회
+        let all_turtle = function(){
+            var data1 = null
+            $(document).ready(function () {
+                $.ajax({
+                    type: 'GET',
+                    url: 'http://107.21.77.37/turtle/',
+                    // jsonp 값을 전달할 때 사용되는 파라미터 변수명
+                    // 이 속성을 생략하면 callback 파라미터 변수명으로 전달된다.
+                    success: function (data, textStatus, jqXHR) {
+                        console.log('success');
+                        console.log(data);
+                        var data1 = {
+                            email : data[0].email,
+                            name : data[0].name,
+                            number : data[0].num,
+                        }
+                        // console.log(JSON.parse(data[0]));
+                        console.log(data1)
+                        $('.result').html('dfdjflks'+data1.email);
+                    },
+                    complete:function(d){
+                        console.log('d')
+                    },
+                    error:function(d){
+                        console.log('실패'+d.responseText)
+                    }
+                });
+            });
+        }
 
+        // 해당 유저 거북이 조회
         let get_turtle = function (email) {
             var data1 = null
             console.log(email)
@@ -66,6 +70,7 @@
             });
         }
 
+        // 거북이 정보 수정
         let edit_turtle = function (email) {
             var data1 = null
             console.log(email)
@@ -96,6 +101,7 @@
             });
         }
 
+        // 거북이 삭제
         let delete_turtle = function (email) {
             var data1 = null
             console.log(email)
