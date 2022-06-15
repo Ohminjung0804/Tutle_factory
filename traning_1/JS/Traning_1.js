@@ -3,18 +3,13 @@
 
 // the link to your model provided by Teachable Machine export panel
 const URL = "./my_model/";
+import { create_cure } from "../../JS/tranings.js";
 let model, webcam, ctx, labelContainer, maxPredictions;
 
 // 스트레칭 번호
 const stretchingNum = 1;
-// 생성일(시작 날짜)
-var startToday = new Date();
-// 스트레칭 시작 시간
-var stratTime = 0;
 // 스트레칭 개수
 var cnt = 0;
-// 스트레칭 완료 시간
-var endTime = 0;
 
 function pause() {
     webcam.pause();
@@ -50,16 +45,6 @@ async function init() {
         document.getElementById("pausebtn").style.visibility = "visible";
         document.getElementById("restartbtn").style.visibility = "visible";
     }, 1500);
-
-    // 시작 시간
-    var startHours = ('0' + startToday.getHours()).slice(-2);
-    var startMinutes = ('0' + startToday.getMinutes()).slice(-2);
-    var startSeconds = ('0' + startToday.getSeconds()).slice(-2);
-
-    var startTimeString = startHours + ':' + startMinutes + ':' + startSeconds;
-
-    // 전역 변수에 넣기
-    stratTime = startTimeString;
 
     // load the model and metadata
     // Refer to tmImage.loadFromFiles() in the API to support files from a file picker
@@ -152,18 +137,8 @@ async function predict() {
     }
 
     if (cnt == 10) {
-
-        var endToday = new Date()
-
-        // 완료 시간
-        var endHours = ('0' + endToday.getHours()).slice(-2);
-        var endMinutes = ('0' + endToday.getMinutes()).slice(-2);
-        var endSeconds = ('0' + endToday.getSeconds()).slice(-2);
-
-        const endTimeString = endHours + ':' + endMinutes + ':' + endSeconds;
-
-        // 전역 변수에 담기
-        endTime = endTimeString;
+        // 스트레칭 생성
+        create_cure(stretchingNum,cnt);
 
         // console.log(stretchingNum);
         // console.log(startToday);
