@@ -18,8 +18,6 @@
                         var data1 = {
                             id: data[0].id,
                             craeted: data[0].created,
-                            start: data[0].start,
-                            end: data[0].end,
                             stretch: data[0].stretch,
                             status: data[0].status,
                             user_email: data[0].user_email,
@@ -61,8 +59,6 @@
                         var data1 = {
                             id: data[0].id,
                             craeted: data[0].created,
-                            start: data[0].start,
-                            end: data[0].end,
                             stretch: data[0].stretch,
                             status: data[0].status,
                             user_email: data[0].user_email,
@@ -102,8 +98,6 @@
                         var data1 = {
                             id: data[0].id,
                             craeted: data[0].created,
-                            start: data[0].start,
-                            end: data[0].end,
                             stretch: data[0].stretch,
                             status: data[0].status,
                             user_email: data[0].user_email,
@@ -131,7 +125,7 @@
             $(document).ready(function () {
                 $.ajax({
                     type: "GET",
-                    url: 'http://107.21.77.37/cure/user?user_email=jeon1310@gmail.com&date=2022-06-04',
+                    url: 'http://107.21.77.37/cure/date?user_email=jeon1310@gmail.com&date=2022-06-04',
 
                     //전달할 때 사용되는 파라미터 변수명
                     // 이 속성을 생략하면 callback 파라미터 변수명으로 전달된다.
@@ -141,14 +135,41 @@
                         var data1 = {
                             id: data[0].id,
                             craeted: data[0].created,
-                            start: data[0].start,
-                            end: data[0].end,
                             stretch: data[0].stretch,
                             status: data[0].status,
                             user_email: data[0].user_email,
                         }
                         // console.log(JSON.parse(data[0]));
                         console.log(data1)
+                        // console.log(JSON.parse(data[0]));
+                        $('.result').html('dfdjflks' + data1.email);
+                    },
+                    complete: function (d) {
+                        console.log('d')
+                    },
+                    error: function (xhr, textStatus, error) {
+                        console.log(xhr.responseText);
+                        console.log(textStatus);
+                        console.log(error);
+                    }
+                });
+            });
+        }
+
+        // 날짜 가져오기
+        let all_date = function () {
+            var data1 = null
+            $(document).ready(function () {
+                $.ajax({
+                    type: "GET",
+                    url: 'http://107.21.77.37/cure/distinct?user_email=jeon1310@gmail.com',
+
+                    //전달할 때 사용되는 파라미터 변수명
+                    // 이 속성을 생략하면 callback 파라미터 변수명으로 전달된다.
+                    success: function (data, textStatus, jqXHR) {
+                        console.log('success');
+                        console.log(data);
+                        
                         // console.log(JSON.parse(data[0]));
                         $('.result').html('dfdjflks' + data1.email);
                     },
@@ -180,8 +201,6 @@
                         var data1 = {
                             id: data[0].id,
                             craeted: data[0].created,
-                            start: data[0].start,
-                            end: data[0].end,
                             stretch: data[0].stretch,
                             status: data[0].status,
                             user_email: data[0].user_email,
@@ -214,9 +233,6 @@
                     accept: "application/json",
                     data: JSON.stringify({
                         "id": 7,
-                        "created": "2022-06-14",
-                        "start": "19:23:12.461959",
-                        "end": "18:50:00",
                         "stretch": 8,
                         "status": 2,
                         "user_email": "email1234@gmail.com"
@@ -270,9 +286,7 @@
             });
         }
 
-
         // 테스트 호출
-        // get_turtle("w2019@e-mirim.hs.kr")
         // all_cure()
         // create_cure() // 생성하기
         // user_cure() // 해당 유저 로그들
@@ -280,5 +294,6 @@
         // get_cure() // 해당 아이디 데이터
         // edit_cure() // 해당 로그 수정
         // delete_cure() // 해당 로그 삭제
+        // all_date()
     </script>
 </body>
