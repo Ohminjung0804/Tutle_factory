@@ -3,8 +3,11 @@
 
 // the link to your model provided by Teachable Machine export panel
 const URL = "./my_model/";
+import { edit_ease_turtle } from "../JS/turtles.js";
 let model, webcam, ctx, labelContainer, maxPredictions;
 
+// user_email = localStorage.getItem('key');
+// edit_ease_turtle(email, result); // 이메일과 결과 넘겨주기 -> result는 int형
 async function init() {
 
     const modelURL = URL + "model.json";

@@ -44,4 +44,5 @@ let create_cure = function (stretchingNum, cnt) {
     });
 }
 
+
 export {create_cure};
