@@ -202,30 +202,6 @@
 }
 
 
-/*  animation */
-@keyframes progressbar { 
-  0% { width: 0%; } 
-  100% { width: 100%; } 
-}
-progress::-webkit-progress-bar{
-  
-}
-progress[value]::-webkit-progress-bar {
-  background-color: rgba(238, 238, 238, 0.958);
-  border-radius: 10px;
-  /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset; */
-}
-/* 그라데이션 */
-progress[value]::-webkit-progress-value {
-  background-image:
-	   
-	   -webkit-linear-gradient(left, rgb(213, 255, 174), #075427);
-
-    border-radius: 10px; 
-    background-size: 35px 20px, 100% 100%, 100% 100%;
-}
-
-
 
 
 /* 마이페이지 수정하기 팝업창 */
@@ -399,12 +375,9 @@ progress[value]::-webkit-progress-value {
   text-align: right;
   float: right;
   transform: scaleX(-1);
-  height: 70px;
-  width:70px;
+  height: 80px;
+  width:80px;
   bottom: 30px;
-  /* position:absolute; */
-  /* margin-bottom: 10px; */
-  /* border: 1px solid darkmagenta; */
 
 }
 #progressImgDiv{
@@ -412,6 +385,7 @@ progress[value]::-webkit-progress-value {
     height: 20px;
     /* border: 1px solid darkmagenta; */
     position:relative;
+    margin-left: 15px;
     
 }
 
@@ -424,9 +398,8 @@ progress[value]::-webkit-progress-value {
   padding-left: 25px;
 } */
 .pie-chart{
-  /* width: 30px; */
   height:500px;
-  border: 1px solid lavender;
+  /* border: 1px solid lavender; */
   
 }
 .chart-result{

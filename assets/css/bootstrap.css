@@ -613,8 +613,8 @@ pre code {
   padding-left: 15px; */
   position: absolute;
   display: inline-block;
-  width: 30%;
-  height: 30%;
+  width: 20%;
+  height: 20%;
   /* border: 1px solid darkcyan; */
 }
 @media (min-width: 576px) {
