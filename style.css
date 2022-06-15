@@ -123,27 +123,27 @@ li {
 
 #restartbtn, #pausebtn{
     position: absolute;
-    top: 480px;
+    top: 460px;
     visibility: hidden;
     background-color: #C9D67A;
-    border-radius: 15px;
+    border-radius:50%;
     border-style: none;
-    width: 250px;
-    height: 60px;
+    width: 120px;
+    height: 120px;
     font-size: 20px;
     font-weight: bolder;
     cursor: pointer;
 }
 
 #restartbtn{
-    right: 340px;
+    right: 350px;
 }
 
 #pausebtn{
-    right: 70px;
+    right: 180px;
 }
 
-#restartbtn:hover #pausebtn:hover {
+#restartbtn:hover, #pausebtn:hover {
     background-color: white;
     border: 2px solid #C9D67A;
 }
