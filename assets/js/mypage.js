@@ -1,3 +1,6 @@
+// 공통함수 가져오기
+import { get_turtle, edit_turtle } from "../../JS/turtles.js";
+
 function countDownTimer (id,eDate){
     let _end = new Date(eDate);
     let _second = 1000;
@@ -51,24 +54,25 @@ function dateCalcul(){
     let emonth = edate.getMonth();
     let eday = edate.getDate();
     document.getElementById('end-day').textContent = eyear+'년 '+emonth+'월 '+eday + '일';
-
 }
 
 function save_info(){
-    name_info()
+    let name = name_info()
     const char = $('input[name="chk_char"]:checked').val();
     console.log(char);
     char_img(char);
+    
+    // 수정함수 호출
+    user_email = localStorage.getItem('key')
+    edit_turtle(user_email, name,char);
 }
 function name_info(){
     let name = document.getElementById('name-info').value;
     console.log(name);
     if(name != ''){
         document.getElementById('show-name').innerHTML=name;
-    }else{
-        return
     }
-    
+    return name
 }
 
 // 번호구분하여 프로필 이미지 변환
