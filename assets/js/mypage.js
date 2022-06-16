@@ -1,8 +1,11 @@
 // 공통함수 가져오기
-import { get_turtle, edit_turtle } from "../../JS/turtles.js";
+// import { get_turtle, edit_turtle } from "../../JS/turtles.js";
 
-function countDownTimer (id,eDate){
-    let _end = new Date(eDate);
+function countDownTimer (_sdate){
+    let id = 'todo-date';
+    let sdate = new Date(_sdate);
+    let edate = new Date(sdate.setDate(sdate.getDate()+100));
+    // console.log(_end);
     let _second = 1000;
     let _minute = _second * 60;
     let _hour = _minute * 60;
@@ -12,11 +15,11 @@ function countDownTimer (id,eDate){
     
     setInterval(function showTimer(){
         let now = new Date();
-        let disDt = _end - now;
+        let disDt = edate - now;
 
          if(disDt < 0){
             clearInterval(timer);
-            console.log("타이머0");
+            // console.log("타이머0");
             document.getElementById(id).textContent = '0일 0시간 0분';
             return;
         }
@@ -30,29 +33,29 @@ function countDownTimer (id,eDate){
         
 
     },1000);
-//    setInterval(showTimer, 10000);
-//    console.log("재실행")
+
     
 }
 // 날짜계산 함수
-function dateCalcul(){
+function dateCalcul(_sdate){
     // let date = new Date();
-    let sdate = new Date(2022,04,08);
+    let sdate = new Date(_sdate);
 
     let syear = sdate.getFullYear();
-    let smonth = sdate.getMonth();
+    let smonth = sdate.getMonth()+1;
     let sday = sdate.getDate();
-    console.log(sdate, syear, smonth, sday);
+    console.log(sdate,syear,smonth,sday);
     
     
     document.getElementById('start-day').textContent = syear+'년 '+smonth+'월 '+sday + '일 ';
     let today = new Date();
-    console.log(today);
-    let edate = new Date(sdate.setDate(sdate.getDate()+100));
-    console.log(edate);
+    // console.log(today);
+    let edate = new Date(sdate.setDate(sdate.getDate()+99));
+    
     let eyear = edate.getFullYear();
-    let emonth = edate.getMonth();
+    let emonth = edate.getMonth()+1;
     let eday = edate.getDate();
+    console.log(edate,emonth,eday);
     document.getElementById('end-day').textContent = eyear+'년 '+emonth+'월 '+eday + '일';
 }
 
@@ -89,7 +92,13 @@ function char_img(num){
 }
 
 // progress 진행도 표시
-function progressMove(num) {
+function progressMove(_sdate) {
+    let sdate = new Date(_sdate);
+    let now = new Date();
+    let percent = now - sdate;
+    const d_day = Math.floor(percent / (1000*60*60*24));
+    console.log(d_day);
+
     i = 0;
     if (i == 0) {
       i = 1;
@@ -99,7 +108,7 @@ function progressMove(num) {
       var width = 0;
       var id = setInterval(frame, 50);
       function frame() {
-        if (width >= num) {
+        if (width >= d_day) {
           clearInterval(id);
           i = 0;
         } else {
@@ -112,9 +121,9 @@ function progressMove(num) {
       }
     }
   }
-countDownTimer('todo-date','04/01/2024');
-dateCalcul();
-progressMove(70);
+countDownTimer('2022-06-16');
+dateCalcul('2022-06-16');
+progressMove('2022-04-15');
 
 
 
