@@ -62,14 +62,22 @@ async function predict() {
 
     // 카메라 켜지고 5초 후 글자 생성
     setTimeout(function () {
+        let result = "조금 더 떨어져서 우측을 바라보고 올바르게 서주세요.";
         // 거북목 여부 문구
         if (prediction[0].className == "거북목" && prediction[0].probability.toFixed(0) == 1) {
-            labelContainer.childNodes[0].innerHTML = "당신은 거북목입니다."
+            // labelContainer.childNodes[0].innerHTML = "당신은 거북목입니다."
+            result = "당신은 거북목입니다.";
         } else if (prediction[1].className == "정상목" && prediction[1].probability.toFixed(0) == 1) {
-            labelContainer.childNodes[0].innerHTML = "당신은 정상입니다."
+            // labelContainer.childNodes[0].innerHTML = "당신은 정상입니다."
+            result = "당신은 정상입니다.";
         } else {
-            labelContainer.childNodes[0].innerHTML = "조금 더 떨어져서 우측을 바라보고 올바르게 서주세요."
+            // labelContainer.childNodes[0].innerHTML = "조금 더 떨어져서 우측을 바라보고 올바르게 서주세요."
+            result = "조금 더 떨어져서 우측을 바라보고 올바르게 서주세요.";
         }
+
+        labelContainer.childNodes[0].innerHTML = result;
+        return;
+
     }, 3000);
 
     // finally draw the poses

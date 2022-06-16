@@ -92,47 +92,34 @@ async function predict() {
     if (prediction[0].probability.toFixed(2) == 1) {
 
         if (posture == "left") {
-            if (cnt <= 10) {
-                var audio = new Audio('../count/bent.mp3');
+            var audio = new Audio('../count/bent.mp3');
                 audio.play();
-            }
         }
         posture = "right"
 
     } else if (prediction[1].probability.toFixed(2) == 1) {
         if (posture == "right") {
-            if (cnt <= 10) {
-                var audio = new Audio('../count/bent.mp3');
+            var audio = new Audio('../count/bent.mp3');
                 audio.play();
-            }
         }
         posture = "left"
 
-    } else if (prediction[2].probability.toFixed(2) == 1) {
+    } else if (prediction[2].probability.toFixed(2) >= 0.90) {
         if (posture == "left") {
             cnt++
-            if (cnt <= 10) {
-                var audio = new Audio('../count/' + cnt + '.mp3');
+            var audio = new Audio('../count/' + cnt%10 + '.mp3');
                 audio.play();
-            }
         } else if (posture == "right") {
             cnt++
-            if (cnt <= 10) {
-                var audio = new Audio('../count/' + cnt + '.mp3');
+            var audio = new Audio('../count/' + cnt%10 + '.mp3');
                 audio.play();
-            }
-        }
-        if (cnt == 10) {
-            var audio = new Audio('../count/end.mp3');
-            audio.play();
-            return;
         }
         posture = "face"
     }
 
     labelContainer.innerHTML = cnt + "개";
 
-    if (cnt >= 10) {
+    if (cnt == 10) {
         labelContainer.innerHTML = "수고하셨습니다.";
     }
 
