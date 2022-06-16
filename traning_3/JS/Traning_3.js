@@ -3,7 +3,7 @@
 
 // the link to your model provided by Teachable Machine export panel
 const URL = "./my_model/";
-import { create_cure } from "../../JS/tranings.js";
+// import { create_cure } from "../../JS/tranings.js";
 let model, webcam, ctx, labelContainer, maxPredictions;
 
 // 스트레칭 번호
@@ -96,33 +96,25 @@ async function predict() {
     } else if (prediction[1].probability.toFixed(2) == 1) {
         if (posture == "up") {
             cnt++;
-            if (cnt <= 10) {
-                var audio = new Audio('../count/' + cnt + '.mp3');
-                audio.play();
-            }
-            if (cnt == 10) {
-                var audio = new Audio('../count/end.mp3');
-                audio.play();
-                return;
-            }
+            var audio = new Audio('../count/' + cnt % 10 + '.mp3');
+            audio.play();
         }
         posture = "down"
     }
 
     labelContainer.innerHTML = cnt + "개";
 
-    if (cnt >= 10) {
-        labelContainer.innerHTML = "수고하셨습니다.";
-    }
+    // 창 닫을 때 alert창
+    window.addEventListener("beforeunload", function (event) {
+
+        event.returnValue = "나가겠습니까?";
+        // 전유리 함수 호출
+
+    });
 
     if (cnt == 10) {
-        create_cure(stretchingNum,cnt);
-
-        // console.log(stretchingNum);
-        // console.log(startToday);
-        // console.log(stratTime);
-        // console.log(endTime);
-        // console.log(cnt);
+        // 전유리 이거 넣으면 에러 남
+        // create_cure(stretchingNum,cnt);
     }
 
     // 무슨 동작을 하는지 적힘

@@ -62,7 +62,7 @@ async function predict() {
 
     setTimeout(function () {
         if(result == 1.00){
-            labelContainer.innerHTML = `${result}%`;
+
             Object.freeze(labelContainer);
             return;
         } else{
