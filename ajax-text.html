@@ -4,7 +4,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script>
         // 모든 거북이 조회
-        let all_turtle = function(){
+        let all_turtle = function () {
             var data1 = null
             $(document).ready(function () {
                 $.ajax({
@@ -16,22 +16,22 @@
                         console.log('success');
                         console.log(data);
                         var data1 = {
-                            email : data[0].email,
-                            name : data[0].name,
-                            number : data[0].num,
+                            email: data[0].email,
+                            name: data[0].name,
+                            number: data[0].num,
                             ease: data[0].ease,
                             best: data[0].best,
                             created: data[0].created,
                         }
                         // console.log(JSON.parse(data[0]));
                         console.log(data1)
-                        $('.result').html('dfdjflks'+data1.email);
+                        $('.result').html('dfdjflks' + data1.email);
                     },
-                    complete:function(d){
+                    complete: function (d) {
                         console.log('d')
                     },
-                    error:function(d){
-                        console.log('실패'+d.responseText)
+                    error: function (d) {
+                        console.log('실패' + d.responseText)
                     }
                 });
             });
@@ -44,8 +44,8 @@
             $(document).ready(function () {
                 $.ajax({
                     type: "GET",
-					url: 'http://107.21.77.37/turtle/user?user_email=w2019@e-mirim.hs.kr',
-					
+                    url: 'http://107.21.77.37/turtle/user?user_email=w2019@e-mirim.hs.kr',
+
                     //전달할 때 사용되는 파라미터 변수명
                     // 이 속성을 생략하면 callback 파라미터 변수명으로 전달된다.
                     success: function (data, textStatus, jqXHR) {
@@ -82,8 +82,8 @@
             $(document).ready(function () {
                 $.ajax({
                     type: "GET",
-					url: 'http://107.21.77.37/turtle/date?user_email=w2019@e-mirim.hs.kr',
-					
+                    url: 'http://107.21.77.37/turtle/date?user_email=w2019@e-mirim.hs.kr',
+
                     //전달할 때 사용되는 파라미터 변수명
                     // 이 속성을 생략하면 callback 파라미터 변수명으로 전달된다.
                     success: function (data, textStatus, jqXHR) {
@@ -121,21 +121,21 @@
             $(document).ready(function () {
                 $.ajax({
                     type: "PUT",
-					url: 'http://107.21.77.37/turtle/user?user_email=w2015@e-mirim.hs.kr',
-					dataType:"json",
-					accept: "application/json",
+                    url: 'http://107.21.77.37/turtle/user?user_email=w2015@e-mirim.hs.kr',
+                    dataType: "json",
+                    accept: "application/json",
                     data: JSON.stringify({
-                        "email":email, 
-                        "name":"거북이",
-                        "num":2,
+                        "email": email,
+                        "name": "거북이",
+                        "num": 2,
                         "best": 25,
-		                "ease": 30
+                        "ease": 30
                     }),
                     //전달할 때 사용되는 파라미터 변수명
                     // 이 속성을 생략하면 callback 파라미터 변수명으로 전달된다.
                     success: function (data, textStatus, jqXHR) {
                         console.log('success');
-                        
+
                         console.log(data)
                         // console.log(JSON.parse(data[0]));
                     },
@@ -157,13 +157,13 @@
             $(document).ready(function () {
                 $.ajax({
                     type: "DELETE",
-					url: 'http://107.21.77.37/turtle/user?user_email=w2018@e-mirim.hs.kr',
-					
+                    url: 'http://107.21.77.37/turtle/user?user_email=w2018@e-mirim.hs.kr',
+
                     //전달할 때 사용되는 파라미터 변수명
                     // 이 속성을 생략하면 callback 파라미터 변수명으로 전달된다.
                     success: function (data, textStatus, jqXHR) {
                         console.log('success');
-                        
+
                         // console.log(JSON.parse(data[0]));
                         console.log(data1)
                         $('.result').html('dfdjflks' + data1.email);
@@ -179,8 +179,11 @@
                 });
             });
         }
+
         // get_turtle("w2019@e-mirim.hs.kr")
         // edit_turtle("w2015@e-mirim.hs.kr")
+        // get_turtle1("w2015@e-mirim.hs.kr", "끄북이", 3);
+        // edit_turtle1("w2015@e-mirim.hs.kr", "끄북이", 3);
         // get_start_turtle()
         // delete_turtle()
     </script>

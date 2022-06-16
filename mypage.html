@@ -10,7 +10,7 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>거북이 공장</title>
+	<title>거북이치료센터</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="icon" href="E:\Tutle_factory/favicon.ico" type="image/x-icon">
@@ -23,10 +23,7 @@
 	<link rel="stylesheet" href="assets/css/fonticons.css">
 	<link rel="stylesheet" href="assets/css/font-awesome.min.css">
 	<link rel="stylesheet" href="assets/css/bootstrap.css">
-	<link rel="stylesheet" href="assets/css/bootsnav.css">
-
-	<script src="assets/js/mypage.js"></script>
-	
+	<link rel="stylesheet" href="assets/css/bootsnav.css">	
 
 	<!--For Plugins external css-->
 	<!--<link rel="stylesheet" href="assets/css/plugins.css" />-->
@@ -73,7 +70,7 @@
 				<!-- Start Atribute Navigation -->
 				<div class="attr-nav">
 					<ul>
-						<li><a href="login.html">Login</a></li>
+						<li><a href="login.html" class="login">Login</a></li>
 						<li><a href="#"><img src="assets/images/user.png" alt="mypage"></a></li>
 					</ul>
 				</div>
@@ -132,7 +129,7 @@
                 <div class="dash text-dark"></div>
                 <p class="start-date text-dark" id="end-day"></p><br>
 
-                <div class="btn w-2 m-top-20" id="btn-modal-open" onclick="showModal">수정하기</biv>
+                <div class="btn w-2 m-top-20" id="btn-modal-open" onclick="modify_data()">수정하기</biv>
 				
             </div><div class="btn m-top-20" onclick="Logout()">로그아웃</div>
         </div>
@@ -213,7 +210,6 @@
 			<input type="text" id="name-info" placeholder="수정할 이름을 입력하세요." class="nickname_input">
 			
 			<div class="radio-div">
-				
 				<input type="radio" name="chk_char" value=1 id="radio1"><label class="char char1 rounded-circle m-top-60" for="radio1"></label></input>
 				<input type="radio" name="chk_char" value=2 id="radio2"><label class="char char2 rounded-circle m-top-60" for="radio2"></label></input>
 				<input type="radio" name="chk_char" value=3 id="radio3"><label class="char char3 rounded-circle m-top-60" for="radio3"></label></input>
@@ -250,7 +246,7 @@
 	<script src="assets/js/main.js"></script>
 	<script src="assets/js/mypage.js"></script>
 	<script src="assets/js/popup.js"></script>
-	<script src="assets/js/chart.js"></script>
+	<script src="JS/dom.js"></script>
 	
 
 	

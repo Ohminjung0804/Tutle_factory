@@ -25,7 +25,7 @@
 	<link rel="stylesheet" href="assets/css/font-awesome.min.css">
 	<link rel="stylesheet" href="assets/css/bootstrap.css">
 	<link rel="stylesheet" href="assets/css/bootsnav.css">
-	
+
 
 
 	<!--For Plugins external css-->
@@ -38,7 +38,7 @@
 
 	<!--Theme Responsive css-->
 	<link rel="stylesheet" href="assets/css/responsive.css" />
-	
+
 	<script src="assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
 
 	<!--Google login-->
@@ -46,7 +46,7 @@
 	<script src="https://apis.google.com/js/api:client.js"></script>
 
 	<script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 
 <body data-spy="scroll" data-target=".navbar-collapse">
@@ -76,7 +76,7 @@
 				<!-- Start Atribute Navigation -->
 				<div class="attr-nav">
 					<ul>
-						<li><a href="#">Login</a></li>
+						<li><a href="#" class="login">Login</a></li>
 						<li><a href="mypage.html"><img src="assets/images/user.png" alt="mypage"></a></li>
 					</ul>
 				</div>
@@ -85,17 +85,17 @@
 				<!-- Start Header Navigation -->
 				<div class="navbar-header">
 					<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-menu">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </button>
+						<span></span>
+						<span></span>
+						<span></span>
+					</button>
 
 					<a class="navbar-brand" href="index.html">
 
-                            <img src="assets/images/logo.png" class="logo logo-display m-top-10" alt="">
-                            <img src="assets/images/logo.png" class="logo logo-scrolled m-top-10" alt="">
+						<img src="assets/images/logo.png" class="logo logo-display m-top-10" alt="">
+						<img src="assets/images/logo.png" class="logo logo-scrolled m-top-10" alt="">
 
-                        </a>
+					</a>
 				</div>
 				<!-- End Header Navigation -->
 
@@ -130,9 +130,9 @@
 			</div>
 		</section>
 		<!--End login box-->
-    </div>
+	</div>
 
-    <script src="assets/js/vendor/jquery-1.11.2.min.js"></script>
+	<script src="assets/js/vendor/jquery-1.11.2.min.js"></script>
 	<script src="assets/js/vendor/popper.min.js"></script>
 	<script src="assets/js/vendor/bootstrap.min.js"></script>
 
@@ -148,88 +148,107 @@
 
 	<script src="assets/js/plugins.js"></script>
 	<script src="assets/js/main.js"></script>
+	<script src="JS/dom.js"></script>
 	<script src="assets/js/custom.js"></script>
 
-    <script type="text/javascript">
-		
+	<script type="text/javascript">
+		function setCookie(key, value, expiredays) {
+			var todayDate = new Date();
+			todayDate.setDate(todayDate.getDate() + expiredays);
+			document.cookie = key + "=" + escape(value) + "; path=/; expires=" + todayDate.toGMTString() + ";"
+		}
+
 		let create_turtle = function (email) {
-            var data1 = null
-            $(document).ready(function () {
-                $.ajax({
-                    type: "POST",
-					contentType:"application/json; charset=utf-8",
-					data: JSON.stringify({"email":email, "name":"거북이","num":1}),
+			console.log(localStorage.getItem("key", ''));
+			var data1 = null
+			$(document).ready(function () {
+				$.ajax({
+					type: "POST",
+					contentType: "application/json; charset=utf-8",
+					data: JSON.stringify({
+						"email": email,
+						"name": "거북이",
+						"num": 1
+					}),
 					url: 'http://107.21.77.37/turtle/new',
-					dataType:"json",
+					dataType: "json",
 					accept: "application/json",
-                    //전달할 때 사용되는 파라미터 변수명
-                    // 이 속성을 생략하면 callback 파라미터 변수명으로 전달된다.
-                    success: function (data, textStatus, jqXHR) {
-                        console.log('success');
-                        console.log(data);
-                        var data1 = {
-                            email: data[0].email,
-                            name: data[0].name,
-                            number: data[0].num,
-                            ease: data[0].ease,
-                            best: data[0].best,
-                            created: data[0].created,
-                        }
-                        console.log(data1)
-                        $('.result').html('dfdjflks' + data1.email);
-                    },
-                    complete: function (d) {
-                        console.log('d')
-                    },
-                    error: function (xhr, textStatus, error) {
-                        console.log(xhr.responseText);
-                        console.log(textStatus);
-                        console.log(error);
-                    }
-                });
-            });
-        }
+					//전달할 때 사용되는 파라미터 변수명
+					// 이 속성을 생략하면 callback 파라미터 변수명으로 전달된다.
+					success: function (data, textStatus, jqXHR) {
+						console.log('success');
+						console.log(data);
+						var data1 = {
+							email: data.email,
+							name: data.name,
+							number: data.num,
+							ease: data.ease,
+							best: data.best,
+							created: data.created,
+						}
+						console.log(data1)
+						setCookie("email",data.email,100);
+						setCookie("name",data.name,100);
+						setCookie("num",data.num,100);
+						setCookie("ease",data.ease,100);
+						setCookie("best",data.best,100);
+						setCookie("created",data.created,100);
+						console.log(document.cookie);
+						$('.result').html('dfdjflks' + data1.email);
+					},
+					complete: function (d) {
+						console.log('d')
+					},
+					error: function (xhr, textStatus, error) {
+						console.log(xhr.responseText);
+						console.log(textStatus);
+						console.log(error);
+					}
+				});
+			});
+		}
 
-        Kakao.init('c550e7389ae587f38e4478dd047e9df0');
-        console.log(Kakao.isInitialized());
+		Kakao.init('c550e7389ae587f38e4478dd047e9df0');
+		console.log(Kakao.isInitialized());
 
-        Kakao.Auth.createLoginButton({
-            container: '#kakao-login-btn',
-            success: function (authObj) {
-                Kakao.API.request({
-                    url: '/v2/user/me',
-                    success: function (result) {
-                        $('#result').append(result);
-                        id = result.id
+		Kakao.Auth.createLoginButton({
+			container: '#kakao-login-btn',
+			success: function (authObj) {
+				Kakao.API.request({
+					url: '/v2/user/me',
+					success: function (result) {
+						$('#result').append(result);
+						id = result.id
 						email = ''
-                        connected_at = result.connected_at
-                        kakao_account = result.kakao_account
-                        $('#result').append(kakao_account);
-                        if (typeof kakao_account != 'undefined') {
+						connected_at = result.connected_at
+						kakao_account = result.kakao_account
+						$('#result').append(kakao_account);
+						if (typeof kakao_account != 'undefined') {
 							// 이메일 받아온 변수
-                            email = kakao_account.email;
-                            gender = kakao_account.gender;
-                        }
-                        localStorage.setItem("key", email);
+							email = kakao_account.email;
+							gender = kakao_account.gender;
+						}
+						localStorage.setItem("key", email);
 
 						// 이메일 콘솔 출력
 						console.log(kakao_account.email);
-						
+
 						// 거북이 생성하기
 						create_turtle(email)
-                    },
-                    fail: function (error) {
-                        alert(
-                            'login success, but failed to request user information: ' +
-                            JSON.stringify(error)
-                        )
-                    },
-                })
-            },
-            fail: function (err) {
-                alert('failed to login: ' + JSON.stringify(err))
-            },
-        });
-    </script>
-    </body>
+					},
+					fail: function (error) {
+						alert(
+							'login success, but failed to request user information: ' +
+							JSON.stringify(error)
+						)
+					},
+				})
+			},
+			fail: function (err) {
+				alert('failed to login: ' + JSON.stringify(err))
+			},
+		});
+	</script>
+</body>
+
 </html>

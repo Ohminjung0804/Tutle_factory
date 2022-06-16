@@ -62,43 +62,7 @@ async function predict() {
 
     setTimeout(function () {
         if(result == 1.00){
-            labelContainer.innerHTML = "100%";
-            Object.freeze(labelContainer);
-            return;
-        } else if(result >= 9.00){
-            labelContainer.innerHTML = "90%";
-            Object.freeze(labelContainer);
-            return;
-        } else if(result >= 8.00){
-            labelContainer.innerHTML = "80%";
-            Object.freeze(labelContainer);
-            return;
-        } else if(result >= 7.00){
-            labelContainer.innerHTML = "70%";
-            Object.freeze(labelContainer);
-            return;
-        } else if(result >= 6.00){
-            labelContainer.innerHTML = "60%";
-            Object.freeze(labelContainer);
-            return;
-        } else if(result >= 5.00){
-            labelContainer.innerHTML = "50%";
-            Object.freeze(labelContainer);
-            return;
-        } else if(result >= 4.00){
-            labelContainer.innerHTML = "40%";
-            Object.freeze(labelContainer);
-            return;
-        } else if(result >= 3.00){
-            labelContainer.innerHTML = "30%";
-            Object.freeze(labelContainer);
-            return;
-        } else if(result >= 2.00){
-            labelContainer.innerHTML = "20%";
-            Object.freeze(labelContainer);
-            return;
-        } else if(result >= 1.00){
-            labelContainer.innerHTML = "10%";
+
             Object.freeze(labelContainer);
             return;
         } else{
