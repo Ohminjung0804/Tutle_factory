@@ -3,7 +3,7 @@
 
 // the link to your model provided by Teachable Machine export panel
 const URL = "./my_model/";
-import { create_cure } from "../../JS/tranings.js";
+// import { create_cure } from "../../JS/tranings.js";
 let model, webcam, ctx, labelContainer, maxPredictions;
 
 // 스트레칭 번호
@@ -89,30 +89,30 @@ async function predict() {
     // Prediction 2: run input through teachable machine classification model
     const prediction = await model.predict(posenetOutput);
 
-    if (prediction[0].probability.toFixed(2) == 1) {
+    if (prediction[0].probability.toFixed(2) == 1.00) {
 
         if (posture == "left") {
             var audio = new Audio('../count/bent.mp3');
-                audio.play();
+            audio.play();
         }
         posture = "right"
 
-    } else if (prediction[1].probability.toFixed(2) == 1) {
+    } else if (prediction[1].probability.toFixed(2) == 1.00) {
         if (posture == "right") {
             var audio = new Audio('../count/bent.mp3');
-                audio.play();
+            audio.play();
         }
         posture = "left"
 
     } else if (prediction[2].probability.toFixed(2) >= 0.90) {
         if (posture == "left") {
             cnt++
-            var audio = new Audio('../count/' + cnt%10 + '.mp3');
-                audio.play();
+            var audio = new Audio('../count/' + cnt % 10 + '.mp3');
+            audio.play();
         } else if (posture == "right") {
             cnt++
-            var audio = new Audio('../count/' + cnt%10 + '.mp3');
-                audio.play();
+            var audio = new Audio('../count/' + cnt % 10 + '.mp3');
+            audio.play();
         }
         posture = "face"
     }
@@ -123,15 +123,18 @@ async function predict() {
         labelContainer.innerHTML = "수고하셨습니다.";
     }
 
+    // 창 닫을 때 alert창
+    window.addEventListener("beforeunload", function (event) {
+        
+        event.returnValue = "나가겠습니까?";
+        // 전유리 함수 호출
+        
+    });
+
     if (cnt == 10) {
         // 스트레칭 생성
-        create_cure(stretchingNum,cnt);
-
-        // console.log(stretchingNum);
-        // console.log(startToday);
-        // console.log(stratTime);
-        // console.log(endTime);
-        // console.log(cnt);
+        // 전유리 이거 넣으면 에러 남
+        // create_cure(stretchingNum, cnt);
     }
 
     // 무슨 동작을 하는지 적힘
