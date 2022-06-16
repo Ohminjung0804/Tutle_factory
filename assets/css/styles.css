@@ -66,7 +66,7 @@
 
 .text-muted {
   --bs-text-opacity: 1;
-  color: #6c757d !important;3
+  color: #6c757d !important;
 }
 
 
@@ -137,7 +137,7 @@
 }
 /* 사용자 정보 전체 박스 */
 .info-container{
-  margin-top: 10px;
+  margin-top: 100px;
   height: 316px;
   /* border: 1px solid salmon; */
   /* border-bottom: 1px solid #c3c3c3; */
