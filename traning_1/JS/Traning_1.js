@@ -5,6 +5,52 @@
 const URL = "./my_model/";
 // import { create_cure } from "../../JS/tranings.js";
 let model, webcam, ctx, labelContainer, maxPredictions;
+let creatchk = true;
+
+// 스트레칭 생성
+let create_cure = function (stretchingNum, cnt) {
+    var data1 = null
+    $(document).ready(function () {
+        $.ajax({
+            type: "POST",
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify({
+                "stretch": stretchingNum,
+                "status": cnt,
+                "user_email": localStorage.getItem('key')
+            }),
+            url: 'http://107.21.77.37/cure/',
+            dataType: "json",
+            accept: "application/json",
+            //전달할 때 사용되는 파라미터 변수명
+            // 이 속성을 생략하면 callback 파라미터 변수명으로 전달된다.
+            success: function (data, textStatus, jqXHR) {
+                console.log('success');
+                console.log(data);
+                var data1 = {
+                    id: data[0].id,
+                    craeted: data[0].created,
+                    stretch: data[0].stretch,
+                    status: data[0].status,
+                    user_email: data[0].user_email,
+                }
+                // console.log(JSON.parse(data[0]));
+                console.log(data1)
+                // console.log(JSON.parse(data[0]));
+                console.log(data1)
+                $('.result').html('dfdjflks' + data1.email);
+            },
+            complete: function (d) {
+                console.log('d')
+            },
+            error: function (xhr, textStatus, error) {
+                console.log(xhr.responseText);
+                console.log(textStatus);
+                console.log(error);
+            }
+        });
+    });
+}
 
 // 스트레칭 번호
 const stretchingNum = 1;
@@ -131,9 +177,14 @@ async function predict() {
         
     });
 
-    if (cnt == 10) {
+    if (cnt == 3) {
         // 스트레칭 생성
         // 전유리 이거 넣으면 에러 남
+        if(creatchk===true){
+            create_cure(stretchingNum,cnt);
+            creatchk= false;
+        }
+
         // create_cure(stretchingNum, cnt);
     }
 
