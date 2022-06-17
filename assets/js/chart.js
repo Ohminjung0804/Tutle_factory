@@ -103,13 +103,13 @@
 //     config
 //   );
 // }
-function line_chart(today, total){
+function line_chart(today, best){
   // setup 
   const data = {
     labels: ['도리도리', '앞뒤운동', '으쓱으쓱'],
     datasets: [{
-      label: '누적 개수',
-      data: total,
+      label: '오늘의 최고기록',
+      data: best,
       backgroundColor: [
         'rgba(255, 26, 104, 0.2)',
       ],
@@ -120,7 +120,7 @@ function line_chart(today, total){
       order : 1,
     },{
       type:'bar',
-      label: '오늘 개수',
+      label: '오늘의 누적 개수',
       data: today,
       backgroundColor: [
         'rgba(255, 26, 104, 0.2)',
@@ -156,6 +156,6 @@ function line_chart(today, total){
   );
 }
 // circle_chart();
-let today=[4,5,6];
-let total = [50,60,70]
-line_chart(today,total);
+let today=[16,23,10];
+let best = [6,18,5];
+line_chart(today,best);
