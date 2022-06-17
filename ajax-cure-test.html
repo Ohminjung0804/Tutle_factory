@@ -257,18 +257,18 @@
         }
 
         // 스트레칭 삭제
-        let delete_cure = function () {
+        let delete_cure = function (number) {
             var data1 = null
             $(document).ready(function () {
                 $.ajax({
                     type: "DELETE",
-                    url: 'http://107.21.77.37/cure/7',
+                    url: 'http://107.21.77.37/cure/'+number,
 
                     //전달할 때 사용되는 파라미터 변수명
                     // 이 속성을 생략하면 callback 파라미터 변수명으로 전달된다.
                     success: function (data, textStatus, jqXHR) {
                         console.log('success');
-
+                        
                         // console.log(JSON.parse(data[0]));
                         console.log(data1)
                         $('.result').html('dfdjflks' + data1.email);
@@ -294,5 +294,9 @@
         // edit_cure() // 해당 로그 수정
         // delete_cure() // 해당 로그 삭제
         // all_date()
+
+        // for(let i=339; i<=387; i++){
+        //     delete_cure(i);
+        // }
     </script>
 </body>

@@ -2,10 +2,13 @@
 // https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/pose
 
 // the link to your model provided by Teachable Machine export panel
+console.log("init 실행시키기");
+
 const URL = "./my_model/";
 // import { edit_ease_turtle } from "../JS/turtles.js";
 let model, webcam, ctx, labelContainer, maxPredictions;
-
+let percent = 0;    // 테스트 완화도 데이터(정수)
+let call_cnt  =0;   // 호출횟수
 // user_email = localStorage.getItem('key');
 // edit_ease_turtle(email, result); // 이메일과 결과 넘겨주기 -> result는 int형
 async function init() {
@@ -37,15 +40,92 @@ async function init() {
     canvas.height = size;
     ctx = canvas.getContext("2d");
     labelContainer = document.getElementById("label-container");
-    // labelContainer.appendChild(document.createElement("div"));
+    for (let i = 0; i < maxPredictions; i++) { // and class labels
+        labelContainer.appendChild(document.createElement("div"));
+    }
+
 }
+// 쿠키 설정
+function setCookie(key, value, expiredays) {
+    var todayDate = new Date();
+    todayDate.setDate(todayDate.getDate() + expiredays);
+    document.cookie = key + "=" + escape(value) + "; path=/; expires=" + todayDate.toGMTString() + ";"
+}
+// 쿠키 가져오기
+function getCookie(key) {
+    var result = null;
+    var cookie = document.cookie.split(';');
+    console.log(cookie);
+    cookie.some(function (item) {
+        // 공백을 제거
+        item = item.replace(' ', '');
+
+        var dic = item.split('=');
+
+        if (key === dic[0]) {
+            result = unescape(dic[1]);
+            return true; // break;
+        }
+    });
+    return result;
+}
+
+// 데이터 변경
+let edit_turtle = function (email, ease) {
+    console.log(email)
+    $(document).ready(function () {
+        $.ajax({
+            type: "PUT",
+            url: 'http://107.21.77.37/turtle/user?user_email=' + email,
+            dataType: "json",
+            accept: "application/json",
+            data: JSON.stringify({
+                "email": email,
+                "name": getCookie("name"),
+                "num": getCookie("num"),
+                "best": getCookie("best"),
+                "ease": ease
+            }),
+            //전달할 때 사용되는 파라미터 변수명
+            // 이 속성을 생략하면 callback 파라미터 변수명으로 전달된다.
+            success: function (data, textStatus, jqXHR) {
+                console.log('success');
+                console.log(data)
+                setCookie("email",data.email,100);
+                setCookie("name",data.name,100);
+                setCookie("num",data.num,100);
+                setCookie("ease",data.ease,100);
+                setCookie("best",data.best,100);
+                setCookie("created",data.created,100);
+                console.log(document.cookie);
+                // console.log(JSON.parse(data[0]));
+            },
+            complete: function (d) {
+                console.log('d')
+            },
+            error: function (xhr, textStatus, error) {
+                console.log(xhr.responseText);
+                console.log(textStatus);
+                console.log(error);
+            }
+        });
+    });
+}
+
+// 테스트 데이터 수정 
 
 // document.getElementById('startbtn').addEventListener('click', init);
 
 async function loop(timestamp) {
     webcam.update(); // update the webcam frame
     await predict();
-    window.requestAnimationFrame(loop);
+    let t = window.requestAnimationFrame(loop);
+    if(call_cnt>=80){
+        window.cancelAnimationFrame(t);
+        let user_email = localStorage.getItem("key",''); // 이메일 가져오기
+        console.log(user_email);
+        edit_turtle(user_email,percent); // 테스트 데이터 저장부분 수정
+    }
 }
 
 async function predict() {
@@ -57,67 +137,34 @@ async function predict() {
     } = await model.estimatePose(webcam.canvas);
     // Prediction 2: run input through teachable machine classification model
     const prediction = await model.predict(posenetOutput);
+    call_cnt+=1;
+    // var result = Number(prediction[0].probability.toFixed(2));
 
-    var result = Number(prediction[0].probability.toFixed(2));
-
-    setTimeout(function () {
-        if(result == 1.00){
-
-            Object.freeze(labelContainer);
-            return;
-        } else{
-            labelContainer.innerHTML = "조금 떨어져서 우측을 바라보고 올바르게 서주세요.";
-            Object.freeze(labelContainer);
-            return;
-        }
-    }, 5000);
+    // var result = Number(prediction[0].probability.toFixed(2));
 
     // setTimeout(function () {
-    //     switch (result) {
-    //         case 1.00:
-    //             labelContainer.innerHTML = "100%";
-    //             break;
-    //         case result >= 0.90:
-    //             labelContainer.innerHTML = "90%";
-    //             break;
-    //         case result >= 0.80:
-    //             labelContainer.innerHTML = "80%";
-    //             break;
-    //         case result >= 0.70:
-    //             labelContainer.innerHTML = "70%";
-    //             break;
-    //         case result >= 0.60:
-    //             labelContainer.innerHTML = "60%";
-    //             break;
-    //         case result >= 0.50:
-    //             labelContainer.innerHTML = "50%";
-    //             break;
-    //         case result >= 0.40:
-    //             labelContainer.innerHTML = "40%";
-    //             break;
-    //         case result >= 0.30:
-    //             labelContainer.innerHTML = "30%";
-    //             break;
-    //         case result >= 0.20:
-    //             labelContainer.innerHTML = "20%";
-    //             break;
-    //         case result >= 0.10:
-    //             labelContainer.innerHTML = "10%";
-    //             break;
-    //         default:
-    //             labelContainer.innerHTML = "0%";
-    //             // console.log(prediction[0].probability.toFixed(2));
+    //     if(result == 1.00){
+
+    //         Object.freeze(labelContainer);
+    //         return;
+    //     } else{
+    //         labelContainer.innerHTML = "조금 떨어져서 우측을 바라보고 올바르게 서주세요.";
+    //         Object.freeze(labelContainer);
+    //         return;
     //     }
     // }, 5000);
 
-    // // 거북목 여부 문구
-    // if (prediction[0].probability.toFixed(0) == 1) {
-    //     result = "당신은 거북목입니다.";
-    //     // pause(result);
-    // } else if (prediction[1].probability.toFixed(0) == 1) {
-    //     result = "당신은 정상입니다.";
-    //     // pause(result);
-    // }
+    // 무슨 동작을 하는지 적힘
+    // console.log('완화도',Math.round(prediction[1].probability.toFixed(2)*100));
+    percent = Math.round(prediction[1].probability.toFixed(5)*1000);
+    console.log(percent);
+    console.log(prediction[1].probability.toFixed(5));
+    
+    for (let i = 0; i < maxPredictions; i++) {
+        const classPrediction =
+            prediction[i].className + ": " + prediction[i].probability.toFixed(2);
+        labelContainer.childNodes[i].innerHTML = classPrediction;
+    }
 
     // Object.freeze(result);
     // labelContainer.innerHTML = result;
@@ -125,22 +172,6 @@ async function predict() {
     // finally draw the poses
     drawPose(pose);
 }
-
-// function pause(result) {
-
-//     // labelContainer.innerHTML = result;
-//     // const fresult = Object.freeze(labelContainer);
-
-//     // console.log(fresult);
-
-//     if (result == '당신은 거북목입니다.') {
-//         Object.freeze(result);
-//     } else if (result == '당신은 정상입니다.') {
-//         Object.freeze(result);
-//     }
-
-//     labelContainer.innerHTML = result;
-// }
 
 function drawPose(pose) {
     if (webcam.canvas) {
