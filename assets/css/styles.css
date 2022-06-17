@@ -193,11 +193,36 @@
   border-right: 1px solid #c3c3c3;
   
 }
+/* 퍼센트 표시 */
+.percent{
+  position: absolute;
+  bottom: 8px;
+  left: 5px;
+  width: 250px;
+  height: 250px;
+  /* border: 1px solid indianred; */
+  /* display: inline-block; */
+  text-align: center;
+  line-height: 250px;
+  background-color: rgba(255, 255, 255, 0.774);
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size:xx-large;
+  display: none;
+}
+.percent-guide{
+  width: 300px;
+}
+.profile-container:hover  .percent{
+display: inline-block;
+}
 .profile-img{
   /* border: 1px solid burlywood; */
-  margin-top: 30px;
+  position: relative;
+  margin-top: 25px;
+  left: 10px;
   width: 200px;
   height: 200px;
+  display: inline-block;
   /* margin-left: 10px; */
 }
 .profile-div{
