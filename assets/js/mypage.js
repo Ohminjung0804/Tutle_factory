@@ -70,8 +70,8 @@ let edit_turtle = function (email, name, num) {
 function countDownTimer(_sdate) {
     let id = 'todo-date';
     let sdate = new Date(_sdate);
-    let edate = new Date(sdate.setDate(sdate.getDate() + 100));
-    // console.log(_end);
+    let edate = new Date(sdate.setDate(sdate.getDate() + 99));
+    console.log(edate);
     let _second = 1000;
     let _minute = _second * 60;
     let _hour = _minute * 60;
@@ -201,7 +201,7 @@ function mypage_data(){
     var days = getCookie("created");
     const strArr = days.split('-');
     const date = new Date(strArr[0], strArr[1]-1, strArr[2]);
-    date.setDate(date.getDate() + 100);
+    date.setDate(date.getDate());
     var year = date.getFullYear();
     var month = ('0' + (date.getMonth() + 1)).slice(-2);
     var day = ('0' + date.getDate()).slice(-2);
