@@ -1,3 +1,20 @@
+/* 메인 버튼 */
+.main-btn{
+  /* width: 100px; */
+  height: 40px;
+  /* margin-left: 40px; */
+  float: left;
+  z-index: 1 ;
+  margin-left: 100px;
+  margin-top: 650px;
+  text-align: center;
+  line-height: 25px;
+}
+.btn-my{
+  margin-left: 10px;
+  text-align: center;
+  line-height: 25px;
+}
 /* 메인 이미지 div */
 .img-ani{
   background: url("/assets/images/background/banner_gif.gif");
@@ -217,8 +234,6 @@
 }
 
 
-
-
 /* 마이페이지 수정하기 팝업창 */
 #modal.modal-overlay {
   width: 100%;
@@ -427,8 +442,17 @@
 }
 
 
+/* 멘트 div */
+#ment{
+  border: 1px solid #075427;
+  width: 45%;
+  height: 300px;
+  display: inline-block;
+}
 /* 추천div */
 .recommend{
-  height: 200px;
-  border: 1px solid lightcoral
+  width: 45%;
+  height: 300px;
+  border: 1px solid lightcoral;
+  display: inline-block;
 }
