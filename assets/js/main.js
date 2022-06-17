@@ -227,10 +227,17 @@ function testChk(num){
         getClass.style.display = 'inline-block';
     }
 }
-
+//최고기록 text
+function bestRecord(num){
+    let idName = 'best-record'+num;
+    
+    let recordText = document.getElementById(idName);
+    console.log(recordText);
+    recordText.style.display='inline-block';
+}
 testChk(1);
 ani();
-
+bestRecord(2);
 
 
 

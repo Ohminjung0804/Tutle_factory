@@ -52,7 +52,31 @@
   display: none;
 }
 
-
+/* 스트레칭 최고기록 text */
+.best-record{
+  animation-duration: 0.5s;
+  animation-name: slidein;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  font-size: large;
+}
+@keyframes slidein{
+  from{
+    margin-left: 1%;
+  }
+  to{
+    margin-left: -1%;
+  }
+}
+#best-record1{
+  display: none;
+}
+#best-record2{
+  display: none;
+}
+#best-record3{
+  display: none;
+}
 .div-mypage{
   text-align: center;
 }
