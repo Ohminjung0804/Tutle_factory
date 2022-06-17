@@ -5,7 +5,8 @@
 const URL = "./my_model/";
 // import { edit_ease_turtle } from "../JS/turtles.js";
 let model, webcam, ctx, labelContainer, maxPredictions;
-
+let percent = 0;
+let call_cnt  =0;   // 호출횟수
 // user_email = localStorage.getItem('key');
 // edit_ease_turtle(email, result); // 이메일과 결과 넘겨주기 -> result는 int형
 async function init() {
@@ -37,7 +38,10 @@ async function init() {
     canvas.height = size;
     ctx = canvas.getContext("2d");
     labelContainer = document.getElementById("label-container");
-    // labelContainer.appendChild(document.createElement("div"));
+    for (let i = 0; i < maxPredictions; i++) { // and class labels
+        labelContainer.appendChild(document.createElement("div"));
+    }
+
 }
 
 // document.getElementById('startbtn').addEventListener('click', init);
@@ -45,7 +49,10 @@ async function init() {
 async function loop(timestamp) {
     webcam.update(); // update the webcam frame
     await predict();
-    window.requestAnimationFrame(loop);
+    let t = window.requestAnimationFrame(loop);
+    if(call_cnt>=80){
+        window.cancelAnimationFrame(t);
+    }
 }
 
 async function predict() {
@@ -57,6 +64,8 @@ async function predict() {
     } = await model.estimatePose(webcam.canvas);
     // Prediction 2: run input through teachable machine classification model
     const prediction = await model.predict(posenetOutput);
+    call_cnt+=1;
+    // var result = Number(prediction[0].probability.toFixed(2));
 
     var result = Number(prediction[0].probability.toFixed(2));
 
@@ -72,52 +81,14 @@ async function predict() {
         }
     }, 5000);
 
-    // setTimeout(function () {
-    //     switch (result) {
-    //         case 1.00:
-    //             labelContainer.innerHTML = "100%";
-    //             break;
-    //         case result >= 0.90:
-    //             labelContainer.innerHTML = "90%";
-    //             break;
-    //         case result >= 0.80:
-    //             labelContainer.innerHTML = "80%";
-    //             break;
-    //         case result >= 0.70:
-    //             labelContainer.innerHTML = "70%";
-    //             break;
-    //         case result >= 0.60:
-    //             labelContainer.innerHTML = "60%";
-    //             break;
-    //         case result >= 0.50:
-    //             labelContainer.innerHTML = "50%";
-    //             break;
-    //         case result >= 0.40:
-    //             labelContainer.innerHTML = "40%";
-    //             break;
-    //         case result >= 0.30:
-    //             labelContainer.innerHTML = "30%";
-    //             break;
-    //         case result >= 0.20:
-    //             labelContainer.innerHTML = "20%";
-    //             break;
-    //         case result >= 0.10:
-    //             labelContainer.innerHTML = "10%";
-    //             break;
-    //         default:
-    //             labelContainer.innerHTML = "0%";
-    //             // console.log(prediction[0].probability.toFixed(2));
-    //     }
-    // }, 5000);
-
-    // // 거북목 여부 문구
-    // if (prediction[0].probability.toFixed(0) == 1) {
-    //     result = "당신은 거북목입니다.";
-    //     // pause(result);
-    // } else if (prediction[1].probability.toFixed(0) == 1) {
-    //     result = "당신은 정상입니다.";
-    //     // pause(result);
-    // }
+    // 무슨 동작을 하는지 적힘
+    for (let i = 0; i < maxPredictions; i++) {
+        const classPrediction =
+            prediction[i].className + ": " + prediction[i].probability.toFixed(2);
+        labelContainer.childNodes[i].innerHTML = classPrediction;
+    }
+    console.log('완화도',Math.round(prediction[1].probability.toFixed(2)*100));
+    percent = Math.round(prediction[1].probability.toFixed(2));
 
     // Object.freeze(result);
     // labelContainer.innerHTML = result;
@@ -125,22 +96,6 @@ async function predict() {
     // finally draw the poses
     drawPose(pose);
 }
-
-// function pause(result) {
-
-//     // labelContainer.innerHTML = result;
-//     // const fresult = Object.freeze(labelContainer);
-
-//     // console.log(fresult);
-
-//     if (result == '당신은 거북목입니다.') {
-//         Object.freeze(result);
-//     } else if (result == '당신은 정상입니다.') {
-//         Object.freeze(result);
-//     }
-
-//     labelContainer.innerHTML = result;
-// }
 
 function drawPose(pose) {
     if (webcam.canvas) {
