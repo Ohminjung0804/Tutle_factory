@@ -2,7 +2,7 @@
 // https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/pose
 
 // the link to your model provided by Teachable Machine export panel
-console.log("init 실행시키기");
+// console.log("init 실행시키기");
 
 const URL = "./my_model/";
 // import { edit_ease_turtle } from "../JS/turtles.js";
@@ -18,6 +18,9 @@ async function init() {
 
     // 이미지 삭제
     document.getElementById('temp_img').remove();
+
+    document.getElementById('restartbtn').style.display = '';
+
 
     // load the model and metadata
     // Refer to tmImage.loadFromFiles() in the API to support files from a file picker
@@ -40,10 +43,6 @@ async function init() {
     canvas.height = size;
     ctx = canvas.getContext("2d");
     labelContainer = document.getElementById("label-container");
-    for (let i = 0; i < maxPredictions; i++) { // and class labels
-        labelContainer.appendChild(document.createElement("div"));
-    }
-
 }
 // 쿠키 설정
 function setCookie(key, value, expiredays) {
@@ -138,37 +137,21 @@ async function predict() {
     // Prediction 2: run input through teachable machine classification model
     const prediction = await model.predict(posenetOutput);
     call_cnt+=1;
-    // var result = Number(prediction[0].probability.toFixed(2));
-
-    // var result = Number(prediction[0].probability.toFixed(2));
-
-    // setTimeout(function () {
-    //     if(result == 1.00){
-
-    //         Object.freeze(labelContainer);
-    //         return;
-    //     } else{
-    //         labelContainer.innerHTML = "조금 떨어져서 우측을 바라보고 올바르게 서주세요.";
-    //         Object.freeze(labelContainer);
-    //         return;
-    //     }
-    // }, 5000);
 
     // 무슨 동작을 하는지 적힘
-    // console.log('완화도',Math.round(prediction[1].probability.toFixed(2)*100));
-    percent = Math.round(prediction[1].probability.toFixed(5)*1000);
-    console.log(percent);
-    console.log(prediction[1].probability.toFixed(5));
-    
-    for (let i = 0; i < maxPredictions; i++) {
-        const classPrediction =
-            prediction[i].className + ": " + prediction[i].probability.toFixed(2);
-        labelContainer.childNodes[i].innerHTML = classPrediction;
+    // percent = Math.round(prediction[1].probability.toFixed(4)*1000);
+
+    // 전유리 turtl : 거북목 확률
+    const turtle = ((prediction[0].probability.toFixed(2)) * 100);
+    const face = ((prediction[2].probability.toFixed(2)) * 100);
+    const left = ((prediction[3].probability.toFixed(2)) * 100);
+
+    if(turtle >= face && turtle >= left){
+        labelContainer.innerHTML = "당신은 거북목 확률 " + turtle + "% 입니다.";
+    }  else if(face >= 10 || left >= 10) {
+        labelContainer.innerHTML = "우측을 바라보고 서주세요.";
     }
-
-    // Object.freeze(result);
-    // labelContainer.innerHTML = result;
-
+    
     // finally draw the poses
     drawPose(pose);
 }

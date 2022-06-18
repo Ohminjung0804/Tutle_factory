@@ -873,7 +873,7 @@ About section style
 	padding: 15px
 }
 
-#startbtn{
+#startbtn, #restartbtn{
 	margin-top: 30px;
 }
 
