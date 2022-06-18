@@ -1,22 +1,24 @@
 /* 메인 버튼 */
-.main-btn{
+.main-btn {
   /* width: 100px; */
   height: 40px;
   /* margin-left: 40px; */
   float: left;
-  z-index: 1 ;
+  z-index: 1;
   margin-left: 100px;
   margin-top: 650px;
   text-align: center;
   line-height: 25px;
 }
-.btn-my{
+
+.btn-my {
   margin-left: 10px;
   text-align: center;
   line-height: 25px;
 }
+
 /* 메인 이미지 div */
-.img-ani{
+.img-ani {
   background: url("/assets/images/background/banner_gif.gif");
   width: 500px;
   height: 500px;
@@ -25,73 +27,88 @@
   margin-left: 800px;
   margin-top: 300px;
   z-index: 3;
- /* 아래에서 만든 애니메이션 적용하기 */
- animation: fadeInUp 3s;
- /* animation-duration: 3s; */
- /* animation-iteration-count: 10;  */
-  
+  /* 아래에서 만든 애니메이션 적용하기 */
+  animation: fadeInUp 3s;
+  /* animation-duration: 3s; */
+  /* animation-iteration-count: 10;  */
+
 }
+
 @keyframes fadeInUp {
   0% {
-      opacity: 0;
-      transform: translate3d(0, 30%, 0);
+    opacity: 0;
+    transform: translate3d(0, 30%, 0);
   }
+
   to {
     opacity: 1;
     transform: translateZ(0);
   }
 }
+
 /* 스트레칭 확인 체크 */
-#testchk1{
+#testchk1 {
   display: none;
 }
-#testchk2{
+
+#testchk2 {
   display: none;
 }
-#testchk3{
+
+#testchk3 {
   display: none;
 }
 
 /* 스트레칭 최고기록 text */
-.best-record{
+.best-record {
   animation-duration: 0.5s;
   animation-name: slidein;
   animation-iteration-count: infinite;
   animation-direction: alternate;
   font-size: large;
 }
-@keyframes slidein{
-  from{
+
+@keyframes slidein {
+  from {
     margin-left: 1%;
   }
-  to{
+
+  to {
     margin-left: -1%;
   }
 }
-#best-record1{
+
+#best-record1 {
   display: none;
 }
-#best-record2{
+
+#best-record2 {
   display: none;
 }
-#best-record3{
+
+#best-record3 {
   display: none;
 }
-.div-mypage{
+
+.div-mypage {
   text-align: center;
 }
+
 /* contact */
 
 .team-member {
   margin-bottom: 3rem;
   text-align: center;
 }
+
 .team-member img {
   width: 14rem;
   height: 14rem;
   border: 0.5rem solid rgba(0, 0, 0, 0.1);
 }
-.team-member h4, .team-member .h4 {
+
+.team-member h4,
+.team-member .h4 {
   margin-top: 1.5rem;
   margin-bottom: 0;
 }
@@ -118,30 +135,46 @@
   background-color: #212529;
   border-color: #212529;
 }
+
 .btn-dark:hover {
   color: #fff;
   background-color: #1c1f23;
   border-color: #1a1e21;
 }
-.btn-check:focus + .btn-dark, .btn-dark:focus {
+
+.btn-check:focus+.btn-dark,
+.btn-dark:focus {
   color: #fff;
   background-color: #1c1f23;
   border-color: #1a1e21;
   box-shadow: 0 0 0 0.25rem rgba(66, 70, 73, 0.5);
 }
-.btn-check:checked + .btn-dark, .btn-check:active + .btn-dark, .btn-dark:active, .btn-dark.active, .show > .btn-dark.dropdown-toggle {
+
+.btn-check:checked+.btn-dark,
+.btn-check:active+.btn-dark,
+.btn-dark:active,
+.btn-dark.active,
+.show>.btn-dark.dropdown-toggle {
   color: #fff;
   background-color: #1a1e21;
   border-color: #191c1f;
 }
-.btn-check:checked + .btn-dark:focus, .btn-check:active + .btn-dark:focus, .btn-dark:active:focus, .btn-dark.active:focus, .show > .btn-dark.dropdown-toggle:focus {
+
+.btn-check:checked+.btn-dark:focus,
+.btn-check:active+.btn-dark:focus,
+.btn-dark:active:focus,
+.btn-dark.active:focus,
+.show>.btn-dark.dropdown-toggle:focus {
   box-shadow: 0 0 0 0.25rem rgba(66, 70, 73, 0.5);
 }
-.btn-dark:disabled, .btn-dark.disabled {
+
+.btn-dark:disabled,
+.btn-dark.disabled {
   color: #fff;
   background-color: #212529;
   border-color: #212529;
 }
+
 .btn-social {
   height: 2.5rem;
   width: 2.5rem;
@@ -151,6 +184,7 @@
   padding: 0;
   border-radius: 100%;
 }
+
 .mx-2 {
   margin-right: 0.5rem !important;
   margin-left: 0.5rem !important;
@@ -158,26 +192,27 @@
 
 
 /*로그인 버튼*/
-.login-btn{
+.login-btn {
   width: 300px;
   height: 50px;
   text-align: center;
 }
 
 /*mypage icon*/
-.btn-mypage{
+.btn-mypage {
   text-align: center;
 }
 
 /*mypage css*/
-.mypage-txt{
+.mypage-txt {
   margin-top: 110px;
   font-size: 40px;
   color: #075427;
-  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
+
 /* 사용자 정보 전체 박스 */
-.info-container{
+.info-container {
   margin-top: 100px;
   height: 316px;
   /* border: 1px solid salmon; */
@@ -185,16 +220,17 @@
 }
 
 /* 사용자 캐릭터 */
-.profile-container{
+.profile-container {
   height: 256px;
   left: 0%;
   margin-top: 30px;
   display: inline-block;
   border-right: 1px solid #c3c3c3;
-  
+
 }
+
 /* 퍼센트 표시 */
-.percent{
+.percent {
   position: absolute;
   bottom: 8px;
   left: 5px;
@@ -206,16 +242,19 @@
   line-height: 250px;
   background-color: rgba(255, 255, 255, 0.774);
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  font-size:xx-large;
+  font-size: xx-large;
   display: none;
 }
-.percent-guide{
+
+.percent-guide {
   width: 300px;
 }
-.profile-container:hover  .percent{
-display: inline-block;
+
+.profile-container:hover .percent {
+  display: inline-block;
 }
-.profile-img{
+
+.profile-img {
   /* border: 1px solid burlywood; */
   position: relative;
   margin-top: 25px;
@@ -225,12 +264,14 @@ display: inline-block;
   display: inline-block;
   /* margin-left: 10px; */
 }
-.profile-div{
+
+.profile-div {
   margin-right: 0px;
   margin-left: 45px;
   /* border: 1px solid firebrick; */
 }
-.profile-name{
+
+.profile-name {
   text-align: center;
   border-radius: 8px;
   font-size: 20px;
@@ -238,7 +279,7 @@ display: inline-block;
 }
 
 /* 사용자 현황 정도 */
-.progress-container{
+.progress-container {
   height: 256px;
   margin-top: 30px;
   /* margin-left: 5px; */
@@ -246,37 +287,42 @@ display: inline-block;
   position: absolute;
   /* border: 1px solid violet; */
 }
-.todo-date{
+
+.todo-date {
   display: inline-block;
   margin-top: 20px;
   margin-bottom: 50px;
-  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-size: 25px;
 }
-#todo-date{
+
+#todo-date {
   font-size: 35px;
   color: #075427;
 }
-.dash{
+
+.dash {
   width: 0.5px;
   height: 15px;
   margin-left: 2%;
   margin-right: 2%;
   display: inline-block;
-  border-left:2px solid #888888;
+  border-left: 2px solid #888888;
 }
-.date-label{
+
+.date-label {
   display: inline-block;
   font-size: medium;
 }
-.start-date{
+
+.start-date {
   display: inline-block;
   font-size: medium;
-  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 /* 현재 진도율 */
-.current-label{
+.current-label {
   font-size: 20px;
   margin-bottom: 10px;
   /* border: 1px solid darkblue; */
@@ -296,15 +342,16 @@ display: inline-block;
   align-items: center;
   justify-content: center;
   /* border: 1px solid violet; */
- 
+
 }
+
 #modal .modal-window {
   background: rgba(255, 255, 255);
   box-shadow: 0 8px 32px 0 rgba(27, 27, 27, 0.127);
   /* backdrop-filter: blur( 13.5px ); */
   /* -webkit-backdrop-filter: blur( 13.5px ); */
   border-radius: 10px;
-  border: 1px solid rgba( 255, 255, 255 );
+  border: 1px solid rgba(255, 255, 255);
   width: 1225px;
   height: 600px;
   position: relative;
@@ -314,19 +361,20 @@ display: inline-block;
   /* border: 1px solid wheat; */
   /* padding: 10px; */
 }
+
 #modal .popup-title {
-  position:absolute;
+  position: absolute;
   left: 43%;
   margin-top: 28px;
   display: inline-block;
   text-align: center;
   color: #454545;
   font-size: 30px;
-  
+
 }
 
 
-.select-img{
+.select-img {
   text-align: center;
   border: 5px solid #075427;
   border-radius: 50%;
@@ -334,7 +382,8 @@ display: inline-block;
   height: 100px;
   cursor: pointer;
 }
-.popup-line{
+
+.popup-line {
   height: 1px;
   position: relative;
   border-radius: 2px;
@@ -342,22 +391,24 @@ display: inline-block;
   /* height: 100%; */
   margin-top: 70px;
 }
-.select-round{
+
+.select-round {
   /* border: 1px solid darkblue; */
   text-align: center;
-  
+
   border-radius: 50%;
   margin: 5px;
   top: 30%;
   width: 100px;
   height: 100px;
-  
-}
-.select-round:hover{
-  box-shadow:  0px 0 5px 5px rgba(28, 147, 24, 0.391);
+
 }
 
-.nickname_input{
+.select-round:hover {
+  box-shadow: 0px 0 5px 5px rgba(28, 147, 24, 0.391);
+}
+
+.nickname_input {
 
   margin-top: 100px;
   width: 500px;
@@ -366,34 +417,39 @@ display: inline-block;
   border: none;
   font-size: large;
   color: #a1a1a1;
-  border-bottom:2px solid #4e926b;
+  border-bottom: 2px solid #4e926b;
 }
-.nickname_input:hover{
+
+.nickname_input:hover {
   box-shadow: #191c1f;
 }
-.edit_save{
+
+.edit_save {
   margin-top: 40px;
   width: 150px;
   height: 40px;
   cursor: pointer;
   border-radius: 7px;
-  font-weight:bolder;
+  font-weight: bolder;
   border: none;
   /* border:3px solid #4e926b; */
   background-color: rgb(187, 187, 187);
 }
-.edit_save:hover{
+
+.edit_save:hover {
   background-color: #4e926b;
   padding: 0;
   border: none;
   color: #fff;
 }
-.edit_save:focus{
-  outline:none;
+
+.edit_save:focus {
+  outline: none;
   border: none;
 }
+
 /* 캐릭터 원 */
-.char{
+.char {
   display: inline-block;
   margin-left: 20px;
   width: 150px;
@@ -402,33 +458,38 @@ display: inline-block;
   cursor: pointer;
   /* content: url(/assets/images/profile/1.png); */
 }
-.char:hover{
-  border:4px solid #3f805b;
+
+.char:hover {
+  border: 4px solid #3f805b;
   box-shadow: 0 0 0 3px rgba(51, 135, 71, 0.401);
-  
+
 }
 
-[type=radio] { 
+[type=radio] {
   position: absolute;
   opacity: 0;
   width: 0;
   height: 0;
 }
-[type=radio]:checked + label {
+
+[type=radio]:checked+label {
   outline: 5px solid #4e926b;
 }
 
-.char1{
-  background:url('/assets/images/profile/1.png')no-repeat center;
+.char1 {
+  background: url('/assets/images/profile/1.png')no-repeat center;
 }
-.char2{
-  background:url('/assets/images/profile/2.png')no-repeat center;
+
+.char2 {
+  background: url('/assets/images/profile/2.png')no-repeat center;
 }
-.char3{
-  background:url('/assets/images/profile/3.png')no-repeat center;
+
+.char3 {
+  background: url('/assets/images/profile/3.png')no-repeat center;
 }
-.char4{
-  background:url('/assets/images/profile/4.png')no-repeat center;
+
+.char4 {
+  background: url('/assets/images/profile/4.png')no-repeat center;
 }
 
 /* progress 진행도 div */
@@ -437,6 +498,7 @@ display: inline-block;
   background-color: #ddd;
   border-radius: 5px;
 }
+
 #myBar {
   width: 0%;
   height: 30px;
@@ -447,26 +509,108 @@ display: inline-block;
   color: white;
   /* position:absolute; */
   /* position: relative; */
-  
+
 }
-#progressImg{
+
+#progressImg {
   z-index: 1;
   text-align: right;
   float: right;
   transform: scaleX(-1);
   height: 80px;
-  width:80px;
+  width: 80px;
   bottom: 30px;
 
 }
-#progressImgDiv{
-    width: 0%;
-    height: 20px;
-    /* border: 1px solid darkmagenta; */
-    position:relative;
-    margin-left: 15px;
-    
+
+#progressImgDiv {
+  width: 0%;
+  height: 20px;
+  /* border: 1px solid darkmagenta; */
+  position: relative;
+  margin-left: 15px;
+
 }
+
+/* modal btn */
+
+#myBtn {
+  border: none;
+  background-color: transparent;
+  margin-top: 30px;
+  margin-right: 15px;
+}
+
+#myBtn:hover{
+  cursor: pointer;
+}
+
+/* modal */
+
+/* The Modal (background) */
+.modal {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0);
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  /* 15% from the top and centered */
+  margin: 200px auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 500px;
+  height: 400px;
+  /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  margin-left: 95%;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-content h1{
+  text-align: center; 
+}
+.modal-content p{
+  text-align: center; 
+  margin-top: 11%;
+}
+#kakao-login-btn{
+  margin-left: 10%;
+}
+#kakao-login-btn:hover{
+  cursor: pointer;
+}
+
+/* end modal */
 
 
 /* 차트 css */
@@ -476,30 +620,32 @@ display: inline-block;
   padding-right: 25px;
   padding-left: 25px;
 } */
-.pie-chart{
-  height:500px;
+.pie-chart {
+  height: 500px;
   /* border: 1px solid lavender; */
-  
+
 }
-.chart-result{
+
+.chart-result {
   width: 500px;
   height: 400px;
   margin-left: 590px;
   margin-top: 250px;
-  position:absolute;
+  position: absolute;
   border: 1px solid lightblue;
 }
 
 
 /* 멘트 div */
-#ment{
+#ment {
   border: 1px solid #075427;
   width: 45%;
   height: 300px;
   display: inline-block;
 }
+
 /* 추천div */
-.recommend{
+.recommend {
   width: 45%;
   height: 300px;
   border: 1px solid lightcoral;

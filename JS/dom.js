@@ -33,7 +33,7 @@ function domcheck(){
     if(user_id){
         logintag.innerHTML = `${user_id}`;
     }else{
-        let s = `<a href="./login.html">Login</a>`;
+        let s = `<button id="myBtn">Login</button>`;
         logintag.innerHTML = s;
     };
 }
