@@ -134,7 +134,6 @@ function save_info() {
     user_email = localStorage.getItem('key');
     edit_turtle(user_email, name, char);
 
-    // location.reload();
 }
 
 function name_info() {

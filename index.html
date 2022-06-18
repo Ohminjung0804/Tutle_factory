@@ -452,7 +452,7 @@
 	<script src="assets/js/main.js"></script>
 
 	<!-- Login -->
-	<!-- <script src="JS/dom.js"></script> -->
+	<script src="JS/dom.js"></script>
 
 	<script type="text/javascript">
 		function setCookie(key, value, expiredays) {
@@ -537,9 +537,10 @@
 
 						// 이메일 콘솔 출력
 						console.log(kakao_account.email);
-
+						
 						// 거북이 생성하기
-						create_turtle(email)
+						create_turtle(email);
+						window.location.href='/mypage.html'
 					},
 					fail: function (error) {
 						alert(
