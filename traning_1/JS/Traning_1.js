@@ -180,7 +180,7 @@ async function predict() {
     if (cnt == 3) {
         // 스트레칭 생성
         // 전유리 이거 넣으면 에러 남
-        if(creatchk===true){
+        if(creatchk===true && cnt!=0){
             create_cure(stretchingNum,cnt);
             creatchk= false;
         }

@@ -175,7 +175,7 @@ async function predict() {
     window.addEventListener("beforeunload", function (event) {
         
         event.returnValue = "나가겠습니까?";
-        if(creatchk===true){
+        if(creatchk===true && cnt!=0){
             create_cure(stretchingNum,cnt);
             creatchk= false;
         }
@@ -184,6 +184,7 @@ async function predict() {
     if (cnt == 10) {
         // 전유리 이거 넣으면 에러 남
         // create_cure(stretchingNum,cnt);
+
     }
 
     // 무슨 동작을 하는지 적힘
