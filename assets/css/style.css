@@ -907,7 +907,7 @@ Featured section style
 	cursor: pointer;
 }
 
-.slick-center .featured_img a {
+.slick-center .popup-img {
 	position: absolute;
 	left: 90%;
 	right: 10%;
@@ -918,7 +918,7 @@ Featured section style
 	z-index: 3;
 }
 
-.featured_img a {
+.popup-img{
 	display: none;
 }
 
