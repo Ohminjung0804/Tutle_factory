@@ -2,18 +2,21 @@
 .main-btn{
   /* width: 100px; */
   height: 40px;
-  /* margin-left: 40px; */
   float: left;
+  /* margin-left: 40px; */
+  position: absolute;
+  top: 650px;
+  left: 160px;
   z-index: 1 ;
-  margin-left: 100px;
-  margin-top: 650px;
   text-align: center;
   line-height: 25px;
 }
 .btn-my{
-  margin-left: 10px;
   text-align: center;
   line-height: 25px;
+  font-size: 18px;
+  padding-top:20px ;
+  padding-bottom:20px ;
 }
 /* 메인 이미지 div */
 .img-ani{
@@ -29,7 +32,6 @@
  animation: fadeInUp 3s;
  /* animation-duration: 3s; */
  /* animation-iteration-count: 10;  */
-  
 }
 @keyframes fadeInUp {
   0% {
@@ -226,6 +228,7 @@ display: inline-block;
   /* margin-left: 10px; */
 }
 .profile-div{
+  cursor: pointer;
   margin-right: 0px;
   margin-left: 45px;
   /* border: 1px solid firebrick; */

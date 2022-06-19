@@ -2,10 +2,49 @@
 
 //Rage Template
 //Designerd by: http://bootstrapthemes.co
+let stretchs = [];
+// 해당 유저 날짜 스트레칭 조회
+let user_day_cure = function (date) {
+    $(document).ready(function () {
+        $.ajax({
+            type: "GET",
+            url: `http://107.21.77.37/cure/date?user_email=${localStorage.getItem('key')}&date=${date}`,
+
+            //전달할 때 사용되는 파라미터 변수명
+            // 이 속성을 생략하면 callback 파라미터 변수명으로 전달된다.
+            success: function (data, textStatus, jqXHR) {
+                console.log('success');
+                stretchs = data; // 전역변수 생성
+                // console.log(JSON.parse(data[0]));
+                console.log(stretchs)
+                // console.log(JSON.parse(data[0]));
+                today_chk(); // 차트 데이터 넣기 
+            },
+            complete: function (d) {
+                console.log('d')
+            },
+            error: function (xhr, textStatus, error) {
+                console.log(xhr.responseText);
+                console.log(textStatus);
+                console.log(error);
+            }
+        });
+    });
+}
+
+// 오늘 날짜 구하기
+function getToday() {
+    var date = new Date();
+    var year = date.getFullYear();
+    var month = ("0" + (1 + date.getMonth())).slice(-2);
+    var day = ("0" + date.getDate()).slice(-2);
+
+    return year + "-" + month + "-" + day;
+}
 
 jQuery(document).ready(function ($) {
 
-//for Preloader
+    //for Preloader
 
     $(window).load(function () {
         $("#loading").fadeOut(500);
@@ -42,7 +81,7 @@ jQuery(document).ready(function ($) {
     });
     wow.init();
 
-// magnificPopup
+    // magnificPopup
 
     $('.popup-img').magnificPopup({
         type: 'image',
@@ -55,34 +94,34 @@ jQuery(document).ready(function ($) {
         type: 'iframe',
         mainClass: 'mfp-fade',
         iframe: {
-  markup: '<div class="mfp-iframe-scaler">'+
-            '<div class="mfp-close"></div>'+
-            '<iframe class="mfp-iframe" frameborder="0" allowfullscreen></iframe>'+
-          '</div>', // HTML markup of popup, `mfp-close` will be replaced by the close button
+            markup: '<div class="mfp-iframe-scaler">' +
+                '<div class="mfp-close"></div>' +
+                '<iframe class="mfp-iframe" frameborder="0" allowfullscreen></iframe>' +
+                '</div>', // HTML markup of popup, `mfp-close` will be replaced by the close button
 
-  patterns: {
-    youtube: {
-      index: 'youtube.com/', // String that detects type of video (in this case YouTube). Simply via url.indexOf(index).
+            patterns: {
+                youtube: {
+                    index: 'youtube.com/', // String that detects type of video (in this case YouTube). Simply via url.indexOf(index).
 
-      id: 'v=', // String that splits URL in a two parts, second part should be %id%
-      // Or null - full URL will be returned
-      // Or a function that should return %id%, for example:
-      // id: function(url) { return 'parsed id'; }
+                    id: 'v=', // String that splits URL in a two parts, second part should be %id%
+                    // Or null - full URL will be returned
+                    // Or a function that should return %id%, for example:
+                    // id: function(url) { return 'parsed id'; }
 
-      src: '//www.youtube.com/embed/%id%?autoplay=1' // URL that will be set as a source for iframe.
-    }
-    // you may add here more sources
+                    src: '//www.youtube.com/embed/%id%?autoplay=1' // URL that will be set as a source for iframe.
+                }
+                // you may add here more sources
 
-  },
+            },
 
-  srcAction: 'iframe_src', // Templating object key. First part defines CSS selector, second attribute. "iframe_src" means: find "iframe" and set attribute "src".
-}
- 
+            srcAction: 'iframe_src', // Templating object key. First part defines CSS selector, second attribute. "iframe_src" means: find "iframe" and set attribute "src".
+        }
+
     });
 
 
 
-// slick slider active Home Page Tow
+    // slick slider active Home Page Tow
     $(".testimonial_slid").slick({
         dots: false,
         infinite: false,
@@ -97,7 +136,7 @@ jQuery(document).ready(function ($) {
 
 
 
-//    featured slider
+    //    featured slider
     $('.featured_slider').slick({
         centerMode: true,
         dote: true,
@@ -105,8 +144,7 @@ jQuery(document).ready(function ($) {
         slidesToShow: 3,
         speed: 1500,
         index: 2,
-        responsive: [
-            {
+        responsive: [{
                 breakpoint: 768,
                 settings: {
                     arrows: false,
@@ -129,18 +167,18 @@ jQuery(document).ready(function ($) {
 
 
 
-//---------------------------------------------
-// Counter 
-//---------------------------------------------
+    //---------------------------------------------
+    // Counter 
+    //---------------------------------------------
 
     $('.statistic-counter').counterUp({
         delay: 10,
         time: 2000
     });
 
-//---------------------------------------------
-// Scroll Up 
-//---------------------------------------------
+    //---------------------------------------------
+    // Scroll Up 
+    //---------------------------------------------
 
     $(window).scroll(function () {
         if ($(this).scrollTop() > 600) {
@@ -150,7 +188,9 @@ jQuery(document).ready(function ($) {
         }
     });
     $('.scrollup').click(function () {
-        $("html, body").animate({scrollTop: 0}, 1000);
+        $("html, body").animate({
+            scrollTop: 0
+        }, 1000);
         return false;
     });
 
@@ -158,16 +198,20 @@ jQuery(document).ready(function ($) {
 
 
 
-//About us accordion 
+    //About us accordion 
 
     $("#faq_main_content").collapse({
         accordion: true,
         open: function () {
             this.addClass("open");
-            this.css({height: this.children().outerHeight()});
+            this.css({
+                height: this.children().outerHeight()
+            });
         },
         close: function () {
-            this.css({height: "0px"});
+            this.css({
+                height: "0px"
+            });
             this.removeClass("open");
         }
     });
@@ -176,7 +220,7 @@ jQuery(document).ready(function ($) {
 
 
 
-//Team Skillbar active js
+    //Team Skillbar active js
 
     jQuery('.teamskillbar').each(function () {
         jQuery(this).find('.teamskillbar-bar').animate({
@@ -186,62 +230,77 @@ jQuery(document).ready(function ($) {
 
 
 
-//Span Menu toggle
-	$(".navbar-header button").on('click', function(){
-		$('.navbar-header button').toggleClass('active');
-	});
+    //Span Menu toggle
+    $(".navbar-header button").on('click', function () {
+        $('.navbar-header button').toggleClass('active');
+    });
 
-  
+
 
     //End
 
 });
 
 // main animation
-function ani(){
+function ani() {
     var imgArray = new Array();
-        imgArray[0] = "/assets/images/ani1.png";
-        imgArray[1] = "/assets/images/ani2.png";
- 
-        function showImage() {
-            var imgNum = Math.round(Math.random()*2);
-            var objImg = document.getElementById("img-ani");
-            objImg.src = imgArray[imgNum];
-            setTimeout("showImage()", 3000);
-        }
-}
+    imgArray[0] = "/assets/images/ani1.png";
+    imgArray[1] = "/assets/images/ani2.png";
 
+    function showImage() {
+        var imgNum = Math.round(Math.random() * 2);
+        var objImg = document.getElementById("img-ani");
+        objImg.src = imgArray[imgNum];
+        setTimeout("showImage()", 3000);
+    }
+};
+
+
+// 한날 안한날 체크
+function today_chk() {
+    console.log("chart")
+    let one = stretchs.filter(data => data.stretch == 1)
+    let two = stretchs.filter(data => data.stretch == 2)
+    let three = stretchs.filter(data => data.stretch == 3)
+
+    console.log(one,two,three)
+    if(one.length>=1){
+        testChk(1);
+    }
+    if(two.length>=1){
+        testChk(2);
+    }
+    if(three.length>=1){
+        testChk(3);
+    }
+
+};
 // 체크박스
-function testChk(num){
-    let getClassName = "testchk"+num;
+function testChk(num) {
+    let getClassName = "testchk" + num;
     console.log(getClassName);
-    if(num == 1){
+    if (num == 1) {
         let getClass = document.getElementById(getClassName);
         console.log(getClass);
         getClass.style.display = 'inline-block';
-    }else if(num == 2){
+    } else if (num == 2) {
         let getClass = document.getElementById(getClassName);
         getClass.style.display = 'inline-block';
-    }else if(num == 3){
+    } else if (num == 3) {
         let getClass = document.getElementById(getClassName);
         getClass.style.display = 'inline-block';
     }
 }
 //최고기록 text
-function bestRecord(num){
-    let idName = 'best-record'+num;
-    
+function bestRecord(num) {
+    let idName = 'best-record' + num;
+
     let recordText = document.getElementById(idName);
     console.log(recordText);
-    recordText.style.display='inline-block';
+    recordText.style.display = 'inline-block';
 }
-testChk(1);
 ani();
 bestRecord(2);
-
-
-
-
-
-
-
+// 오늘 한 스트레칭 체크표시하기
+let day = getToday();
+user_day_cure(day);
