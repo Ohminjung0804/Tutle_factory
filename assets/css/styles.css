@@ -3,33 +3,25 @@
   /* width: 100px; */
   height: 40px;
   float: left;
-<<<<<<< HEAD
   /* margin-left: 40px; */
   position: absolute;
   top: 650px;
-  left: 160px;
+  left: 140px;
   z-index: 1 ;
   text-align: center;
   line-height: 25px;
 }
 .btn-my{
-=======
   z-index: 1;
-  margin-left: 100px;
-  margin-top: 650px;
   text-align: center;
   line-height: 25px;
-}
-
-.btn-my {
+  
   margin-left: 10px;
->>>>>>> d16e0e042ec75a5e8df67f592e20ceed5c9babdb
-  text-align: center;
-  line-height: 25px;
   font-size: 18px;
   padding-top:20px ;
   padding-bottom:20px ;
 }
+
 
 /* 메인 이미지 div */
 .img-ani {
@@ -41,18 +33,15 @@
   margin-left: 800px;
   margin-top: 300px;
   z-index: 3;
-<<<<<<< HEAD
  /* 아래에서 만든 애니메이션 적용하기 */
  animation: fadeInUp 3s;
  /* animation-duration: 3s; */
  /* animation-iteration-count: 10;  */
-=======
   /* 아래에서 만든 애니메이션 적용하기 */
   animation: fadeInUp 3s;
   /* animation-duration: 3s; */
   /* animation-iteration-count: 10;  */
 
->>>>>>> d16e0e042ec75a5e8df67f592e20ceed5c9babdb
 }
 
 @keyframes fadeInUp {
@@ -285,13 +274,10 @@
   display: inline-block;
   /* margin-left: 10px; */
 }
-<<<<<<< HEAD
 .profile-div{
   cursor: pointer;
-=======
-
+}
 .profile-div {
->>>>>>> d16e0e042ec75a5e8df67f592e20ceed5c9babdb
   margin-right: 0px;
   margin-left: 45px;
   /* border: 1px solid firebrick; */
