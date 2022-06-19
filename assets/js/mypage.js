@@ -1,12 +1,15 @@
-// 공통함수 가져오기
+"use strict";
 // import { get_turtle, edit_turtle } from "../../JS/turtles.js";
 // 수정하기
 // 거북이 정보 수정
+let stretchs = []
+
 function setCookie(key, value, expiredays) {
     var todayDate = new Date();
     todayDate.setDate(todayDate.getDate() + expiredays);
     document.cookie = key + "=" + escape(value) + "; path=/; expires=" + todayDate.toGMTString() + ";"
 }
+
 function getCookie(key) {
     var result = null;
     var cookie = document.cookie.split(';');
@@ -25,7 +28,35 @@ function getCookie(key) {
     return result;
 }
 
+// 해당 유저 스트레칭 조회
+let user_cure = function () {
+    $(document).ready(function () {
+        $.ajax({
+            type: "GET",
+            url: `http://107.21.77.37/cure/user?user_email=${localStorage.getItem('key')}`,
 
+            //전달할 때 사용되는 파라미터 변수명
+            // 이 속성을 생략하면 callback 파라미터 변수명으로 전달된다.
+            success: function (data, textStatus, jqXHR) {
+                console.log('success');
+                console.log('유저꺼',data);
+                stretchs = data;
+                count_date();
+                // console.log(JSON.parse(data[0]));
+            },
+            complete: function (d) {
+                console.log('d')
+            },
+            error: function (xhr, textStatus, error) {
+                console.log(xhr.responseText);
+                console.log(textStatus);
+                console.log(error);
+            }
+        });
+    });
+}
+
+// 수정 ajax
 let edit_turtle = function (email, name, num) {
     console.log(email)
     $(document).ready(function () {
@@ -46,12 +77,12 @@ let edit_turtle = function (email, name, num) {
             success: function (data, textStatus, jqXHR) {
                 console.log('success');
                 console.log(data)
-                setCookie("email",data.email,100);
-                setCookie("name",data.name,100);
-                setCookie("num",data.num,100);
-                setCookie("ease",data.ease,100);
-                setCookie("best",data.best,100);
-                setCookie("created",data.created,100);
+                setCookie("email", data.email, 100);
+                setCookie("name", data.name, 100);
+                setCookie("num", data.num, 100);
+                setCookie("ease", data.ease, 100);
+                setCookie("best", data.best, 100);
+                setCookie("created", data.created, 100);
                 console.log(document.cookie);
                 // console.log(JSON.parse(data[0]));
             },
@@ -67,6 +98,7 @@ let edit_turtle = function (email, name, num) {
     });
 }
 
+// 남은 시간 표시
 function countDownTimer(_sdate) {
     let id = 'todo-date';
     let sdate = new Date(_sdate);
@@ -133,7 +165,6 @@ function save_info() {
     // 수정함수 호출
     user_email = localStorage.getItem('key');
     edit_turtle(user_email, name, char);
-
 }
 
 function name_info() {
@@ -146,11 +177,8 @@ function name_info() {
 }
 
 // progress 진행도 표시
-function progressMove(_sdate) {
-    let sdate = new Date(_sdate);
-    let now = new Date();
-    let percent = now - sdate;
-    const d_day = Math.floor(percent / (1000 * 60 * 60 * 24));
+function progressMove(_cnt_date) {
+    const d_day = _cnt_date;
     console.log(d_day);
 
     i = 0;
@@ -190,30 +218,41 @@ function char_img(num) {
     }
 }
 
+// 한 날 카운트하기
+function count_date(){
+    let days = stretchs.map((data)=> data.created);
+    const set = new Set(days);
+    const uniqueArr = [...set]; // 중복제거
+
+    progressMove(uniqueArr.length); // 진행도 표시
+}
+
 // 마이페이지 첫화면 데이터 넣기
-function mypage_data(){
+function mypage_data() {
     const name = document.getElementById("show-name");
     const start = document.getElementById("start-day");
     const end = document.getElementById("end-day");
-    console.log('name',name,start,end)
+    const percent_text = document.querySelector(".percent");
+    console.log(name, start, end)
     name.innerText = getCookie("name");
     start.innerText = getCookie("created");
+    percent_text.innerText = getCookie("ease")+"%";
 
     var days = getCookie("created");
-    console.log(days)
     const strArr = days.split('-');
-    const date = new Date(strArr[0], strArr[1]-1, strArr[2]);
+    const date = new Date(strArr[0], strArr[1] - 1, strArr[2]);
     date.setDate(date.getDate());
     var year = date.getFullYear();
     var month = ('0' + (date.getMonth() + 1)).slice(-2);
     var day = ('0' + date.getDate()).slice(-2);
-    var dateString = year + '-' + month  + '-' + day;
-    end.innerText =dateString;
+    var dateString = year + '-' + month + '-' + day;
+    end.innerText = dateString;
 
-    dateCalcul(days);
-    countDownTimer(dateString);
-    char_img(getCookie("num"));
+    dateCalcul(days);   // 날짜 계산하기
+    countDownTimer(dateString); // 남은 일수 입력
+    char_img(getCookie("num")); // 캐릭터 이미지 넣기
+    user_cure(); // user 데이터 가져와서 진행도 표시
 }
 
 mypage_data();
-progressMove('2022-04-15');
+

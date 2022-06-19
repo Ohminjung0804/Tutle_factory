@@ -873,7 +873,7 @@ About section style
 	padding: 15px
 }
 
-#startbtn, #restartbtn{
+#startbtn{
 	margin-top: 30px;
 }
 
@@ -1098,12 +1098,6 @@ Impress section style
 	border-radius: 50%;
 	margin-right: -4px;
 }
-
-/* .attr-nav button {
-	background: #777;
-	border-radius: 50%;
-	margin-right: -4px;
-} */
 
 .attr-nav {
 	position: absolute;

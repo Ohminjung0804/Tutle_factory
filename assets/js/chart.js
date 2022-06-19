@@ -1,4 +1,44 @@
+"use strict";
 
+// 해당 유저 날짜 스트레칭 조회
+let user_day_cure = function (date) {
+  $(document).ready(function () {
+      $.ajax({
+          type: "GET",
+          url: `http://107.21.77.37/cure/date?user_email=${localStorage.getItem('key')}&date=${date}`,
+
+          //전달할 때 사용되는 파라미터 변수명
+          // 이 속성을 생략하면 callback 파라미터 변수명으로 전달된다.
+          success: function (data, textStatus, jqXHR) {
+              console.log('success');
+              stretchs = data;  // 전역변수 생성
+              // console.log(JSON.parse(data[0]));
+              console.log(stretchs)
+              // console.log(JSON.parse(data[0]));
+              chart_data(); // 차트 데이터 넣기 
+          },
+          complete: function (d) {
+              console.log('d')
+          },
+          error: function (xhr, textStatus, error) {
+              console.log(xhr.responseText);
+              console.log(textStatus);
+              console.log(error);
+          }
+      });
+  });
+}
+
+
+// 오늘 날짜 구하기
+function getToday() {
+  var date = new Date();
+  var year = date.getFullYear();
+  var month = ("0" + (1 + date.getMonth())).slice(-2);
+  var day = ("0" + date.getDate()).slice(-2);
+
+  return year + "-" + month + "-" + day;
+}
 // function circle_chart(){
 //     let num1 = 2478;
 //     new Chart(document.getElementById("pie-chart"), {
@@ -155,7 +195,43 @@ function line_chart(today, best){
     config
   );
 }
+
+// 차트에 데이터 넣기
+function chart_data() {
+  console.log("chart")
+  let one = stretchs.filter(data => data.stretch==1).map((data)=> data.status);
+  let two = stretchs.filter(data => data.stretch==2).map((data)=>data.status);
+  let three = stretchs.filter(data => data.stretch==3).map((data)=>data.status);
+
+  let summing = function(arr){
+    const sum = arr.reduce((partialSum, a) => partialSum + a, 0);
+    return sum;
+  }
+  let maxing = function(arr){
+    let max = 0;
+    arr.forEach(element => {
+      if(max<element){
+        max=element;
+      }
+    });
+    return max;
+  }
+
+  let today=[summing(one),summing(two),summing(three)];
+  let best = [maxing(one),maxing(two),maxing(three)];
+  line_chart(today,best);
+  // let two = stretchs.filter((num, index, arr) => {
+  //     console.log(num, index, arr)
+  // })
+
+  // let three = numbers.filter((num, index, arr) => {
+  //     console.log(num, index, arr)
+  // })
+  // console.log(one,two,three);
+}
+
 // circle_chart();
-let today=[16,23,10];
-let best = [6,18,5];
-line_chart(today,best);
+
+let thisday = getToday();
+console.log(thisday);
+user_day_cure(thisday);
