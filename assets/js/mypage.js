@@ -176,20 +176,40 @@ function name_info() {
     return name
 }
 
+let my = ["거북이",60, 2];
+let user = [["거북이2", 50,2],["거북이3", 70, 4]];
 // progress 진행도 표시
-function progressMove(_cnt_date) {
-    const d_day = _cnt_date;
-    console.log(d_day);
+function my_progressMove(my) {
+    // const d_day = _cnt_date;
+    // console.log(d_day);
+
+    let my_profile = my[2];
+    let my_img = document.getElementById("my_progressImg");
+    // my_img.src = img;
+    if (my_profile == 1) {
+        my_img.src = '/assets/images/progress_tutle1.png';
+    } else if (my_profile == 2) {
+        my_img.src = '/assets/images/progress_tutle2.png';
+    } else if (my_profile == 3) {
+        my_img.src = '/assets/images/progress_tutle3.png';
+    } else if (my_profile == 4) {
+        my_img.src = '/assets/images/progress_tutle4.png';
+    }
 
     i = 0;
     if (i == 0) {
         i = 1;
+        
+        var my_name = document.getElementById("my_name");
+        my_name.innerHTML = my[0];
+        
+
         var elem = document.getElementById("myBar");
         var imgDiv = document.getElementById("progressImgDiv");
         var imgDivW = 0;
         var width = 0;
         var id = setInterval(frame, 50);
-
+        console.log("asdf");
         function frame() {
             if (width >= d_day) {
                 clearInterval(id);
@@ -203,6 +223,58 @@ function progressMove(_cnt_date) {
             }
         }
     }
+}
+
+function user_progressMove(user){
+    i = 0;
+    if (i == 0) {
+        i = 1;
+
+        let parent = document.getElementById('parent-div');
+
+        let progressImgDiv_user = document.createElement('div');
+        progressImgDiv_user.appendChild(parent);
+
+        let rank_user = document.createElement('div');
+        rank_user.appendChild(progressImgDiv_user);
+        rank_user.classList.add('rank_user');
+
+        let user_progressImg = document.createElement('img');
+        user_progressImg.appendChild(rank_user);
+        progressImg.id = 'user_progressImg';
+        
+        console.log(user[2])
+        if (user[2] == 1) {
+            user_progressImg.src = '/assets/images/progress_tutle1.png';
+        } else if (user[2] == 2) {
+            user_progressImg.src = '/assets/images/progress_tutle2.png';
+        } else if (user[2] == 3) {
+            user_progressImg.src = '/assets/images/progress_tutle3.png';
+        } else if (user[2] == 4) {
+            user_progressImg.src = '/assets/images/progress_tutle4.png';
+        }
+
+        // var elem = document.getElementById("myBar");
+        // var imgDiv = document.getElementById("progressImgDiv");
+        // var imgDivW = 0;
+        var width = 0;
+        var id = setInterval(frame, 50);
+
+        function frame() {
+            if (width >= d_day) {
+                clearInterval(id);
+                i = 0;
+            } else {
+                width++;
+
+                progressImgDiv_user.style.width = width + "%";
+                // elem.innerHTML = width + "%";
+                user_progressImg.style.width = width + "%";
+            }
+        }
+            
+    }
+    
 }
 
 // 번호구분하여 프로필 이미지 변환
