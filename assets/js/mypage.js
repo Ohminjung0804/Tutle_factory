@@ -133,6 +133,7 @@ function save_info() {
     // 수정함수 호출
     user_email = localStorage.getItem('key');
     edit_turtle(user_email, name, char);
+
 }
 
 function name_info() {

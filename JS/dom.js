@@ -18,6 +18,12 @@ function getCookie(key) {
     return result;
 }
 
+ // When the user clicks anywhere outside of the modal, close it
+ window.onclick = function (event) {
+     if (event.target == modal) {
+         modal.style.display = "none";
+     }
+ }
 
 // 수정창 기본 데이터 넣기
 function modify_data(){
@@ -33,8 +39,13 @@ function domcheck(){
     if(user_id){
         logintag.innerHTML = `${user_id}`;
     }else{
-        let s = `<a href="./login.html">Login</a>`;
+        let s = `<button id="myBtn">Login</button>`;
         logintag.innerHTML = s;
+        
+        var btn = document.getElementById("myBtn");
+        btn.onclick = function () {
+            modal.style.display = "block";
+        }
     };
 }
 domcheck();
