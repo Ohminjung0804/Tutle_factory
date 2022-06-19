@@ -59,10 +59,11 @@
         <div class="modal-content">
             <span class="close">&times;</span>
             <h1>Login</h1>
-            <p>로그인을 하고 거북목 치료를 함께해요!</p>
-            <a id="kakao-login-btn">
+			<img id="cute_turtle" src="/assets/images/cute_turtle.png">
+            <a id="kakao-login-btns">
                 <img src="assets/images/login/kakao_login_large_narrow.png">
             </a>
+            <p>로그인을 하고 거북목 치료를 함께해요!</p>
         </div>
 
     </div>
@@ -499,7 +500,8 @@
 						setCookie("best",data.best,100);
 						setCookie("created",data.created,100);
 						console.log(document.cookie);
-						$('.result').html('dfdjflks' + data1.email);
+						window.location.href='/mypage.html'
+
 					},
 					complete: function (d) {
 						console.log('d')
@@ -517,7 +519,7 @@
 		console.log(Kakao.isInitialized());
 
 		Kakao.Auth.createLoginButton({
-			container: '#kakao-login-btn',
+			container: '#kakao-login-btns',
 			success: function (authObj) {
 				Kakao.API.request({
 					url: '/v2/user/me',
@@ -540,7 +542,6 @@
 						
 						// 거북이 생성하기
 						create_turtle(email);
-						window.location.href='/mypage.html'
 					},
 					fail: function (error) {
 						alert(
