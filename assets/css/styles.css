@@ -578,6 +578,7 @@
   border: 1px solid #888;
   width: 500px;
   height: 400px;
+  border-radius: 30px;
   /* Could be more or less, depending on screen size */
 }
 
@@ -596,18 +597,32 @@
   cursor: pointer;
 }
 
+.modal-content{
+  text-align: center;
+}
+
 .modal-content h1{
-  text-align: center; 
+  margin-top: -5%;
 }
+
 .modal-content p{
-  text-align: center; 
-  margin-top: 11%;
+  font-size: 12px;
+  margin-top: 3%;
 }
-#kakao-login-btn{
-  margin-left: 10%;
-}
-#kakao-login-btn:hover{
+
+#kakao-login-btns:hover{
   cursor: pointer;
+}
+
+#cute_turtle{
+  margin-top: 5%;
+  margin-left: 40%;
+  width: 80px;
+}
+
+#kakao-login-btns img{
+  margin-top: 5%;
+  width: 300px;
 }
 
 /* end modal */

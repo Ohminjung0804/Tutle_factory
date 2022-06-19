@@ -195,11 +195,12 @@ function mypage_data(){
     const name = document.getElementById("show-name");
     const start = document.getElementById("start-day");
     const end = document.getElementById("end-day");
-    console.log(name,start,end)
+    console.log('name',name,start,end)
     name.innerText = getCookie("name");
     start.innerText = getCookie("created");
 
     var days = getCookie("created");
+    console.log(days)
     const strArr = days.split('-');
     const date = new Date(strArr[0], strArr[1]-1, strArr[2]);
     date.setDate(date.getDate());
