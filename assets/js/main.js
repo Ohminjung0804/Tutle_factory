@@ -291,6 +291,49 @@ function testChk(num) {
         getClass.style.display = 'inline-block';
     }
 }
+
+// 거북 역사관
+let user = [[1,'거북1','2020-03-23'],[3,'거북2','2020-04-03'],[2,'거북3','2020-04-13'],[3,'거북4','2020-04-22'],[3,'거북5','2020-05-01'],[3,'거북6','2020-05-10']]
+function history(user){
+    let history_div = document.getElementById('history-div');
+    for(let i = 0; i<= user.length; i++){
+
+        
+        let history_ul = document.createElement('ul');
+        history_ul.id = 'history-ul';
+        history_div.appendChild(history_ul);
+
+        let img_li = document.createElement('li');
+        let name_li = document.createElement('li');
+        let date_li = document.createElement('li');
+        let user_img = document.createElement('img');
+        history_ul.appendChild(img_li);
+        history_ul.appendChild(name_li);
+        history_ul.appendChild(date_li);
+        img_li.appendChild(user_img);
+
+
+        for(let j = 0; j<user[i].length; j++){
+            console.log(user[i][j]);
+            if(j == 0){
+                if(user[i][j] == 1){
+                    user_img.src = 'assets/images/progress_tutle1.png';
+                }else if(user[i][j] == 2){
+                    user_img.src = 'assets/images/progress_tutle2.png';
+                }else if(user[i][j] == 3){
+                    user_img.src = 'assets/images/progress_tutle3.png';
+                }else if(user[i][j] == 4){
+                    user_img.src = 'assets/images/progress_tutle4.png';
+                }
+            }else if(j == 1){
+                name_li.innerHTML = user[i][1];
+            }else if(j == 2){
+                date_li.innerHTML = user[i][2];
+            }
+        }
+    }
+}
+
 // //최고기록 text
 // function bestRecord(num) {
 //     let idName = 'best-record' + num;
@@ -300,6 +343,7 @@ function testChk(num) {
 //     recordText.style.display = 'inline-block';
 // }
 ani();
+history(user);
 // bestRecord(2);
 // 오늘 한 스트레칭 체크표시하기
 let day = getToday();

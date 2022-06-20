@@ -55,7 +55,56 @@
     transform: translateZ(0);
   }
 }
-
+/* 거북 역사관 */
+.scroll-div{
+  overflow: auto;
+  height: 500px;
+  /* margin-top: 100px; */
+  margin-top: 0px;
+  /* background-color: #d7f6e4; */
+}
+.scroll-div::-webkit-scrollbar{
+  width: 10px;
+  background-color: #fff;
+}
+.scroll-div::-webkit-scrollbar-thumb{
+  width: 10px;
+  background-color: #dbdbdb;
+  border-radius: 5px;
+}
+#history-ul > li{
+  display: inline-block;
+  margin-right: 110px;
+  margin-bottom: 50px;
+  font-size: larger;
+  color: #075427;
+}
+#history-ul-top{
+  margin-top: 100px;
+}
+#history-ul-top > li{
+  display: inline-block;
+  /* margin-left: 20px; */
+  margin-right: 120px;
+  margin-bottom: 50px;
+  font-size: larger;
+  color: #373737;
+  font-size: large;
+  font-weight:bold;
+}
+#history-ul > li:last-child{
+  margin-right: 0px;
+}
+#history-ul-top > li:last-child{
+  margin-right: 0px;
+}
+#history-ul > li > img{
+  width: 60px;
+  /* height: 60px; */
+}
+#history_userImg{
+  display: inline-block;
+}
 /* 스트레칭 확인 체크 */
 #testchk1 {
   display: none;
