@@ -2,7 +2,8 @@
 // import { get_turtle, edit_turtle } from "../../JS/turtles.js";
 // 수정하기
 // 거북이 정보 수정
-let stretchs = []
+let users =[] // 거북이경주 유저 데이터들
+let call_cnt = 0;
 
 function setCookie(key, value, expiredays) {
     var todayDate = new Date();
@@ -29,19 +30,24 @@ function getCookie(key) {
 }
 
 // 해당 유저 스트레칭 조회
-let user_cure = function () {
+let user_cure = function (user_email,index,isEnd) {  //해당 유저 이메일, index
     $(document).ready(function () {
         $.ajax({
             type: "GET",
-            url: `http://107.21.77.37/cure/user?user_email=${localStorage.getItem('key')}`,
+            url: `http://107.21.77.37/cure/user?user_email=`+user_email,
 
             //전달할 때 사용되는 파라미터 변수명
             // 이 속성을 생략하면 callback 파라미터 변수명으로 전달된다.
             success: function (data, textStatus, jqXHR) {
                 console.log('success');
-                console.log('유저꺼',data);
-                stretchs = data;
-                count_date();
+                // stretchs.push(data);
+                // console.log('사용자들 : ',stretchs);
+                count_date(index,data);
+                call_cnt+=1;
+                if(call_cnt===isEnd){
+                    // 프로그래스 데이터 표시
+                    call_progress();
+                }
                 // console.log(JSON.parse(data[0]));
             },
             complete: function (d) {
@@ -85,6 +91,34 @@ let edit_turtle = function (email, name, num) {
                 setCookie("created", data.created, 100);
                 console.log(document.cookie);
                 // console.log(JSON.parse(data[0]));
+            },
+            complete: function (d) {
+                console.log('d')
+            },
+            error: function (xhr, textStatus, error) {
+                console.log(xhr.responseText);
+                console.log(textStatus);
+                console.log(error);
+            }
+        });
+    });
+}
+
+// 같은 날짜에 시작한 유저들 가져오기
+let get_start_turtle = function () {
+    var data1 = null
+    $(document).ready(function () {
+        $.ajax({
+            type: "GET",
+            url: `http://107.21.77.37/turtle/date?user_email=${localStorage.getItem('key')}`,
+
+            //전달할 때 사용되는 파라미터 변수명
+            // 이 속성을 생략하면 callback 파라미터 변수명으로 전달된다.
+            success: function (data, textStatus, jqXHR) {
+                console.log('success');
+                console.log('데이터',data);
+                // console.log(JSON.parse(data[0]));
+                getProgressData(data);
             },
             complete: function (d) {
                 console.log('d')
@@ -157,6 +191,7 @@ function dateCalcul(_sdate) {
     document.getElementById('end-day').textContent = eyear + '년 ' + emonth + '월 ' + eday + '일';
 }
 
+// 수정하기 눌렀을경우
 function save_info() {
     let name = name_info()
     const char = $('input[name="chk_char"]:checked').val();
@@ -176,13 +211,26 @@ function name_info() {
     return name
 }
 
-let my = ["거북이",60, 2];
-let user = ["거북이2", 50,1];
-let user2 = ["거북이3", 10,4];
-my_progressMove(my);
-user_progressMove(user);
-user_progressMove(user2);
+// let my = ["거북이",60, 2];
+// let user = ["거북이2", 50,1];
+// let user2 = ["거북이3", 10,4];
+// my_progressMove(my);
+// user_progressMove(user);
+// user_progressMove(user2);
 // progress 진행도 표시
+
+// 유저들 진행도 거북이경주에 표시시키기
+function call_progress(){
+    console.log('now',users);
+    // data : [유저이름, 진행율, 캐릭터, 이메일]
+    users.forEach((data,i)=>{
+        if(i===0){
+            my_progressMove(data); // 사용자일경우
+        }else{
+            user_progressMove(data); // 다른 사용자일경우
+        }
+    });
+}
 function my_progressMove(my) {
     // const d_day = _cnt_date;
     // console.log(d_day);
@@ -291,6 +339,31 @@ function user_progressMove(user){
     
 }
 
+// 같은 날짜에 시작한 사용자들 가져와서 해당 스트레칭들 가져오기
+function getProgressData(turtles){
+    users = turtles.map((data)=> [data.name,0,data.num,data.email]); // 거북이이름, 진행도초기화, 캐릭터번호
+    let emails = turtles.map((data) => data.email);
+
+    emails.forEach((element,i) => {
+        user_cure(element,i,emails.length);
+    });
+
+}
+
+// 한 날 카운트하기
+function count_date(index, datas){  // 해당배열번호, 데이터
+    let days = datas.map((data)=> data.created);
+    const set = new Set(days);
+    const uniqueArr = [...set]; // 중복제거
+
+    users[index][1]= (uniqueArr.length); // 진행도 해당 유저에 넣어주기
+    // let days = stretchs.map((data)=> data.created);
+    // const set = new Set(days);
+    // const uniqueArr = [...set]; // 중복제거
+
+    // progressMove(uniqueArr.length); // 진행도 표시
+}
+
 // 번호구분하여 프로필 이미지 변환
 function char_img(num) {
     if (num == 1) {
@@ -302,15 +375,6 @@ function char_img(num) {
     } else if (num == 4) {
         document.getElementById('profile-img').src = '/assets/images/profile/4.png';
     }
-}
-
-// 한 날 카운트하기
-function count_date(){
-    let days = stretchs.map((data)=> data.created);
-    const set = new Set(days);
-    const uniqueArr = [...set]; // 중복제거
-
-    progressMove(uniqueArr.length); // 진행도 표시
 }
 
 // 마이페이지 첫화면 데이터 넣기
@@ -337,7 +401,8 @@ function mypage_data() {
     dateCalcul(days);   // 날짜 계산하기
     countDownTimer(dateString); // 남은 일수 입력
     char_img(getCookie("num")); // 캐릭터 이미지 넣기
-    user_cure(); // user 데이터 가져와서 진행도 표시
+    // user_cure(); // user 데이터 가져와서 진행도 표시
+    get_start_turtle(); // 거북이경주
 }
 
 mypage_data();
