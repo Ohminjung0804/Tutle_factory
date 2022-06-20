@@ -51,7 +51,7 @@
 
 </head>
 
-<body data-spy="scroll" data-target=".navbar-collapse" >
+<body data-spy="scroll" data-target=".navbar-collapse">
 
 	<!-- The Modal -->
     <div id="myModal" class="modal">
@@ -269,8 +269,70 @@
 		</div>
 		<!-- End off featured slider -->
 		</section>
-		
-
+		<br />
+		<br />
+		<br />
+		<br />
+		<section id="history" class="history m-top-100">
+			<div class="container text-center">
+				<div class="main_featured m-top-100">
+					<div class="col-sm-12">
+						<div class="head_title text-center">
+							<h2>거북 역사관</h2>
+							<div class="separator_auto"></div>
+								<p style="font-size: smaller;">거북 역사관이란?<br>매일 꾸준히 스트레칭을 하여 100일 프로젝트를 완료한 사용자들을 보여줍니다.</p>
+								<ul id="history-ul-top">
+									<li>프로필</li>
+									<li>이름</li>
+									<li>완주 날짜</li>
+								</ul>
+								<div class="scroll-div">
+									<div class="history-div" id="history-div">
+										
+										<!-- <ul id="history-ul">
+											<li><img src="assets/images/progress_tutle1.png"></li>
+											<li>ㅠ</li>
+											<li>c</li>
+										</ul>
+									</div>
+									<div class="history-div">
+										<ul id="history-ul">
+											<li><img src="assets/images/progress_tutle2.png"></li>
+											<li>b</li>
+											<li>c</li>
+										</ul>
+									</div>
+									<div class="history-div">
+										<ul id="history-ul">
+											<li><img src="assets/images/progress_tutle3.png"></li>
+											<li>b</li>
+											<li>c</li>
+										</ul>
+									</div>
+									<div class="history-div">
+										<ul id="history-ul">
+											<li><img src="assets/images/progress_tutle4.png"></li>
+											<li>b</li>
+											<li>c</li>
+										</ul>
+									</div>
+									<div class="history-div">
+										<ul id="history-ul">
+											<li><img src="assets/images/progress_tutle2.png"></li>
+											<li>b</li>
+											<li>c</li>
+										</ul> -->
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<br />
+			<br />
+		</section>
+		<!--End off About section -->
 		<br />
 		<br />
 		<br />
@@ -416,27 +478,30 @@
 	<!-- 챗봇 화면 그리기 -->
 	<div class="chatbot">
 		<div class="chat-container" style="display: none;">
-			<div class="qna_list" style="display: none;">
+			<div class="qna_list">
 				<ul>
-					<li style="border: none;" class="ask ask1" id="0">거북목치료센터 이용방법(가이드)</li>
-					<li class="ask ask6" id="5">거북목치료센터란 무엇인가요?</li>
-					<li class="ask ask2" id="1">거북목이란 무엇인가요?</li>
-					<li class="ask ask3" id="2">거북목 증상에 대해 더 알고싶어요.</li>
-					<li class="ask ask4" id="3">거북목은 무엇이 원인인지 궁금해요.</li>
-					<li class="ask ask5" id="4">일자목과 거북목의 차이는 무엇인가요?</li>
+					<li style="border: none;">스트레칭은 어떻게 하나요?</li>
+					<li>문의하기</li>
+					<li>이용약관 확인하기</li>
+					<li>추가하고 싶은 스트레칭</li>
+					<li>거북이 캐릭터 변경 방법</li>
+					<li>거북목치료센터 설명</li>
 				</ul>
 			</div>
-			<div class="chat_screen" >
-				<div class="chat-header"><img src="./assets/images/robot.png" id="header-robot-icon"alt="로봇"> 챗봇에게 물어보세요!</div>
+			<div class="chat_screen">
+				<div class="chat-header"><img src="./assets/images/robot.png" id="header-robot-icon"alt="로봇"> 챗봇에게 물어보삼</div>
 				<ul class="chat-text">
 					<li class="content left">
 						<img src="./assets/images/robot.png" alt="로봇" width="25px" style="margin-right: 2px;">
 						<div class="chat-li"> 궁금하신 점이 있나요? </div>
 					</li>
+					<li class="content right">
+						<div class="chat-li">그냥,,,, 스트레칭은 어떻게하는지 궁금한것 같기도하고</div>
+					</li>
 				</ul>
-				<div class="input-row" style="border-radius: 30px;">
-					<input type="text" name="input" id="input-ask" placeholder="your question here">
-					<span class="submit" onclick="putText()">
+				<div class="input-row">
+					<input type="text" name="input" id="input-ask">
+					<span class="submit">
 						<img src="./assets/images/submit.png" alt="전송버튼" id="chat-submit-icon">
 					</span>
 				</div>
@@ -446,16 +511,14 @@
 		<img src="./assets/images/robot.png" id="robot-icon" alt="챗봇 버튼" onclick="show_chat()">
 	</div>
 
-
 	<!-- 챗봇 -->
 	<script >
 		let show = true;
 		function show_chat(){
-			console.log(show);
 			if(show){
-				document.querySelector(".chat-container").style.display = 'none';
+				document.querySelector(".chat-container").style.display = 'none'
 			}else{
-				document.querySelector(".chat-container").style.display = '';
+				document.querySelector(".chat-container").style.display = ''
 			}
 			show = !show;
 		}
@@ -508,10 +571,9 @@
 	<script src="assets/js/jquery.collapse.js"></script>
 	<script src="assets/js/bootsnav.js"></script>
 
-	<!-- 챗봇 -->
-	<script src="./assets/js/chatbot.js"></script>
 
-	<!-- Font Awesome icons (free version)-->
+<!-- 챗봇 -->
+<script src="./assets/js/chatbot.js"></script>	<!-- Font Awesome icons (free version)-->
 	<script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
 
 
