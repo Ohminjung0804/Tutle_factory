@@ -155,7 +155,7 @@ async function predict() {
 
         event.returnValue = "나가겠습니까?";
         // 전유리 함수 호출
-        if(creatchk===true){
+        if(creatchk===true && cnt!=0){
             create_cure(stretchingNum,cnt);
             creatchk= false;
         }
