@@ -37,6 +37,7 @@
 	<!--Theme custom css -->
 	<link rel="stylesheet" href="assets/css/style.css">
 	<link rel="stylesheet" href="assets/css/styles.css">
+	<link rel="stylesheet" href="assets/css/chatbot.css">
 	<!--<link rel="stylesheet" href="assets/css/colors/maron.css">-->
 
 	<!--Theme Responsive css-->
@@ -168,8 +169,7 @@
 							<p>거북목 자세는 아래쪽 목뼈는 과하게 구부러지는 방향으로 배열되고 위쪽 목뼈와 머리뼈는 머리를 젖히는 방향으로 배열되어 전체적으로 목뼈 전만이 소실되고 머리가 숙여지지 않은 상태에서 고개가 앞으로 빠진 자세이다. 
 								<br><br>
 								거북목 치료 서비스는 매일 스트레칭을 유도하며 습관을 만들어 거북목 완화에 도움을 주고 머신러닝을 활용하여 자신의 거북목 여부를 체크할 수 있다.
-
-									</p>
+							</p>
 
 							<div class="about_btns m-top-40">
 								<h4>Test Result</h4>
@@ -413,6 +413,56 @@
 		</section>
 	</section>
 
+	<!-- 챗봇 화면 그리기 -->
+	<div class="chatbot">
+		<div class="chat-container" style="display: none;">
+			<div class="qna_list">
+				<ul>
+					<li style="border: none;">스트레칭은 어떻게 하나요?</li>
+					<li>문의하기</li>
+					<li>이용약관 확인하기</li>
+					<li>추가하고 싶은 스트레칭</li>
+					<li>거북이 캐릭터 변경 방법</li>
+					<li>거북목치료센터 설명</li>
+				</ul>
+			</div>
+			<div class="chat_screen">
+				<div class="chat-header"><img src="./assets/images/robot.png" id="header-robot-icon"alt="로봇"> 챗봇에게 물어보삼</div>
+				<ul class="chat-text">
+					<li class="content left">
+						<img src="./assets/images/robot.png" alt="로봇" width="25px" style="margin-right: 2px;">
+						<div class="chat-li"> 궁금하신 점이 있나요? </div>
+					</li>
+					<li class="content right">
+						<div class="chat-li">그냥,,,, 스트레칭은 어떻게하는지 궁금한것 같기도하고</div>
+					</li>
+				</ul>
+				<div class="input-row">
+					<input type="text" name="input" id="input-ask">
+					<span class="submit">
+						<img src="./assets/images/submit.png" alt="전송버튼" id="chat-submit-icon">
+					</span>
+				</div>
+			</div>
+		</div>
+
+		<img src="./assets/images/robot.png" id="robot-icon" alt="챗봇 버튼" onclick="show_chat()">
+	</div>
+
+	<!-- 챗봇 -->
+	<script >
+		let show = true;
+		function show_chat(){
+			if(show){
+				document.querySelector(".chat-container").style.display = 'none'
+			}else{
+				document.querySelector(".chat-container").style.display = ''
+			}
+			show = !show;
+		}
+
+	</script>
+
 	<!-- modal script -->
 	<script>
         // Get the modal
@@ -473,7 +523,7 @@
 		function setCookie(key, value, expiredays) {
 			var todayDate = new Date();
 			todayDate.setDate(todayDate.getDate() + expiredays);
-			document.cookie = key + "=" + escape(value) + "; path=/; expires=" + todayDate.toGMTString() + ";"
+			document.cookie = key + "=" + escape(value) + "; path=/; expires=" + todayDate.toGMTString() + ";"
 		}
 
 		let create_turtle = function (email) {

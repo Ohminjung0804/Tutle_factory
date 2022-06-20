@@ -152,6 +152,7 @@ async function predict() {
         labelContainer.innerHTML = "우측을 바라보고 서주세요.";
     }
     
+    percent = turtle;
     // finally draw the poses
     drawPose(pose);
 }

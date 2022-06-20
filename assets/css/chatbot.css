@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap');
+
+.chatbot{
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    right: 80px;
+    bottom: 50px;
+    align-items: flex-end;
+    align-content: flex-end;
+}
+.chat-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: baseline;
+    align-items: flex-end;
+    align-content: flex-end;
+    position: relative;
+    top: 20px;
+}
+
+.chat-container .chat-header{
+    background-color: rgb(93, 120, 91);
+    height: 8%;
+    color: white;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.chat-container .chat-header #header-robot-icon{
+    width: 30px;
+    padding: 3px;
+}
+
+.qna_list{
+    background-color: rgb(255, 255, 255);
+    height: auto;
+    width: 270px;
+    border: 1px solid black;
+    cursor: pointer;
+}
+.qna_list ul > li{
+    padding: 10px;
+    color: black;
+    font-size: 15px;
+    border-top: 1px solid rgb(35, 35, 35);
+    font-family: 'Noto Sans KR', sans-serif;
+}
+#robot-icon{
+    width: 100px;
+    cursor: pointer;
+}
+
+.chat_screen{
+    display: flex;
+    flex-direction: column;
+    height: 600px;
+    background-color: rgb(242, 242, 242);
+    width: 350px;
+    border: 1px solid black;
+}
+
+.chat_screen .chat-text{
+    height: 90%;
+    padding: 10px;
+    overflow-y: scroll;
+    width: 100%;
+}
+
+.chat-text::-webkit-scrollbar {
+    width: 10px;  /* 스크롤바의 너비 */
+}
+
+.chat-text::-webkit-scrollbar-thumb {
+    height: 30%; /* 스크롤바의 길이 */
+    background: #485a46; /* 스크롤바의 색상 */
+    
+    border-radius: 10px;
+}
+
+.chat-text::-webkit-scrollbar-track {
+    background: rgba(33, 122, 244, .1);  /*스크롤바 뒷 배경 색상*/
+}
+
+.chat_screen .input-row{
+    background-color: rgb(255, 255, 255);
+    border-top: 1px solid darkblue;
+    height: 8%;
+    display: flex;
+    width: 100%;
+}
+.chat_screen .chat-text .content{
+    width: 100%;
+}
+
+.chat_screen .chat-text .content .chat-li{
+    resize: both;
+    padding: 5px;
+    margin-top: 10px;
+    border-radius: 5px;
+    display: inline-block;
+    max-width: 250px;
+    text-align: left;
+    border: 1px solid rgb(126, 126, 126);
+    font-family: 'Noto Sans KR', sans-serif;
+}
+.left{
+    text-align: left;
+}
+.right{
+    text-align: right;
+}
+.chat_screen .chat-text .left .chat-li{
+    background-color: rgb(74, 74, 247);
+    color: white;
+}
+.chat_screen .chat-text .right .chat-li{
+    background-color: rgb(255, 255, 255);
+    color: rgb(55, 55, 55);
+}
+
+.chat_screen .input-row #input-ask{
+    border: 0px solid;
+    width: 90%;
+}
+.chat_screen .input-row .submit{
+    background-color: rgb(255, 236, 236);
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+.chat_screen .input-row #chat-submit-icon{
+    width: 25px;
+}
