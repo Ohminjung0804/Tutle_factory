@@ -51,7 +51,7 @@
 
 </head>
 
-<body data-spy="scroll" data-target=".navbar-collapse">
+<body data-spy="scroll" data-target=".navbar-collapse" >
 
 	<!-- The Modal -->
     <div id="myModal" class="modal">
@@ -136,7 +136,7 @@
 
 		<!--Home Sections-->
 
-		<section id="hello" class="home bg-mega">
+		<section id="hello" class="home bg-mega" onclick="show_chat()">
 			<div class="main-btn">
 				<a class="btn btn-default btn-my" href="#service">스트레칭 하러가기</a>
 				<a class="btn btn-default btn-my" href="/mypage.html" style="margin-left:5px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;마이페이지&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
@@ -416,30 +416,27 @@
 	<!-- 챗봇 화면 그리기 -->
 	<div class="chatbot">
 		<div class="chat-container" style="display: none;">
-			<div class="qna_list">
+			<div class="qna_list" style="display: none;">
 				<ul>
-					<li style="border: none;">스트레칭은 어떻게 하나요?</li>
-					<li>문의하기</li>
-					<li>이용약관 확인하기</li>
-					<li>추가하고 싶은 스트레칭</li>
-					<li>거북이 캐릭터 변경 방법</li>
-					<li>거북목치료센터 설명</li>
+					<li style="border: none;" class="ask ask1" id="0">거북목치료센터 이용방법(가이드)</li>
+					<li class="ask ask6" id="5">거북목치료센터란 무엇인가요?</li>
+					<li class="ask ask2" id="1">거북목이란 무엇인가요?</li>
+					<li class="ask ask3" id="2">거북목 증상에 대해 더 알고싶어요.</li>
+					<li class="ask ask4" id="3">거북목은 무엇이 원인인지 궁금해요.</li>
+					<li class="ask ask5" id="4">일자목과 거북목의 차이는 무엇인가요?</li>
 				</ul>
 			</div>
-			<div class="chat_screen">
-				<div class="chat-header"><img src="./assets/images/robot.png" id="header-robot-icon"alt="로봇"> 챗봇에게 물어보삼</div>
+			<div class="chat_screen" >
+				<div class="chat-header"><img src="./assets/images/robot.png" id="header-robot-icon"alt="로봇"> 챗봇에게 물어보세요!</div>
 				<ul class="chat-text">
 					<li class="content left">
 						<img src="./assets/images/robot.png" alt="로봇" width="25px" style="margin-right: 2px;">
 						<div class="chat-li"> 궁금하신 점이 있나요? </div>
 					</li>
-					<li class="content right">
-						<div class="chat-li">그냥,,,, 스트레칭은 어떻게하는지 궁금한것 같기도하고</div>
-					</li>
 				</ul>
-				<div class="input-row">
-					<input type="text" name="input" id="input-ask">
-					<span class="submit">
+				<div class="input-row" style="border-radius: 30px;">
+					<input type="text" name="input" id="input-ask" placeholder="your question here">
+					<span class="submit" onclick="putText()">
 						<img src="./assets/images/submit.png" alt="전송버튼" id="chat-submit-icon">
 					</span>
 				</div>
@@ -449,14 +446,16 @@
 		<img src="./assets/images/robot.png" id="robot-icon" alt="챗봇 버튼" onclick="show_chat()">
 	</div>
 
+
 	<!-- 챗봇 -->
 	<script >
 		let show = true;
 		function show_chat(){
+			console.log(show);
 			if(show){
-				document.querySelector(".chat-container").style.display = 'none'
+				document.querySelector(".chat-container").style.display = 'none';
 			}else{
-				document.querySelector(".chat-container").style.display = ''
+				document.querySelector(".chat-container").style.display = '';
 			}
 			show = !show;
 		}
@@ -508,6 +507,9 @@
 	<script src="assets/js/slick.min.js"></script>
 	<script src="assets/js/jquery.collapse.js"></script>
 	<script src="assets/js/bootsnav.js"></script>
+
+	<!-- 챗봇 -->
+	<script src="./assets/js/chatbot.js"></script>
 
 	<!-- Font Awesome icons (free version)-->
 	<script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>

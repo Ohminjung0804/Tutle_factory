@@ -1,5 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap');
 
+:root{
+    --base-green: #6D9B5E;
+    --dark-green: #77AA67;
+    --hover-green: #e6ffde;
+    --scroll-green: #E4EFE7;
+
+    --chat-bot-color:#386642;
+    --chat-user-color:#ffffff;
+
+    --submit-btn-color:#BFD8B7;
+    --border-gray:rgb(166, 166, 166);
+}
+
 .chatbot{
     display: flex;
     flex-direction: column;
@@ -20,11 +33,13 @@
 }
 
 .chat-container .chat-header{
-    background-color: rgb(93, 120, 91);
+    background-color: var(--base-green);
     height: 8%;
     color: white;
     padding: 5px;
     margin-bottom: 10px;
+    padding-top: 10px;
+    padding-left: 10px;
 }
 
 .chat-container .chat-header #header-robot-icon{
@@ -33,18 +48,24 @@
 }
 
 .qna_list{
-    background-color: rgb(255, 255, 255);
+    background-color: #FDFAF6;
     height: auto;
     width: 270px;
-    border: 1px solid black;
+    border: 1px solid var(--border-gray);
     cursor: pointer;
+    position: relative;
+    bottom: 30px;
 }
 .qna_list ul > li{
     padding: 10px;
     color: black;
     font-size: 15px;
-    border-top: 1px solid rgb(35, 35, 35);
+    border-top: 1px solid var(--border-gray);
     font-family: 'Noto Sans KR', sans-serif;
+}
+.qna_list ul > li:hover{
+    background-color:var(--base-green);
+    color: white;
 }
 #robot-icon{
     width: 100px;
@@ -56,8 +77,11 @@
     flex-direction: column;
     height: 600px;
     background-color: rgb(242, 242, 242);
-    width: 350px;
-    border: 1px solid black;
+    width: 380px;
+    /* border: 1px solid black; */
+    border-radius: 20px;
+    border-bottom: 1px solid rgb(146, 146, 146);
+    overflow: hidden;
 }
 
 .chat_screen .chat-text{
@@ -73,21 +97,21 @@
 
 .chat-text::-webkit-scrollbar-thumb {
     height: 30%; /* 스크롤바의 길이 */
-    background: #485a46; /* 스크롤바의 색상 */
+    background: var(--dark-green); /* 스크롤바의 색상 */
     
     border-radius: 10px;
 }
 
 .chat-text::-webkit-scrollbar-track {
-    background: rgba(33, 122, 244, .1);  /*스크롤바 뒷 배경 색상*/
+    background: var(--scroll-green);  /*스크롤바 뒷 배경 색상*/
 }
 
 .chat_screen .input-row{
     background-color: rgb(255, 255, 255);
-    border-top: 1px solid darkblue;
     height: 8%;
     display: flex;
     width: 100%;
+    box-shadow:500px 500px 500px;
 }
 .chat_screen .chat-text .content{
     width: 100%;
@@ -111,20 +135,22 @@
     text-align: right;
 }
 .chat_screen .chat-text .left .chat-li{
-    background-color: rgb(74, 74, 247);
+    background-color: var(--chat-bot-color);
     color: white;
 }
 .chat_screen .chat-text .right .chat-li{
-    background-color: rgb(255, 255, 255);
+    background-color: var(--chat-user-color);
     color: rgb(55, 55, 55);
 }
 
 .chat_screen .input-row #input-ask{
     border: 0px solid;
+    margin-left: 20px;
     width: 90%;
+    font-size: 15px;
 }
 .chat_screen .input-row .submit{
-    background-color: rgb(255, 236, 236);
+    background-color: var(--submit-btn-color);
     width: 20%;
     display: flex;
     justify-content: center;
@@ -133,4 +159,5 @@
 }
 .chat_screen .input-row #chat-submit-icon{
     width: 25px;
+    cursor: pointer;
 }

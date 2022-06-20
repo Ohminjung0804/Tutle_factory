@@ -37,7 +37,7 @@ function domcheck(){
     console.log(logintag);
     console.log(user_id);
     if(user_id){
-        logintag.innerHTML = `${user_id}`;
+        logintag.innerHTML = `<button id="myBtn">${user_id}</button>`;
     }else{
         let s = `<button id="myBtn">Login</button>`;
         logintag.innerHTML = s;
