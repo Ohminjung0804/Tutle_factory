@@ -104,6 +104,48 @@ let edit_turtle = function (email, name, num) {
     });
 }
 
+// 수정 ajax
+let edit_complate_turtle = function (date) {
+    console.log(email)
+    $(document).ready(function () {
+        $.ajax({
+            type: "PUT",
+            url: 'http://107.21.77.37/turtle/user?user_email=' + localStorage.getItem('key'),
+            dataType: "json",
+            accept: "application/json",
+            data: JSON.stringify({
+                "email": email,
+                "name": getCookie("name"),
+                "num": getCookie("num"),
+                "best":date,
+                "ease": getCookie("ease")
+            }),
+            //전달할 때 사용되는 파라미터 변수명
+            // 이 속성을 생략하면 callback 파라미터 변수명으로 전달된다.
+            success: function (data, textStatus, jqXHR) {
+                console.log('success');
+                console.log(data)
+                setCookie("email", data.email, 100);
+                setCookie("name", data.name, 100);
+                setCookie("num", data.num, 100);
+                setCookie("ease", data.ease, 100);
+                setCookie("best", data.best);
+                setCookie("created", data.created, 100);
+                console.log(document.cookie);
+                // console.log(JSON.parse(data[0]));
+            },
+            complete: function (d) {
+                console.log('d')
+            },
+            error: function (xhr, textStatus, error) {
+                console.log(xhr.responseText);
+                console.log(textStatus);
+                console.log(error);
+            }
+        });
+    });
+  }
+
 // 같은 날짜에 시작한 유저들 가져오기
 let get_start_turtle = function () {
     var data1 = null
@@ -219,12 +261,25 @@ function name_info() {
 // user_progressMove(user2);
 // progress 진행도 표시
 
+// 오늘 날짜 구하기
+function getToday() {
+    var date = new Date();
+    var year = date.getFullYear();
+    var month = ("0" + (1 + date.getMonth())).slice(-2);
+    var day = ("0" + date.getDate()).slice(-2);
+  
+    return year + "-" + month + "-" + day;
+  }
 // 유저들 진행도 거북이경주에 표시시키기
 function call_progress(){
     console.log('now',users);
     // data : [유저이름, 진행율, 캐릭터, 이메일]
     users.forEach((data,i)=>{
         if(i===0){
+            if(getCookie("best").length<9 && data[1] ===100){   // 수정 전이고, 완주했을때
+                let tday = getToday();
+                edit_complate_turtle(tday); // 완료날짜로 수정
+            }
             my_progressMove(data); // 사용자일경우
         }else{
             user_progressMove(data); // 다른 사용자일경우
