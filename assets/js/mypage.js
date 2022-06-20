@@ -177,7 +177,11 @@ function name_info() {
 }
 
 let my = ["거북이",60, 2];
-let user = [["거북이2", 50,2],["거북이3", 70, 4]];
+let user = ["거북이2", 50,1];
+let user2 = ["거북이3", 10,4];
+my_progressMove(my);
+user_progressMove(user);
+user_progressMove(user2);
 // progress 진행도 표시
 function my_progressMove(my) {
     // const d_day = _cnt_date;
@@ -195,23 +199,26 @@ function my_progressMove(my) {
     } else if (my_profile == 4) {
         my_img.src = '/assets/images/progress_tutle4.png';
     }
-
-    i = 0;
+    console.log(my[0]);
+    let i = 0;
+    console.log(i);
     if (i == 0) {
         i = 1;
         
         var my_name = document.getElementById("my_name");
+        
         my_name.innerHTML = my[0];
         
 
         var elem = document.getElementById("myBar");
+        let progress_percent = document.getElementById('progress_percent');
         var imgDiv = document.getElementById("progressImgDiv");
         var imgDivW = 0;
         var width = 0;
         var id = setInterval(frame, 50);
         console.log("asdf");
         function frame() {
-            if (width >= d_day) {
+            if (width >= my[1]) {
                 clearInterval(id);
                 i = 0;
             } else {
@@ -226,24 +233,31 @@ function my_progressMove(my) {
 }
 
 function user_progressMove(user){
-    i = 0;
+    let i = 0;
     if (i == 0) {
         i = 1;
-
+        
         let parent = document.getElementById('parent-div');
 
-        let progressImgDiv_user = document.createElement('div');
-        progressImgDiv_user.appendChild(parent);
+        let progressImgDiv = document.createElement('div');
+        progressImgDiv.id = 'progressImgDiv_user';
+        parent.appendChild(progressImgDiv);
 
         let rank_user = document.createElement('div');
-        rank_user.appendChild(progressImgDiv_user);
+        progressImgDiv.appendChild(rank_user);
         rank_user.classList.add('rank_user');
 
         let user_progressImg = document.createElement('img');
-        user_progressImg.appendChild(rank_user);
-        progressImg.id = 'user_progressImg';
+        user_progressImg.id = 'user_progressImg';
+        rank_user.appendChild(user_progressImg);
+
+        let user_name = document.createElement('p');
+        user_name.id = 'user_name';
+        rank_user.appendChild(user_name);
+        user_name.innerHTML = user[0];
         
-        console.log(user[2])
+        
+        console.log(parent);
         if (user[2] == 1) {
             user_progressImg.src = '/assets/images/progress_tutle1.png';
         } else if (user[2] == 2) {
@@ -261,15 +275,15 @@ function user_progressMove(user){
         var id = setInterval(frame, 50);
 
         function frame() {
-            if (width >= d_day) {
+            if (width >= user[1]) {
                 clearInterval(id);
                 i = 0;
             } else {
                 width++;
 
-                progressImgDiv_user.style.width = width + "%";
+                progressImgDiv.style.width = width + "%";
                 // elem.innerHTML = width + "%";
-                user_progressImg.style.width = width + "%";
+                // user_progressImg.style.width = width + "%";
             }
         }
             
