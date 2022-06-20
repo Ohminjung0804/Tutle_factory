@@ -163,7 +163,7 @@ function save_info() {
     console.log(char);
 
     // 수정함수 호출
-    user_email = localStorage.getItem('key');
+    let user_email = localStorage.getItem('key');
     edit_turtle(user_email, name, char);
 }
 

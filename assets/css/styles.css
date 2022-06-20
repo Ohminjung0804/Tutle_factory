@@ -678,3 +678,8 @@
   border: 1px solid lightcoral;
   display: inline-block;
 }
+
+/* 스트레칭 화면 배경 */
+.traning_body{
+  background-image: url('../images/background/background_traning.png');
+}

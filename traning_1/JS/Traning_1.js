@@ -174,19 +174,13 @@ async function predict() {
         
         event.returnValue = "나가겠습니까?";
         // 전유리 함수 호출
-        
-    });
-
-    if (cnt == 3) {
-        // 스트레칭 생성
-        // 전유리 이거 넣으면 에러 남
         if(creatchk===true && cnt!=0){
             create_cure(stretchingNum,cnt);
             creatchk= false;
         }
+        
+    });
 
-        // create_cure(stretchingNum, cnt);
-    }
 
     // 무슨 동작을 하는지 적힘
     // for (let i = 0; i < maxPredictions; i++) {
