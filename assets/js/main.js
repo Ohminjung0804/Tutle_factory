@@ -291,16 +291,16 @@ function testChk(num) {
         getClass.style.display = 'inline-block';
     }
 }
-//최고기록 text
-function bestRecord(num) {
-    let idName = 'best-record' + num;
+// //최고기록 text
+// function bestRecord(num) {
+//     let idName = 'best-record' + num;
 
-    let recordText = document.getElementById(idName);
-    console.log(recordText);
-    recordText.style.display = 'inline-block';
-}
+//     let recordText = document.getElementById(idName);
+//     console.log(recordText);
+//     recordText.style.display = 'inline-block';
+// }
 ani();
-bestRecord(2);
+// bestRecord(2);
 // 오늘 한 스트레칭 체크표시하기
 let day = getToday();
 user_day_cure(day);
