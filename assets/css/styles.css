@@ -506,14 +506,19 @@
   border-radius: 5px;
   /* margin-left: 300px; */
   margin-top: 50px;
+  text-align: center;
 }
 
 #myBar {
-  width: 60%;
-  height: 60px;
+  width: 0%;
+  height: 40px;
+  text-align: center; /* 문자들의 가운데 정렬을 해제 */
+  width: 100px;
+  /* margin: 0 auto; */
   border-radius: 5px;
   background-color: #a1d2c0;
   text-align: center;
+  
   line-height: 30px;
   color: white;
   /* position:absolute; */
@@ -537,23 +542,26 @@
   margin-bottom: 0px;
   text-align: right;
   font-size: large;
+  color: #333333;
   font-weight:bolder;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 #user_name{
   /* margin-top: 170px; */
   /* position:absolute; */
-  width: 68px;
+  width: 80px;
+  margin-bottom: 0px;
   text-align: right;
   font-size: large;
+  color: #333333;
   font-weight:bolder;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 #my_progressImg {
   
   transform: scaleX(-1);
-  height: 80px;
-  width: 80px;
+  /* height: 50px; */
+  width: 50px;
   bottom: 30px;
   /* margin-top: 170px; */
 
@@ -561,10 +569,10 @@
 #user_progressImg {
   
   transform: scaleX(-1);
-  height: 80px;
-  width: 80px;
-  bottom: 30px;
-  /* margin-top: 170px; */
+  /* height: 50px;   */
+  width: 50px;
+  bottom: 20px;
+  margin-top:  20px;
 
 }
 #progressImgDiv {
@@ -577,7 +585,8 @@
 
 }
 #progressImgDiv_user{
-  width: 40%;
+  width: 60%;
+  height: 20px;
   position: relative;
   margin-left: 15px;
   /* margin-top:30px; */
