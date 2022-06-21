@@ -178,7 +178,7 @@
 								<h4>Test Result</h4>
 								<div id="label-container"></div>
 								<button id="startbtn" class="btn btn-primary" type="button" onclick="init()">결과보기</button>
-								<button id="restartbtn" class="btn btn-primary" type="button" onClick="window.location.reload()" style="display: none;">재시작</button>
+								<button id="restartbtn" class="btn btn-primary restertbtn" type="button" onClick="window.location.reload()" style="display: none;">재시작</button>
 							</div>
 						</div>
 
@@ -217,7 +217,7 @@
 							<p>고개가 1센티미터 앞으로 빠질 때마다 목뼈에는 2~3킬로그램의 하중이 더 걸린다. 거북목인 사람들은 최고 15킬로그램까지&nbsp;&nbsp;&nbsp;&nbsp; 
 								목에 하중이 있을 수 있다. 그 결과 디스크에 가해지는 압력이 증가하여 뒷목과 어깨의 통증을 유발할 수 있다.
 							</p>
-							<p style="font-size: smaller;">이미지를 눌러 거북목 증상과 관련된 영상을 시청해보세요!</p>
+							<p style="font-size: small;">이미지를 눌러 거북목 증상과 관련된 영상을 시청해보세요!</p>
 						</div>
 					</div>
 				</div>
@@ -281,7 +281,7 @@
 						<div class="head_title text-center">
 							<h2>거북 역사관</h2>
 							<div class="separator_auto"></div>
-								<p style="font-size: smaller;">거북 역사관이란?<br>매일 꾸준히 스트레칭을 하여 100일 프로젝트를 완료한 사용자들을 보여줍니다.</p>
+								<p>거북 역사관이란?<br>매일 꾸준히 스트레칭을 하여 100일 프로젝트를 완료한 사용자들을 보여줍니다.</p>
 								
 								<ul id="history-ul-top">
 									<li>프로필</li>
@@ -294,7 +294,7 @@
 										
 									</div>
 								</div>
-								<img src="assets/images/background/rabbit.png" class="rabbit_btn m-top-100" id="rabbit_btn">
+								<a href="mypage.html"><img src="assets/images/background/rabbit.png" class="rabbit_btn m-top-100" id="rabbit_btn"></a>
 							</div>
 						</div>
 					</div>
@@ -513,7 +513,6 @@
 
         // Get the button that opens the modal
         var btn = document.getElementById("myBtn");
-		var rabbit_btn = document.getElementById("rabbit_btn");
 
         // Get the <span> element that closes the modal
         var span = document.getElementsByClassName("close")[0];
@@ -522,9 +521,7 @@
         btn.onclick = function () {
             modal.style.display = "block";
         }
-		rabbit_btn.onclick = function(){
-			modal.style.display = "block";
-		}
+
         // When the user clicks on <span> (x), close the modal
         span.onclick = function () {
             modal.style.display = "none";

@@ -476,22 +476,22 @@ Button
 
 .btn-default:hover {
 	/* border-color: #064420; */
-	background-color: #064420;
+	background-color: #18763f;
 }
 
 .btn-primary {
 	color: #fff;
-	background-color: #064420;
+	background-color: #18763f;
 	border: 2px solid;
-	border-color: #064420;
+	border-color: #18763f;
 	padding: 1rem 3rem;
 	margin-bottom: 1rem;
 }
 
 .btn-primary:hover {
-	background-color: #E4EFE7;
-	border-color: #E4EFE7;
-	border: 2px solid #E4EFE7;
+	background-color: #f0fff4;
+	border-color: #f0fff4;
+	border: 2px solid #f0fff4;
 	color: #383838;
 }
 
