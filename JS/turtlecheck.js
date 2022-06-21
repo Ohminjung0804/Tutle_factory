@@ -13,6 +13,11 @@ let call_cnt  =0;   // 호출횟수
 // edit_ease_turtle(email, result); // 이메일과 결과 넘겨주기 -> result는 int형
 async function init() {
 
+    if(localStorage.getItem('key','')===null){
+        alert('로그인 후 이용해주세요.');
+        return
+    }
+
     const modelURL = URL + "model.json";
     const metadataURL = URL + "metadata.json";
 

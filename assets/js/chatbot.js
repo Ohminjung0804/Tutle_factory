@@ -6,10 +6,13 @@ const Chat = (function () {
         const chat_ul = document.querySelector(".chat-text");
         const qnas = document.querySelectorAll(".ask");
         const vals = qnas[0].innerText;
-        console.log('버튼들',qnas,vals);
+        // console.log('버튼들',qnas,vals);
+
+        // 질문 버튼 클릭 시
         qnas.forEach(btn => {
             btn.addEventListener('click',(e)=>{
-                
+                console.log('scroll',document.querySelector(".chat-text").scrollHeight,document.querySelector(".chat-text").scrollTop);
+
                 // 2. 추가할 li element 생성
                 // 2-1. 추가할 li element 생성
                 const li = document.createElement("li");
@@ -25,7 +28,6 @@ const Chat = (function () {
                 
                 let answer_text = "";
                 let answer_text2 = "";
-                console.log(e.target.id);
                 switch(Number(e.target.id)){
                     case 0:{
                         answer_text=`[거북목치료센터 가이드]<br/>
@@ -70,7 +72,6 @@ const Chat = (function () {
                 }
                 setTimeout(function(){
     
-                    console.log('답변 ',answer_text);
                     const answer_li = document.createElement("li");
                     answer_li.classList.add("content");
                     answer_li.classList.add("left");
@@ -84,13 +85,11 @@ const Chat = (function () {
                         <div class="chat-li">${answer_text}</div>`
                     }
                     
-                    console.log(answer_li);
                     chat_ul.appendChild(answer_li);
                 },1000);
 
                 setTimeout(function(){
                     if(answer_text2.length >1){
-                        console.log('답변 ',answer_text);
                         const answer_li = document.createElement("li");
                         answer_li.classList.add("content");
                         answer_li.classList.add("left");
@@ -104,6 +103,7 @@ const Chat = (function () {
                     }
                 },1000)
                 
+
             },false);
         });
 
@@ -120,6 +120,11 @@ const Chat = (function () {
         input.addEventListener('focus',function(){
             document.querySelector(".qna_list").style.display ='';
         });
+        
+        // 스크롤 최하단 고정
+        document.querySelector(".chat-text").scrollTop = document.querySelector(".chat-text").scrollHeight; 
+        console.log('scroll',document.querySelector(".chat-text").scrollTop);
+
     }
 
     function input(){

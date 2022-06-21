@@ -96,7 +96,7 @@
 				<div class="attr-nav">
 					<ul class="nav navbar-nav navbar-right">
 						<li class="login"><button id="myBtn">Login</button></li>
-						<li><a href="mypage.html"><img src="assets/images/user.png" alt="mypage"></a></li>
+						<li><a href="mypage.html" onclick="preventClick(event)"><img src="assets/images/user.png" alt="mypage" ></a></li>
 					</ul>
 				</div>
 				<!-- End Atribute Navigation -->
@@ -136,12 +136,12 @@
 
 		<!--Home Sections-->
 
-		<section id="hello" class="home bg-mega" onclick="show_chat()">
+		<section id="hello" class="home bg-mega" >
 			<div class="main-btn">
 				<a class="btn btn-default btn-my" href="#service">스트레칭 하러가기</a>
 				<a class="btn btn-default btn-my" href="/mypage.html" style="margin-left:5px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;마이페이지&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
 			</div>
-			<div class="container">
+			<div class="container" onclick="show_chat()">
 				
 				<div class="row">
 					<div class="main_home">
@@ -358,7 +358,7 @@
 							<p class="m-top-40 text-white">똑바로 선 상태에서 머리를 좌우로 가볍게 천천히 돌려주기!<br>횟수는 자유롭게 하되 많이 자주 할수록 경직된 목이 이완되고 목뼈가 교정됩니다.</p>
 							<h4><span class="badge badge-success testchk" id="testchk1">✔</span></h4>
 							<div class="impress_btns m-top-10">
-								<a href="traning_1/traning_1.html" class="btn btn-default  m-top-10">STRETCHING</a>
+								<a href="traning_1/traning_1.html" class="btn btn-default  m-top-10" onclick="preventClick(event)">STRETCHING</a>
 							</div>
 							<div class="m-top-20"><p class="best-record" id="best-record1">최고기록 !</p></div>
 						</div>
@@ -383,7 +383,7 @@
 							<p class="m-top-40 text-white">통증이 느껴지지 않을 정도까지만 목을 아래로 위로 천천히 !<br>목의 위치교정, 얼굴 처짐, 턱선 처짐 예방, 목주름 예방에 도움이 됩니다.</p>
 							<h4><span class="badge badge-success testchk" id="testchk2">✔</span></h4>
 							<div class="impress_btns m-top-10">
-								<a href="traning_2/traning_2.html" class="btn btn-default m-top-10">STRETCHING</a>
+								<a href="traning_2/traning_2.html" class="btn btn-default m-top-10" onclick="preventClick(event)">STRETCHING</a>
 							</div>
 							<div class="m-top-20"><p class="best-record" id="best-record2">최고기록 !</p></div>
 						</div>
@@ -408,7 +408,7 @@
 							<p class="m-top-40 text-white">양 어깨를 동시에 위로 올리고 양 어깨의 힘을 빼고 아래로 뚝 떨어뜨리기!<br>어깨 결림, 오십견을 예방하고 목 주위 근육을 풀어주는 데 도움됩니다.</p>
 							<h4><span class="badge badge-success testchk" id="testchk3">✔</span></h4>
 							<div class="impress_btns m-top-10">
-								<a href="traning_3/traning_3.html" class="btn btn-default m-top-10">STRETCHING</a>
+								<a href="traning_3/traning_3.html" class="btn btn-default m-top-10" onclick="preventClick(event)">STRETCHING</a>
 							</div>
 							<div class="m-top-20"><p class="best-record" id="best-record3">최고기록 !</p></div>
 						</div>
@@ -504,9 +504,19 @@
 			</div>
 		</div>
 
-		<img src="./assets/images/robot.png" id="robot-icon" alt="챗봇 버튼" onclick="show_chat()">
+		<img src="./assets/images/robot.png" id="robot-icon" alt="챗봇 버튼" onclick="show_chat()" title="거북봇을 눌러서 질문하세요!">
 	</div>
 
+
+	<!-- a태그 막기 -->
+	<script>
+		function preventClick(e){
+			if(localStorage.getItem('key','')===null){
+				alert('로그인 후 이용해주세요.');
+				e.preventDefault();
+			}
+		}	
+	</script>
 
 	<!-- 챗봇 -->
 	<script >
