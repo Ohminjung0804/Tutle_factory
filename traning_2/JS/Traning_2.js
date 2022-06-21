@@ -134,7 +134,7 @@ async function predict() {
     // Prediction 2: run input through teachable machine classification model
     const prediction = await model.predict(posenetOutput);
 
-    if (prediction[0].probability.toFixed(2) == 1) {
+    if (prediction[0].probability.toFixed(2) >= 0.9) {
 
         if (posture == "up") {
             cnt++
@@ -144,7 +144,7 @@ async function predict() {
 
         posture = "down"
 
-    } else if (prediction[1].probability.toFixed(2) == 1) {
+    } else if (prediction[1].probability.toFixed(2) >= 0.9) {
 
         if (posture == "down") {
             cnt++
@@ -188,11 +188,11 @@ async function predict() {
     }
 
     // 무슨 동작을 하는지 적힘
-    // for (let i = 0; i < maxPredictions; i++) {
-    //     const classPrediction =
-    //         prediction[i].className + ": " + prediction[i].probability.toFixed(2);
-    //     labelContainer.childNodes[i].innerHTML = classPrediction;
-    // }
+    for (let i = 0; i < maxPredictions; i++) {
+        const classPrediction =
+            prediction[i].className + ": " + prediction[i].probability.toFixed(2);
+        console.log(classPrediction);
+    }
 
     // finally draw the poses
     drawPose(pose);
