@@ -68,9 +68,10 @@
     color: white;
 }
 #robot-icon{
-    width: 100px;
     cursor: pointer;
+    width: 160px;
 }
+
 
 .chat_screen{
     display: flex;
