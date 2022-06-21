@@ -33,6 +33,22 @@ let user_day_cure = function (date) {
   });
 }
 
+function getCookie(key) {
+  var result = null;
+  var cookie = document.cookie.split(';');
+  cookie.some(function (item) {
+      // 공백을 제거
+      item = item.replace(' ', '');
+
+      var dic = item.split('=');
+
+      if (key === dic[0]) {
+          result = unescape(dic[1]);
+          return true; // break;
+      }
+  });
+  return result;
+}
 
 // 오늘 날짜 구하기
 function getToday() {
@@ -202,7 +218,7 @@ function line_chart(today, best) {
 }
 
 
-// 차트에 데이터 넣기
+// 차트에 데이터 넣기 : 몇번 시도했는지, 이름
 function chart_data() {
   console.log("chart")
   let one = stretchs.filter(data => data.stretch == 1).map((data) => data.status);
@@ -268,6 +284,9 @@ imglink[2] = "https://www.youtube.com/watch?v=84TJMVEXTCg"; //사진
 imglink[3] = "https://www.youtube.com/watch?v=UqNKsiNUrxM"; //사진
 
 function show() {
+  let tryNum = stretchs.length; // 전체 시도한 횟수
+  let userName = getCookie('name'); // 유저 이름
+
   document.getElementById("asdf").style.display = '';
 
   var result = document.getElementById('result-container');
