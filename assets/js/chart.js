@@ -4,6 +4,7 @@ let today = [];
 let best = [];
 let worst = [];
 let isShow = false;
+let stretchs = [];
 
 // 해당 유저 날짜 스트레칭 조회
 let user_day_cure = function (date) {
