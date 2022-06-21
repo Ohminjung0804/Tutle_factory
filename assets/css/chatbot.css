@@ -29,7 +29,7 @@
     align-items: flex-end;
     align-content: flex-end;
     position: relative;
-    top: 20px;
+    bottom: 10px;
 }
 
 .chat-container .chat-header{
