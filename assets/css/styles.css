@@ -58,18 +58,22 @@
 /* 거북 역사관 */
 .scroll-div{
   overflow: auto;
-  height: 500px;
+  display: inline-block;
+  /* margin-left: 260px; */
+  width: 600px;
+  height: 400px;
   /* margin-top: 100px; */
   margin-top: 0px;
   /* background-color: #d7f6e4; */
 }
 .scroll-div::-webkit-scrollbar{
   width: 10px;
-  background-color: #fff;
+  border-radius: 5px;
+  background-color: rgb(240, 240, 240);
 }
 .scroll-div::-webkit-scrollbar-thumb{
   width: 10px;
-  background-color: #dbdbdb;
+  background-color: #bbbbbb;
   border-radius: 5px;
 }
 #history-ul > li{
@@ -77,7 +81,9 @@
   margin-right: 110px;
   margin-bottom: 50px;
   font-size: larger;
-  color: #075427;
+  color: #171717;
+  font-family: 'Jua', sans-serif;
+  font-family: 'Noto Sans KR', sans-serif;
 }
 #history-ul-top{
   margin-top: 100px;
@@ -91,6 +97,8 @@
   color: #373737;
   font-size: large;
   font-weight:bold;
+  font-family: 'Jua', sans-serif;
+  font-family: 'Noto Sans KR', sans-serif;
 }
 #history-ul > li:last-child{
   margin-right: 0px;
@@ -104,6 +112,17 @@
 }
 #history_userImg{
   display: inline-block;
+}
+.rabbit_btn{
+  display: inline-block;
+  position: absolute;
+  width: 300px;
+  /* float: right; */
+  /* left: 320px; */
+  margin-left: 70px;
+  bottom: 60px;
+  cursor: pointer;
+  /* border: 1px solid darkblue; */
 }
 /* 스트레칭 확인 체크 */
 #testchk1 {
@@ -633,7 +652,8 @@
   /* height: 50px;   */
   width: 50px;
   bottom: 20px;
-  margin-top:  20px;
+  position: relative;
+  /* margin-top:  20px; */
 
 }
 #progressImgDiv {

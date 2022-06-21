@@ -19,7 +19,9 @@
 	<!--Google Font link-->
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Raleway:400,600,700" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Jua&family=Noto+Sans+KR&display=swap" rel="stylesheet">
 
 	<link rel="stylesheet" href="assets/css/slick.css">
 	<link rel="stylesheet" href="assets/css/slick-theme.css">
@@ -124,6 +126,7 @@
 						<li><a href="#hello">Hello</a></li>
 						<li><a href="#about">About</a></li>
 						<li><a href="#prevention">Prevention</a></li>
+						<li><a href="#history">history</a></li>
 						<li><a href="#service">Services</a></li>
 						<li><a href="#contact">Contact</a></li>
 					</ul>
@@ -273,14 +276,19 @@
 		<br />
 		<br />
 		<br />
+		<br />
+		<br />
+		<br />
+		<br />
 		<section id="history" class="history m-top-100">
-			<div class="container text-center">
+			<div class="containe">
 				<div class="main_featured m-top-100">
 					<div class="col-sm-12">
 						<div class="head_title text-center">
 							<h2>거북 역사관</h2>
 							<div class="separator_auto"></div>
 								<p style="font-size: smaller;">거북 역사관이란?<br>매일 꾸준히 스트레칭을 하여 100일 프로젝트를 완료한 사용자들을 보여줍니다.</p>
+								
 								<ul id="history-ul-top">
 									<li>프로필</li>
 									<li>이름</li>
@@ -289,41 +297,10 @@
 								<div class="scroll-div">
 									<div class="history-div" id="history-div">
 										
-										<!-- <ul id="history-ul">
-											<li><img src="assets/images/progress_tutle1.png"></li>
-											<li>ㅠ</li>
-											<li>c</li>
-										</ul>
-									</div>
-									<div class="history-div">
-										<ul id="history-ul">
-											<li><img src="assets/images/progress_tutle2.png"></li>
-											<li>b</li>
-											<li>c</li>
-										</ul>
-									</div>
-									<div class="history-div">
-										<ul id="history-ul">
-											<li><img src="assets/images/progress_tutle3.png"></li>
-											<li>b</li>
-											<li>c</li>
-										</ul>
-									</div>
-									<div class="history-div">
-										<ul id="history-ul">
-											<li><img src="assets/images/progress_tutle4.png"></li>
-											<li>b</li>
-											<li>c</li>
-										</ul>
-									</div>
-									<div class="history-div">
-										<ul id="history-ul">
-											<li><img src="assets/images/progress_tutle2.png"></li>
-											<li>b</li>
-											<li>c</li>
-										</ul> -->
+										
 									</div>
 								</div>
+								<img src="assets/images/background/rabbit.png" class="rabbit_btn m-top-100" id="rabbit_btn">
 							</div>
 						</div>
 					</div>
@@ -540,6 +517,7 @@
 
         // Get the button that opens the modal
         var btn = document.getElementById("myBtn");
+		var rabbit_btn = document.getElementById("rabbit_btn");
 
         // Get the <span> element that closes the modal
         var span = document.getElementsByClassName("close")[0];
@@ -548,7 +526,9 @@
         btn.onclick = function () {
             modal.style.display = "block";
         }
-
+		rabbit_btn.onclick = function(){
+			modal.style.display = "block";
+		}
         // When the user clicks on <span> (x), close the modal
         span.onclick = function () {
             modal.style.display = "none";
