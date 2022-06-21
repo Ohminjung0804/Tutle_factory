@@ -290,24 +290,97 @@ function show() {
   document.getElementById("asdf").style.display = '';
 
   var result = document.getElementById('result-container');
+  var first = '';
+  var start = '';
+  var end = '';
+  var max = 0;
+  var min = 0;
 
-  if (best[0]) {
-    result.innerHTML = '도리도리 운동을 가장 많이 하셨군요!<br>목의 앞,뒤,옆에 있는 근육들의 긴장을 모두 풀어줍니다!<br>허리를 반듯하게 펴서 틈틈히 앞으로도 화이팅!';
-  } else if(best[1]) {
-    result.innerHTML = '끄덕이기 운동을 가장 많이 하셨군요!<br>과도한 스트레칭은 목이 아파요!<br>목 뼈를 유연하게 하고 목 근육을 풀어줘요!<br>허리를와 목을 곧게 피고 앞으로도 꾸준히!';
-  } else if(best[2]) {
-    result.innerHTML = '으쓱으쓱 운동을 가장 많이 하셨군요!<br>목에 힘을 빼고 가볍게 흔들어요!<br>우두둑 소리가 나도록 스트레칭 하는 것은 잘못된 방법이에요!<br>고개를 살짝 들고 가볍게 앞으로도 도리도리!';
+  if (tryNum <= 2){
+
+    start = '조금만 더 힘을 내는 거북이가 됩시다!<br> ' + userName + '님은 스트레칭을 총 ' + tryNum + '번 진행했어요!<br>오늘은 ';
+
+    if (best[0] > best[1] && best[0] > best[2]){
+      first = start + '목의 앞,뒤,옆 근육의 긴장을 풀어주는 도리도리 운동을 가장 많이 했어요!<br>';
+
+    } else if(best[1] > best[0] && best[1] > best[2]){
+      first = start + '목 뼈를 유연하게 하고 목 근육을 풀어주는 앞뒤 운동을 가장 많이 했어요!<br>';
+      
+
+    } else if(best[2] > best[0] && best[2] > best[1]){
+      first = start + '어깨에 힘을 빼고 목을 가볍게 풀어주는 으쓱으쓱 운동을 가장 많이 했어요!<br>';
+      
+    }
+
+    if(worst[0] < worst[1] && worst[0] < worst[2]){
+      end = first + worst[0] + '반면에 도리도리 운동을 가장 적게했군요!<br>도리도리 운동은 목의 앞,뒤,옆에 있는 근육들의 긴장을 모두 풀어줘요!<br>같이 도리도리 운동을 해봅시다!<br>아래 이미지를 클릭해 새로운 스트레칭을 배워보아요!';
+      
+    } else if(worst[1] < worst[0] && worst[1] < worst[2]){
+      end = first + '반면에 앞뒤 운동을 가장 적게했군요!<br>앞뒤 운동은 목 뼈를 유연하게 하고 목 근육을 풀어줘요!<br>앞뒤 운동은 같이 해봅시다!<br>아래 이미지를 클릭해 새로운 스트레칭을 배워보아요!';
+      
+    } else if(worst[2] < worst[0] && worst[2] < worst[1]){
+      end = first + '반면에 으쓱으쓱 운동을 가장 적게했군요!<br>으쓱으쓱 운동은 어깨에 힘을 빼고 가볍게 진행하면 돼요!<br>으쓱으쓱 운동을 같이 해봅시다!<br>아래 이미지를 클릭해 새로운 스트레칭을 배워보아요!';
+      
+    }
+
+    
+  } else if (tryNum <= 4){
+
+    start = '성장하고 있는 거북이군요!<br> ' + userName + '님은 스트레칭을 총 ' + tryNum + '번 진행했어요!<br>오늘은 ';
+
+    if (best[0] > best[1] && best[0] > best[2]){
+      first = start + '도리도리 운동을 가장 많이 했어요!<br>간단해보이지만 꾸준히 하면 목의 근육을 풀어주는 좋은 효과가 있어요!<br>';
+
+    } else if(best[1] > best[0] && best[1] > best[2]){
+      first = start + '앞뒤 운동을 가장 많이 했어요!<br>목을 앞뒤로 열심히 젖히다 보면 거북목이 나아질거에요!<br>';
+      
+
+    } else if(best[2] > best[0] && best[2] > best[1]){
+      first = start + '으쓱으쓱 운동을 가장 많이 했어요!<br>어깨를 으쓱으쓱! 가볍게 흔들어 뭉친 어깨를 풀어보아요!<br>';
+      
+    }
+
+    if(worst[0] < worst[1] && worst[0] < worst[2]){
+      end = first + '도리도리 운동을 가장 적게했군요!<br>도리도리 운동은 목의 앞,뒤,옆에 있는 근육들의 긴장을 모두 풀어줘요!<br>다시 한번 해봅시다!<br>아래 이미지를 클릭해 새로운 스트레칭을 배워보아요!';
+      
+    } else if(worst[1] < worst[0] && worst[1] < worst[2]){
+      end = first + '앞뒤 운동을 가장 적게했군요!<br> 생각보다 어려운 앞뒤 운동! 꾸준히 해서 목 뼈를 유연하게 만들어봐요!<br>다시 한번 해봅시다!<br>아래 이미지를 클릭해 새로운 스트레칭을 배워보아요!';
+      
+    } else if(worst[2] < worst[0] && worst[2] < worst[1]){
+      end = first + '으쓱으쓱 운동을 가장 적게했군요!<br>으쓱으쓱 운동은 간단하고 효과 좋은 스트레칭이에요!<br>다시 한번 해봅시다!<br>아래 이미지를 클릭해 새로운 스트레칭을 배워보아요!';
+      
+    }
+
+  } else if(tryNum >= 5) {
+
+    start = '거북이가 아니라 사람일지도..?!<br> ' + userName + '님은 스트레칭을 총 ' + tryNum + '번 진행했어요!<br>오늘은 ';
+    
+    if (best[0] > best[1] && best[0] > best[2]){
+      first = start + '도리도리 운동을 가장 많이 했군요!<br> 도리도리 운동쯤은 이제 껌이죠?!<br> 진짜 거북이를 벗어날 때까지 꾸준히 해봐요!<br>';
+
+    } else if(best[1] > best[0] && best[1] > best[2]){
+      first = start + '앞뒤 운동을 가장 많이 했어요!<br>과도하게 끄덕이면 오히려 안좋아요!<br>적당히 천천히 고개를 끄덕여봐요!<br>';
+      
+
+    } else if(best[2] > best[0] && best[2] > best[1]){
+      first = start + '으쓱으쓱 운동을 가장 많이 했어요!<br>이제 어깨가 아프지 않을거에요!<br>';
+      
+    }
+
+    if(worst[0] < worst[1] && worst[0] < worst[2]){
+      end = first + worst[0] + '이번에 도리도리 운동을 가장 적게했군요!<br>우둑우둑 소리가 나도록 하는 것을 잘 못된 방법이에요.<br>올바른 자세로 꾸준히 같이 해봐요!<br>아래 이미지를 클릭해 새로운 스트레칭을 배워보아요!';
+      
+    } else if(worst[1] < worst[0] && worst[1] < worst[2]){
+      end = first + '이번에 앞뒤 운동을 가장 적게했군요!<br>앞뒤 운동은 허리를 목과 함께 곧게 피고 꾸준히!<br>또 같이 해요!<br>아래 이미지를 클릭해 새로운 스트레칭을 배워보아요!';
+      
+    } else if(worst[2] < worst[0] && worst[2] < worst[1]){
+      end = first + '이번에 으쓱으쓱 운동을 가장 적게했군요!<br>으쓱으쓱 운동은 간단해 보여도 중요해요!<br>꾸준히 해봅시다!<br>아래 이미지를 클릭해 새로운 스트레칭을 배워보아요!';
+      
+    }
+
   }
 
-  // if(worst[1]){
-  //   result.innerHTML = '도리도리 운동을 보다 적게 하셨군요!'
-  // }
-
-  console.log(best);
-  console.log(worst);
-
-
-  // if(best[0] < 5 && best[1])
+  result.innerHTML = end;
 
   var imgNum = Math.round(Math.random() * 3);
 
@@ -315,9 +388,5 @@ function show() {
   var recommenda = document.getElementById('recommenda');
   recommend.src = imgArray[imgNum];
   recommenda.href = imglink[imgNum];
-
-  // console.log('best', best);
-  // console.log('worst', worst);
-  // console.log('호출됨')
 
 }
