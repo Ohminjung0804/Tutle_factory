@@ -4,7 +4,7 @@
 //Designerd by: http://bootstrapthemes.co
 let stretchs = [];
 // 해당 유저 날짜 스트레칭 조회
-let user_day_cure = function (date) {
+let user_day_cure_main = function (date) {
     $(document).ready(function () {
         $.ajax({
             type: "GET",
@@ -379,5 +379,5 @@ ani();
 // bestRecord(2);
 // 오늘 한 스트레칭 체크표시하기
 let day = getToday();
-user_day_cure(day);
+user_day_cure_main(day);
 all_turtle();

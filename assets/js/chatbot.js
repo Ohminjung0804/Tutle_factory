@@ -231,7 +231,7 @@ function putText(e){
         answer_li.classList.add("left");
     
         answer_li.innerHTML = `
-        <img src="./assets/images/robot.png" alt="로봇" width="25px" style="margin-right: 2px;">
+        <img src="./assets/images/turtlebot.png" alt="로봇" width="25px" style="margin-right: 2px;">
         <div class="chat-li">${answer_text}</div>`
         
         chat_ul.appendChild(answer_li);
