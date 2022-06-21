@@ -815,12 +815,12 @@
 
 
 /* 멘트 div */
-#ment {
+/* #ment {
   border: 1px solid #075427;
   width: 45%;
   height: 300px;
   display: inline-block;
-}
+} */
 
 /* 추천div */
 .recommend {
