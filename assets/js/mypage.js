@@ -251,11 +251,15 @@ function name_info() {
 }
 
 // let my = ["거북이",60, 2];
-// let user = ["거북이2", 50,1];
-// let user2 = ["거북이3", 10,4];
+let user = ["거북이2", 50,1];
+let user2 = ["거북이3", 10,4];
+let user3= ["거북이4", 80,3];
+let user4 = ["거북이5", 60,4];
 // my_progressMove(my);
-// user_progressMove(user);
-// user_progressMove(user2);
+user_progressMove(user);
+user_progressMove(user2);
+user_progressMove(user3);
+user_progressMove(user4);
 // progress 진행도 표시
 
 // 오늘 날짜 구하기
@@ -333,62 +337,57 @@ function my_progressMove(my) {
 
 function user_progressMove(user){
 
-    for(let i = 0; i <= user.length; i++){
-        let play = 0;
-        if (play == 0) {
-            play = 1;
-            let parent = document.getElementById('parent-div');
-    
-            let progressImgDiv = document.createElement('div');
-            progressImgDiv.id = 'progressImgDiv_user';
-            parent.appendChild(progressImgDiv);
-    
-            let rank_user = document.createElement('div');
-            progressImgDiv.appendChild(rank_user);
-            rank_user.classList.add('rank_user');
-    
-            let user_progressImg = document.createElement('img');
-            user_progressImg.id = 'user_progressImg';
-            rank_user.appendChild(user_progressImg);
-    
-            let user_name = document.createElement('p');
-            user_name.id = 'user_name';
-            rank_user.appendChild(user_name);
-            
-            
-            for(let j = 0; j<= user[i].length; j++){
-                if (user[i][2] == 1) {
-                    user_progressImg.src = '/assets/images/progress_tutle1.png';
-                } else if (user[i][2] == 2) {
-                    user_progressImg.src = '/assets/images/progress_tutle2.png';
-                } else if (user[i][2] == 3) {
-                    user_progressImg.src = '/assets/images/progress_tutle3.png';
-                } else if (user[i][2] == 4) {
-                    user_progressImg.src = '/assets/images/progress_tutle4.png';
-                }
-                user_name.innerHTML = user[i][0];
-                console.log(parent);
+    let play = 0;
+    if (play == 0) {
+        play = 1;
+        let parent = document.getElementById('parent-div');
 
-                var width = 0;
-                var id = setInterval(frame, 50);
+        let progressImgDiv = document.createElement('div');
+        progressImgDiv.id = 'progressImgDiv_user';
+        parent.appendChild(progressImgDiv);
+
+        let rank_user = document.createElement('div');
+        progressImgDiv.appendChild(rank_user);
+        rank_user.classList.add('rank_user');
+
+        let user_progressImg = document.createElement('img');
+        user_progressImg.id = 'user_progressImg';
+        rank_user.appendChild(user_progressImg);
+
+        let user_name = document.createElement('p');
+        user_name.id = 'user_name';
+        rank_user.appendChild(user_name);
         
-                function frame() {
-                    if (width >= user[i][1]) {
-                        clearInterval(id);
-                        i = 0;
-                    } else {
-                        width = 0;
         
-                        progressImgDiv.style.width = width + "%";
-                        // elem.innerHTML = width + "%";
-                        // user_progressImg.style.width = width + "%";
-                    }
-                }
+        
+        if (user[2] == 1) {
+            user_progressImg.src = '/assets/images/progress_tutle1.png';
+        } else if (user[2] == 2) {
+            user_progressImg.src = '/assets/images/progress_tutle2.png';
+        } else if (user[2] == 3) {
+            user_progressImg.src = '/assets/images/progress_tutle3.png';
+        } else if (user[2] == 4) {
+            user_progressImg.src = '/assets/images/progress_tutle4.png';
+        }
+        user_name.innerHTML = user[0];
+        console.log(parent);
+
+        var width = 0;
+        var id = setInterval(frame, 50);
+
+        function frame() {
+            if (width >= user[1]) {
+                clearInterval(id);
+                i = 0;
+            } else {
+                width ++;
+
+                progressImgDiv.style.width = width + "%";
+                // elem.innerHTML = width + "%";
+                // user_progressImg.style.width = width + "%";
             }
-
         }
     }
-    
     
 }
 
