@@ -14,7 +14,6 @@ function setCookie(key, value, expiredays) {
 function getCookie(key) {
     var result = null;
     var cookie = document.cookie.split(';');
-    console.log(cookie);
     cookie.some(function (item) {
         // 공백을 제거
         item = item.replace(' ', '');
@@ -39,19 +38,17 @@ let user_cure = function (user_email,index,isEnd) {  //해당 유저 이메일, 
             //전달할 때 사용되는 파라미터 변수명
             // 이 속성을 생략하면 callback 파라미터 변수명으로 전달된다.
             success: function (data, textStatus, jqXHR) {
-                console.log('success');
                 // stretchs.push(data);
                 // console.log('사용자들 : ',stretchs);
                 count_date(index,data);
                 call_cnt+=1;
-                if(call_cnt===isEnd){
+                if(call_cnt===isEnd){ // 호출횟수가 길이랑 같으면
                     // 프로그래스 데이터 표시
                     call_progress();
                 }
                 // console.log(JSON.parse(data[0]));
             },
             complete: function (d) {
-                console.log('d')
             },
             error: function (xhr, textStatus, error) {
                 console.log(xhr.responseText);
@@ -272,7 +269,6 @@ function getToday() {
   }
 // 유저들 진행도 거북이경주에 표시시키기
 function call_progress(){
-    console.log('now',users);
     // data : [유저이름, 진행율, 캐릭터, 이메일]
     users.forEach((data,i)=>{
         if(i===0){
@@ -360,7 +356,6 @@ function user_progressMove(user){
         user_name.innerHTML = user[0];
         
         
-        console.log(parent);
         if (user[2] == 1) {
             user_progressImg.src = '/assets/images/progress_tutle1.png';
         } else if (user[2] == 2) {
