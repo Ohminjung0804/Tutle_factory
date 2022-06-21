@@ -488,10 +488,10 @@
 				</ul>
 			</div>
 			<div class="chat_screen" >
-				<div class="chat-header"><img src="./assets/images/robot.png" id="header-robot-icon"alt="로봇"> 챗봇에게 물어보세요!</div>
+				<div class="chat-header"><img src="./assets/images/turtlebot.png" id="header-robot-icon"alt="로봇"> 챗봇에게 물어보세요!</div>
 				<ul class="chat-text">
 					<li class="content left">
-						<img src="./assets/images/robot.png" alt="로봇" width="25px" style="margin-right: 2px;">
+						<img src="./assets/images/turtlebot.png" alt="로봇" width="25px" style="margin-right: 2px;">
 						<div class="chat-li"> 궁금하신 점이 있나요? </div>
 					</li>
 				</ul>
@@ -504,7 +504,7 @@
 			</div>
 		</div>
 
-		<img src="./assets/images/robot.png" id="robot-icon" alt="챗봇 버튼" onclick="show_chat()" title="거북봇을 눌러서 질문하세요!">
+		<img src="./assets/images/turtlebot.png" id="robot-icon" alt="챗봇 버튼" onclick="show_chat()" title="거북봇을 눌러서 질문하세요!">
 	</div>
 
 
@@ -523,9 +523,11 @@
 		let show = true;
 		function show_chat(){
 			console.log(show);
-			if(show){
+			if(show){	// 화면 닫히게 하기
+				document.getElementById("robot-icon").src = './assets/images/turtlebot.png';
 				document.querySelector(".chat-container").style.display = 'none';
-			}else{
+			}else{		// 화면 열리게 하기
+				document.getElementById("robot-icon").src = './assets/images/turtlebot_click.png';
 				document.querySelector(".chat-container").style.display = '';
 			}
 			show = !show;
