@@ -97,6 +97,14 @@
 				<!-- Start Atribute Navigation -->
 				<div class="attr-nav">
 					<ul class="nav navbar-nav navbar-right">
+						<li class="testLogin">
+							<select name="language" onchange="handleOnChange(this)">
+								<option value="korean">테스트 로그인</option>
+								<option value="email1234@gmail.com">email1234@gmail.com</option>
+								<option value="w2033@e-mirim.hs.kr">w2033@e-mirim.hs.kr</option>
+								<option value="mirim1234@gmail.com">mirim1234@gmail.com</option>
+							  </select>
+						</li>
 						<li class="login"><button id="myBtn">Login</button></li>
 						<li><a href="mypage.html" onclick="preventClick(event)"><img src="assets/images/user.png" alt="mypage" ></a></li>
 					</ul>
@@ -144,7 +152,7 @@
 				<a class="btn btn-default btn-my" href="#service">스트레칭 하러가기</a>
 				<a class="btn btn-default btn-my" href="/mypage.html" style="margin-left:5px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;마이페이지&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
 			</div>
-			<div class="container" onclick="show_chat()">
+			<div class="container">
 				
 				<div class="row">
 					<div class="main_home">
@@ -493,12 +501,16 @@
 	<script >
 		let show = true;
 		function show_chat(){
-			console.log(show);
+			let icon = document.getElementById("robot-icon");
 			if(show){	// 화면 닫히게 하기
-				document.getElementById("robot-icon").src = './assets/images/turtlebot.png';
+				icon.src = './assets/images/turtlebot.png';
+				icon.style.width = "160px";
+				console.log(icon.width);
 				document.querySelector(".chat-container").style.display = 'none';
 			}else{		// 화면 열리게 하기
-				document.getElementById("robot-icon").src = './assets/images/turtlebot_click.png';
+				icon.src = './assets/images/turtlebot_click.png';
+				icon.style.width = "100px";
+				console.log(icon.width);
 				document.querySelector(".chat-container").style.display = '';
 			}
 			show = !show;
@@ -553,8 +565,8 @@
 	<script src="assets/js/bootsnav.js"></script>
 
 
-<!-- 챗봇 -->
-<script src="./assets/js/chatbot.js"></script>	<!-- Font Awesome icons (free version)-->
+	<!-- 챗봇 -->
+	<script src="./assets/js/chatbot.js"></script>	<!-- Font Awesome icons (free version)-->
 	<script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
 
 
@@ -565,6 +577,13 @@
 	<script src="JS/dom.js"></script>
 
 	<script type="text/javascript">
+		function handleOnChange(e) {
+			// 선택된 데이터의 텍스트값 가져오기
+			const email = e.options[e.selectedIndex].text;
+			create_turtle(email);
+			// console.log(text);
+		}
+		
 		function setCookie(key, value, expiredays) {
 			var todayDate = new Date();
 			todayDate.setDate(todayDate.getDate() + expiredays);
@@ -609,6 +628,7 @@
 						setCookie("best",data.best,100);
 						setCookie("created",data.created,100);
 						console.log(document.cookie);
+						localStorage.setItem("key", email);
 						window.location.href='/mypage.html'
 
 					},
@@ -644,7 +664,6 @@
 							email = kakao_account.email;
 							gender = kakao_account.gender;
 						}
-						localStorage.setItem("key", email);
 
 						// 이메일 콘솔 출력
 						console.log(kakao_account.email);
