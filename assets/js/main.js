@@ -16,12 +16,10 @@ let user_day_cure = function (date) {
                 console.log('success');
                 stretchs = data; // 전역변수 생성
                 // console.log(JSON.parse(data[0]));
-                console.log(stretchs)
                 // console.log(JSON.parse(data[0]));
                 today_chk(); // 차트 데이터 넣기 
             },
             complete: function (d) {
-                console.log('d')
             },
             error: function (xhr, textStatus, error) {
                 console.log(xhr.responseText);
@@ -43,9 +41,8 @@ let all_turtle = function () {
             // 이 속성을 생략하면 callback 파라미터 변수명으로 전달된다.
             success: function (data, textStatus, jqXHR) {
                 console.log('success');
-                console.log(data);
                 // console.log(JSON.parse(data[0]));
-                getComplateTurtle();
+                getComplateTurtle(data);
             },
             complete: function (d) {
                 console.log('d')
@@ -330,12 +327,10 @@ function getComplateTurtle(turtles){
 }
 
 // 거북 역사관
-let user = [[1,'거북1','2020-03-23'],[3,'거북2','2020-04-03'],[2,'거북3','2020-04-13'],[3,'거북4','2020-04-22'],[3,'거북5','2020-05-01'],[3,'거북6','2020-05-10']]
+// let user = [[1,'거북1','2020-03-23'],[3,'거북2','2020-04-03'],[2,'거북3','2020-04-13'],[3,'거북4','2020-04-22'],[3,'거북5','2020-05-01'],[3,'거북6','2020-05-10']]
 function history(user){
     let history_div = document.getElementById('history-div');
-    for(let i = 0; i<= user.length; i++){
-
-        
+    for(let i = 0; i<user.length; i++){
         let history_ul = document.createElement('ul');
         history_ul.id = 'history-ul';
         history_div.appendChild(history_ul);
@@ -349,8 +344,8 @@ function history(user){
         history_ul.appendChild(date_li);
         img_li.appendChild(user_img);
 
-
-        for(let j = 0; j<user[i].length; j++){
+        console.log(user);
+        for(let j = 0; j< user[i].length; j++){
             console.log(user[i][j]);
             if(j == 0){
                 if(user[i][j] == 1){
@@ -380,8 +375,9 @@ function history(user){
 //     recordText.style.display = 'inline-block';
 // }
 ani();
-history(user);
+// history(user);
 // bestRecord(2);
 // 오늘 한 스트레칭 체크표시하기
 let day = getToday();
 user_day_cure(day);
+all_turtle();

@@ -16,7 +16,6 @@ let user_day_cure = function (date) {
       //전달할 때 사용되는 파라미터 변수명
       // 이 속성을 생략하면 callback 파라미터 변수명으로 전달된다.
       success: function (data, textStatus, jqXHR) {
-        console.log('success');
         stretchs = data; // 전역변수 생성
         // console.log(JSON.parse(data[0]));
         console.log(stretchs)
@@ -24,7 +23,6 @@ let user_day_cure = function (date) {
         chart_data(); // 차트 데이터 넣기 
       },
       complete: function (d) {
-        console.log('d')
       },
       error: function (xhr, textStatus, error) {
         console.log(xhr.responseText);
