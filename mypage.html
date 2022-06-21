@@ -173,7 +173,7 @@
 		<!-- line chart -->
 		<h3 class=" text-center m-top-100 text-muted">스트레칭 분석 차트</h3>
 		<div class="container m-top-20">
-			<div class="" onclick="show()">
+			<div class="chart-container" onclick="show()">
 				<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 				<canvas id="myChart"></canvas>
 			</div>
@@ -181,18 +181,23 @@
 
 		<div class="container m-top-100 text-center" id="asdf" style="display: none;">
 			<div id="ment">
-				<h4 class="m-top-10 text-muted" id="result">스트레칭 분석 결과</h4>
+				<h4 class="text-muted" id="result" style="margin-top: 30px;">스트레칭 분석 결과</h4>
+				<div id="result-container" style="padding-top: 35px; font-size: 18px;"></div>
 			</div>
 			<div class="recommend">
-				<h4 class="m-top-10 text-muted">추천 목록</h4>
+				<h4 class="text-muted" style="margin-top: 12px;">추천 스트레칭 영상</h4>
+				<a id="recommenda" target="_blank">
+				<img id="recommendsrc" border="0" style="width: 400px;">
+				</a>
 			</div>
 		</div>
 
-		<script>
+		<!-- <script>
 			function show(){
 				document.getElementById("asdf").style.display = '';
+
 			}
-		</script>
+		</script> -->
 
 
 		<section id="contact" class="page-section m-top-100">

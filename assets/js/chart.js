@@ -1,31 +1,36 @@
 "use strict";
 
+let today = [];
+let best = [];
+let worst = [];
+let isShow = false;
+
 // 해당 유저 날짜 스트레칭 조회
 let user_day_cure = function (date) {
   $(document).ready(function () {
-      $.ajax({
-          type: "GET",
-          url: `http://107.21.77.37/cure/date?user_email=${localStorage.getItem('key')}&date=${date}`,
+    $.ajax({
+      type: "GET",
+      url: `http://107.21.77.37/cure/date?user_email=${localStorage.getItem('key')}&date=${date}`,
 
-          //전달할 때 사용되는 파라미터 변수명
-          // 이 속성을 생략하면 callback 파라미터 변수명으로 전달된다.
-          success: function (data, textStatus, jqXHR) {
-              console.log('success');
-              stretchs = data;  // 전역변수 생성
-              // console.log(JSON.parse(data[0]));
-              console.log(stretchs)
-              // console.log(JSON.parse(data[0]));
-              chart_data(); // 차트 데이터 넣기 
-          },
-          complete: function (d) {
-              console.log('d')
-          },
-          error: function (xhr, textStatus, error) {
-              console.log(xhr.responseText);
-              console.log(textStatus);
-              console.log(error);
-          }
-      });
+      //전달할 때 사용되는 파라미터 변수명
+      // 이 속성을 생략하면 callback 파라미터 변수명으로 전달된다.
+      success: function (data, textStatus, jqXHR) {
+        console.log('success');
+        stretchs = data; // 전역변수 생성
+        // console.log(JSON.parse(data[0]));
+        console.log(stretchs)
+        // console.log(JSON.parse(data[0]));
+        chart_data(); // 차트 데이터 넣기 
+      },
+      complete: function (d) {
+        console.log('d')
+      },
+      error: function (xhr, textStatus, error) {
+        console.log(xhr.responseText);
+        console.log(textStatus);
+        console.log(error);
+      }
+    });
   });
 }
 
@@ -75,7 +80,7 @@ function getToday() {
 //           tension:0.2
 //         }]
 //       };
-  
+
 //       // config 
 //       const config = {
 //         type: 'line',
@@ -88,7 +93,7 @@ function getToday() {
 //           }
 //         },
 //       };
-  
+
 //       // render init block
 //       const myChart = new Chart(
 //         document.getElementById('myChart'),
@@ -143,7 +148,7 @@ function getToday() {
 //     config
 //   );
 // }
-function line_chart(today, best){
+function line_chart(today, best) {
   // setup 
   const data = {
     labels: ['도리도리', '앞뒤운동', '으쓱으쓱'],
@@ -157,9 +162,9 @@ function line_chart(today, best){
         'rgba(255, 26, 104, 1)',
       ],
       type: 'line',
-      order : 1,
-    },{
-      type:'bar',
+      order: 1,
+    }, {
+      type: 'bar',
       label: '오늘의 누적 개수',
       data: today,
       backgroundColor: [
@@ -173,8 +178,8 @@ function line_chart(today, best){
         'rgba(255, 206, 86, 1)',
       ],
       borderWidth: 1,
-      order : 2,
-    },]
+      order: 2,
+    }, ]
   };
 
   // config 
@@ -194,32 +199,46 @@ function line_chart(today, best){
     document.getElementById('myChart'),
     config
   );
+
 }
+
 
 // 차트에 데이터 넣기
 function chart_data() {
   console.log("chart")
-  let one = stretchs.filter(data => data.stretch==1).map((data)=> data.status);
-  let two = stretchs.filter(data => data.stretch==2).map((data)=>data.status);
-  let three = stretchs.filter(data => data.stretch==3).map((data)=>data.status);
+  let one = stretchs.filter(data => data.stretch == 1).map((data) => data.status);
+  let two = stretchs.filter(data => data.stretch == 2).map((data) => data.status);
+  let three = stretchs.filter(data => data.stretch == 3).map((data) => data.status);
 
-  let summing = function(arr){
+  let summing = function (arr) {
     const sum = arr.reduce((partialSum, a) => partialSum + a, 0);
     return sum;
   }
-  let maxing = function(arr){
+  let maxing = function (arr) {
     let max = 0;
     arr.forEach(element => {
-      if(max<element){
-        max=element;
+      if (max < element) {
+        max = element;
       }
     });
     return max;
+  };
+  let mining = function (arr) {
+    let min = arr[0] ? arr[0] : 0;
+    arr.forEach(element => {
+      if (min > element) {
+        min = element;
+      }
+    });
+    return min;
   }
 
-  let today=[summing(one),summing(two),summing(three)];
-  let best = [maxing(one),maxing(two),maxing(three)];
-  line_chart(today,best);
+  today = [summing(one), summing(two), summing(three)];
+  best = [maxing(one), maxing(two), maxing(three)];
+  worst = [mining(one), mining(two), mining(three)];
+  line_chart(today, best);
+
+
   // let two = stretchs.filter((num, index, arr) => {
   //     console.log(num, index, arr)
   // })
@@ -228,6 +247,7 @@ function chart_data() {
   //     console.log(num, index, arr)
   // })
   // console.log(one,two,three);
+
 }
 
 // circle_chart();
@@ -235,3 +255,51 @@ function chart_data() {
 let thisday = getToday();
 console.log(thisday);
 user_day_cure(thisday);
+
+var imgArray = new Array();
+imgArray[0] = "https://img.youtube.com/vi/kgCj8UUEWjU/maxresdefault.jpg"; //사진
+imgArray[1] = "https://img.youtube.com/vi/uGJRHfbemfo/maxresdefault.jpg"; //사진
+imgArray[2] = "https://img.youtube.com/vi/84TJMVEXTCg/maxresdefault.jpg"; //사진
+imgArray[3] = "https://img.youtube.com/vi/UqNKsiNUrxM/maxresdefault.jpg"; //사진
+
+var imglink = new Array();
+imglink[0] = "https://www.youtube.com/watch?v=kgCj8UUEWjU"; //사진
+imglink[1] = "https://www.youtube.com/watch?v=uGJRHfbemfo&t=1s"; //사진
+imglink[2] = "https://www.youtube.com/watch?v=84TJMVEXTCg"; //사진
+imglink[3] = "https://www.youtube.com/watch?v=UqNKsiNUrxM"; //사진
+
+function show() {
+  document.getElementById("asdf").style.display = '';
+
+  var result = document.getElementById('result-container');
+
+  if (best[0]) {
+    result.innerHTML = '도리도리 운동을 가장 많이 하셨군요!<br>목의 앞,뒤,옆에 있는 근육들의 긴장을 모두 풀어줍니다!<br>허리를 반듯하게 펴서 틈틈히 앞으로도 화이팅!';
+  } else if(best[1]) {
+    result.innerHTML = '끄덕이기 운동을 가장 많이 하셨군요!<br>과도한 스트레칭은 목이 아파요!<br>목 뼈를 유연하게 하고 목 근육을 풀어줘요!<br>허리를와 목을 곧게 피고 앞으로도 꾸준히!';
+  } else if(best[2]) {
+    result.innerHTML = '으쓱으쓱 운동을 가장 많이 하셨군요!<br>목에 힘을 빼고 가볍게 흔들어요!<br>우두둑 소리가 나도록 스트레칭 하는 것은 잘못된 방법이에요!<br>고개를 살짝 들고 가볍게 앞으로도 도리도리!';
+  }
+
+  // if(worst[1]){
+  //   result.innerHTML = '도리도리 운동을 보다 적게 하셨군요!'
+  // }
+
+  console.log(best);
+  console.log(worst);
+
+
+  // if(best[0] < 5 && best[1])
+
+  var imgNum = Math.round(Math.random() * 3);
+
+  var recommend = document.getElementById('recommendsrc');
+  var recommenda = document.getElementById('recommenda');
+  recommend.src = imgArray[imgNum];
+  recommenda.href = imglink[imgNum];
+
+  // console.log('best', best);
+  // console.log('worst', worst);
+  // console.log('호출됨')
+
+}
