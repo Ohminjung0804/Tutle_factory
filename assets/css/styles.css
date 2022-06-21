@@ -55,6 +55,9 @@
     transform: translateZ(0);
   }
 }
+#restartbtn{
+  margin-top: 30px;
+}
 /* 거북 역사관 */
 .scroll-div{
   overflow: auto;
@@ -651,7 +654,7 @@
   transform: scaleX(-1);
   /* height: 50px;   */
   width: 50px;
-  bottom: 20px;
+  bottom: 10px;
   position: relative;
   /* margin-top:  20px; */
 
@@ -664,6 +667,22 @@
   margin-left: 15px;
   margin-top: 170px;
 
+}
+#parent-div{
+  width: 1110px;
+  margin-top: 50px;
+  /* border: 1px solid firebrick; */
+  height: 10px;
+  position:absolute;
+}
+#progressImgDiv_user{
+  width: 60%;
+  height: 20px;
+  position: absolute;
+  /* margin-left: 15px; */
+  /* margin-top:30px; */
+  bottom: 40px;
+  /* margin-top: 170px; */
 }
 
 /* modal btn */
@@ -679,15 +698,7 @@
   cursor: pointer;
 }
 
-#progressImgDiv_user{
-  width: 60%;
-  height: 20px;
-  position: relative;
-  margin-left: 15px;
-  /* margin-top:30px; */
-  bottom: 40px;
-  /* margin-top: 170px; */
-}
+
 
 
 /* modal */
