@@ -32,6 +32,31 @@ let user_day_cure = function (date) {
     });
 }
 
+// 모든 거북이 조회
+let all_turtle = function () {
+    var data1 = null
+    $(document).ready(function () {
+        $.ajax({
+            type: 'GET',
+            url: 'http://107.21.77.37/turtle/',
+            // jsonp 값을 전달할 때 사용되는 파라미터 변수명
+            // 이 속성을 생략하면 callback 파라미터 변수명으로 전달된다.
+            success: function (data, textStatus, jqXHR) {
+                console.log('success');
+                console.log(data);
+                // console.log(JSON.parse(data[0]));
+                getComplateTurtle();
+            },
+            complete: function (d) {
+                console.log('d')
+            },
+            error: function (d) {
+                console.log('실패' + d.responseText)
+            }
+        });
+    });
+}
+
 // 오늘 날짜 구하기
 function getToday() {
     var date = new Date();
@@ -290,6 +315,18 @@ function testChk(num) {
         let getClass = document.getElementById(getClassName);
         getClass.style.display = 'inline-block';
     }
+}
+
+function getComplateTurtle(turtles){
+    let complate = turtles.filter((data)=>{
+        if(data.best.length >=9){   // 완주한 거북이들만
+            return data;
+        }
+    });
+    // 역순으로 정렬 후 필요한 데이터들 골라내기
+    let history_datas = complate.sort((a, b) => new Date(b.best) - new Date(a.best)).map((data)=> [data.num, data.name, data.best])
+
+    history(history_datas);
 }
 
 // 거북 역사관
