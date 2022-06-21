@@ -321,7 +321,7 @@ function my_progressMove(my) {
                 clearInterval(id);
                 i = 0;
             } else {
-                width++;
+                width = 0;
 
                 elem.style.width = width + "%";
                 elem.innerHTML = width + "%";
@@ -332,60 +332,63 @@ function my_progressMove(my) {
 }
 
 function user_progressMove(user){
-    let i = 0;
-    if (i == 0) {
-        i = 1;
-        
-        let parent = document.getElementById('parent-div');
 
-        let progressImgDiv = document.createElement('div');
-        progressImgDiv.id = 'progressImgDiv_user';
-        parent.appendChild(progressImgDiv);
-
-        let rank_user = document.createElement('div');
-        progressImgDiv.appendChild(rank_user);
-        rank_user.classList.add('rank_user');
-
-        let user_progressImg = document.createElement('img');
-        user_progressImg.id = 'user_progressImg';
-        rank_user.appendChild(user_progressImg);
-
-        let user_name = document.createElement('p');
-        user_name.id = 'user_name';
-        rank_user.appendChild(user_name);
-        user_name.innerHTML = user[0];
-        
-        
-        if (user[2] == 1) {
-            user_progressImg.src = '/assets/images/progress_tutle1.png';
-        } else if (user[2] == 2) {
-            user_progressImg.src = '/assets/images/progress_tutle2.png';
-        } else if (user[2] == 3) {
-            user_progressImg.src = '/assets/images/progress_tutle3.png';
-        } else if (user[2] == 4) {
-            user_progressImg.src = '/assets/images/progress_tutle4.png';
-        }
-
-        // var elem = document.getElementById("myBar");
-        // var imgDiv = document.getElementById("progressImgDiv");
-        // var imgDivW = 0;
-        var width = 0;
-        var id = setInterval(frame, 50);
-
-        function frame() {
-            if (width >= user[1]) {
-                clearInterval(id);
-                i = 0;
-            } else {
-                width++;
-
-                progressImgDiv.style.width = width + "%";
-                // elem.innerHTML = width + "%";
-                // user_progressImg.style.width = width + "%";
-            }
-        }
+    for(let i = 0; i <= user.length; i++){
+        let play = 0;
+        if (play == 0) {
+            play = 1;
+            let parent = document.getElementById('parent-div');
+    
+            let progressImgDiv = document.createElement('div');
+            progressImgDiv.id = 'progressImgDiv_user';
+            parent.appendChild(progressImgDiv);
+    
+            let rank_user = document.createElement('div');
+            progressImgDiv.appendChild(rank_user);
+            rank_user.classList.add('rank_user');
+    
+            let user_progressImg = document.createElement('img');
+            user_progressImg.id = 'user_progressImg';
+            rank_user.appendChild(user_progressImg);
+    
+            let user_name = document.createElement('p');
+            user_name.id = 'user_name';
+            rank_user.appendChild(user_name);
             
+            
+            for(let j = 0; j<= user[i].length; j++){
+                if (user[i][2] == 1) {
+                    user_progressImg.src = '/assets/images/progress_tutle1.png';
+                } else if (user[i][2] == 2) {
+                    user_progressImg.src = '/assets/images/progress_tutle2.png';
+                } else if (user[i][2] == 3) {
+                    user_progressImg.src = '/assets/images/progress_tutle3.png';
+                } else if (user[i][2] == 4) {
+                    user_progressImg.src = '/assets/images/progress_tutle4.png';
+                }
+                user_name.innerHTML = user[i][0];
+                console.log(parent);
+
+                var width = 0;
+                var id = setInterval(frame, 50);
+        
+                function frame() {
+                    if (width >= user[i][1]) {
+                        clearInterval(id);
+                        i = 0;
+                    } else {
+                        width = 0;
+        
+                        progressImgDiv.style.width = width + "%";
+                        // elem.innerHTML = width + "%";
+                        // user_progressImg.style.width = width + "%";
+                    }
+                }
+            }
+
+        }
     }
+    
     
 }
 
