@@ -186,13 +186,6 @@ async function predict() {
             creatchk = false;
         }
     });
-
-    if (cnt == 10) {
-        // 전유리 이거 넣으면 에러 남
-        // create_cure(stretchingNum,cnt);
-
-    }
-
     // 무슨 동작을 하는지 적힘
     for (let i = 0; i < maxPredictions; i++) {
         const classPrediction =
@@ -202,6 +195,16 @@ async function predict() {
 
     // finally draw the poses
     drawPose(pose);
+}
+
+
+function save(){
+    // 저장하고 종료하기
+    if(creatchk===true && cnt!=0){
+        create_cure(stretchingNum,cnt);
+        creatchk= false;
+    }
+    location.href = '../index.html';
 }
 
 
