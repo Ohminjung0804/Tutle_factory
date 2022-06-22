@@ -184,6 +184,16 @@ async function predict() {
 
 }
 
+
+function save(){
+    // 저장하고 종료하기
+    if(creatchk===true && cnt!=0){
+        create_cure(stretchingNum,cnt);
+        creatchk= false;
+    }
+    location.href = '../index.html';
+}
+
 function drawPose(pose) {
     if (webcam.canvas) {
         ctx.drawImage(webcam.canvas, 0, 0);
