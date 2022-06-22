@@ -378,7 +378,7 @@ function user_progressMove(user){
         function frame() {
             if (width >= user[1]) {
                 clearInterval(id);
-                i = 0;
+                play = 0;
             } else {
                 width ++;
 
