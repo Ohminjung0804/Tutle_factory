@@ -11,7 +11,7 @@ let user_day_cure = function (date) {
   $(document).ready(function () {
     $.ajax({
       type: "GET",
-      url: `http://107.21.77.37/cure/date?user_email=${localStorage.getItem('key')}&date=${date}`,
+      url: `http://3.94.248.115/cure/date?user_email=${localStorage.getItem('key')}&date=${date}`,
 
       //전달할 때 사용되는 파라미터 변수명
       // 이 속성을 생략하면 callback 파라미터 변수명으로 전달된다.

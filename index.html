@@ -499,7 +499,7 @@
 
 	<!-- 챗봇 -->
 	<script >
-		let show = true;
+		let show = false;
 		function show_chat(){
 			let icon = document.getElementById("robot-icon");
 			if(show){	// 화면 닫히게 하기
@@ -591,7 +591,6 @@
 		}
 
 		let create_turtle = function (email) {
-			console.log(localStorage.getItem("key", ''));
 			var data1 = null
 			$(document).ready(function () {
 				$.ajax({
@@ -604,7 +603,7 @@
 						"ease":0,
 						"best":0
 					}),
-					url: 'http://107.21.77.37/turtle/new',
+					url: 'http://3.94.248.115/turtle/new',
 					dataType: "json",
 					accept: "application/json",
 					//전달할 때 사용되는 파라미터 변수명

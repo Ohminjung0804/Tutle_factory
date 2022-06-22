@@ -19,7 +19,7 @@ let create_cure = function (stretchingNum, cnt) {
                 "status": cnt,
                 "user_email": localStorage.getItem('key')
             }),
-            url: 'http://107.21.77.37/cure/',
+            url: 'http://3.94.248.115/cure/',
             dataType: "json",
             accept: "application/json",
             //전달할 때 사용되는 파라미터 변수명
