@@ -33,7 +33,7 @@ let user_cure = function (user_email,index,isEnd) {  //해당 유저 이메일, 
     $(document).ready(function () {
         $.ajax({
             type: "GET",
-            url: `http://107.21.77.37/cure/user?user_email=`+user_email,
+            url: `http://3.94.248.115/cure/user?user_email=`+user_email,
 
             //전달할 때 사용되는 파라미터 변수명
             // 이 속성을 생략하면 callback 파라미터 변수명으로 전달된다.
@@ -65,7 +65,7 @@ let edit_turtle = function (email, name, num) {
     $(document).ready(function () {
         $.ajax({
             type: "PUT",
-            url: 'http://107.21.77.37/turtle/user?user_email=' + email,
+            url: 'http://3.94.248.115/turtle/user?user_email=' + email,
             dataType: "json",
             accept: "application/json",
             data: JSON.stringify({
@@ -107,7 +107,7 @@ let edit_complate_turtle = function (date) {
     $(document).ready(function () {
         $.ajax({
             type: "PUT",
-            url: 'http://107.21.77.37/turtle/user?user_email=' + localStorage.getItem('key'),
+            url: 'http://3.94.248.115/turtle/user?user_email=' + localStorage.getItem('key'),
             dataType: "json",
             accept: "application/json",
             data: JSON.stringify({
@@ -149,7 +149,7 @@ let get_start_turtle = function () {
     $(document).ready(function () {
         $.ajax({
             type: "GET",
-            url: `http://107.21.77.37/turtle/date?user_email=${localStorage.getItem('key')}`,
+            url: `http://3.94.248.115/turtle/date?user_email=${localStorage.getItem('key')}`,
 
             //전달할 때 사용되는 파라미터 변수명
             // 이 속성을 생략하면 callback 파라미터 변수명으로 전달된다.
