@@ -327,7 +327,7 @@ function getComplateTurtle(turtles){
 }
 
 // 거북 역사관
-// let user = [[1,'거북1','2020-03-23'],[3,'거북2','2020-04-03'],[2,'거북3','2020-04-13'],[3,'거북4','2020-04-22'],[3,'거북5','2020-05-01'],[3,'거북6','2020-05-10']]
+let user = [[1,'거북1','2020-03-23'],[3,'거북2','2020-04-03'],[2,'거북3','2020-04-13'],[3,'거북4','2020-04-22'],[3,'거북5','2020-05-01'],[3,'거북6','2020-05-10']]
 function history(user){
     let history_div = document.getElementById('history-div');
     for(let i = 0; i<user.length; i++){
@@ -375,9 +375,9 @@ function history(user){
 //     recordText.style.display = 'inline-block';
 // }
 ani();
-// history(user);
+history(user);
 // bestRecord(2);
 // 오늘 한 스트레칭 체크표시하기
 let day = getToday();
 user_day_cure_main(day);
-all_turtle();
+// all_turtle();
