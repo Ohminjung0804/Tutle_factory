@@ -91,6 +91,7 @@ async function init() {
     setTimeout(function () {
         document.getElementById("pausebtn").style.visibility = "visible";
         document.getElementById("restartbtn").style.visibility = "visible";
+        document.getElementById("savebtn").style.visibility = "visible";
     }, 1500);
 
     // load the model and metadata
