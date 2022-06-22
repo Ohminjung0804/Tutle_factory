@@ -64,6 +64,10 @@ function restart() {
     webcam.play();
 }
 
+function save(){
+    // 전유리 저장하는 함수!
+}
+
 function move() {
 
     // 버튼 누르면 위치 이동
@@ -89,6 +93,7 @@ async function init() {
     setTimeout(function () {
         document.getElementById("pausebtn").style.visibility = "visible";
         document.getElementById("restartbtn").style.visibility = "visible";
+        document.getElementById("savebtn").style.visibility = "visible";
     }, 1500);
 
     // load the model and metadata
@@ -136,11 +141,11 @@ async function predict() {
 
     if (prediction[0].probability.toFixed(2) >= 0.9) {
 
-        if (posture == "up") {
-            cnt++
-            var audio = new Audio('../count/' + cnt % 10 + '.mp3');
-            audio.play();
-        }
+        // if (posture == "up") {
+        //     cnt++
+        //     var audio = new Audio('../count/' + cnt % 10 + '.mp3');
+        //     audio.play();
+        // }
 
         posture = "down"
 
@@ -154,20 +159,21 @@ async function predict() {
 
         posture = "up"
 
-    } else if (prediction[2].probability.toFixed(2) == 1) {
+    } 
+    // else if (prediction[2].probability.toFixed(2) == 1) {
 
-        if(posture == "up"){
-            var audio = new Audio('../count/bent.mp3');
-            audio.play();
-        }
-        if(posture == "down"){
-            var audio = new Audio('../count/bent.mp3');
-            audio.play();
-        }
+    //     if(posture == "up"){
+    //         var audio = new Audio('../count/bent.mp3');
+    //         audio.play();
+    //     }
+    //     if(posture == "down"){
+    //         var audio = new Audio('../count/bent.mp3');
+    //         audio.play();
+    //     }
 
-        posture = "side"
+    //     posture = "side"
 
-    }
+    // }
 
     labelContainer.innerHTML = cnt + "개";
 

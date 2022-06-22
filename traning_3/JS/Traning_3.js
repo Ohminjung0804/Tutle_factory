@@ -65,6 +65,10 @@ function restart() {
     webcam.play();
 }
 
+function save(){
+    // 전유리 저장하는 함수!
+}
+
 function move() {
 
     // 버튼 누르면 위치 이동
@@ -90,6 +94,7 @@ async function init() {
     setTimeout(function () {
         document.getElementById("pausebtn").style.visibility = "visible";
         document.getElementById("restartbtn").style.visibility = "visible";
+        document.getElementById("savebtn").style.visibility = "visible";
     }, 1500);
 
     // load the model and metadata
