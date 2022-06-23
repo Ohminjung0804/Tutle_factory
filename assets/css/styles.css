@@ -319,6 +319,7 @@
 
 .text-muted {
   --bs-text-opacity: 1;
+  font-size: 18px;
   color: #6c757d !important;
 }
 
@@ -692,7 +693,8 @@
 /* progress 진행도 div */
 .rank_div{
   background: url('/assets/images/background/rank_back.png');
-  width: 1920px;
+  width: 100vw;
+  object-fit: cover;
   height: 400px;
   border: 1px solid white;
   text-align: center;

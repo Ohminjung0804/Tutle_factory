@@ -305,9 +305,7 @@ function my_progressMove(my) {
     } else if (my_profile == 4) {
         my_img.src = '/assets/images/progress_tutle4.png';
     }
-    console.log(my[0]);
     let i = 0;
-    console.log(i);
     if (i == 0) {
         i = 1;
         

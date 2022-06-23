@@ -18,26 +18,13 @@ let create_cure2 = function (stretchingNum2, cnt2) {
                 "status": cnt2,
                 "user_email": localStorage.getItem('key')
             }),
-            url: 'http://107.21.77.37/cure/',
+            url: 'http://3.94.248.115/cure/',
             dataType: "json",
             accept: "application/json",
             //전달할 때 사용되는 파라미터 변수명
             // 이 속성을 생략하면 callback 파라미터 변수명으로 전달된다.
             success: function (data, textStatus, jqXHR) {
                 console.log('success');
-                console.log(data);
-                var data1 = {
-                    id: data[0].id,
-                    craeted: data[0].created,
-                    stretch: data[0].stretch,
-                    status: data[0].status,
-                    user_email: data[0].user_email,
-                }
-                // console.log(JSON.parse(data[0]));
-                console.log(data1)
-                // console.log(JSON.parse(data[0]));
-                console.log(data1)
-                $('.result').html('dfdjflks' + data1.email);
             },
             complete: function (d) {
                 console.log('d')
@@ -180,8 +167,8 @@ async function predict() {
     // 창 닫을 때 alert창
     window.addEventListener("beforeunload", function (event) {
 
-        event.returnValue = "나가겠습니까?";
         if (creatchk2 === true && cnt2 != 0) {
+            event.returnValue = "나가겠습니까?";
             create_cure2(stretchingNum2, cnt2);
             creatchk2 = false;
         }
@@ -198,7 +185,7 @@ async function predict() {
 }
 
 
-function save(){
+function save2(){
     // 저장하고 종료하기
     if(creatchk2===true && cnt2!=0){
         create_cure2(stretchingNum2,cnt2);

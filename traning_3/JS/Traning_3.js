@@ -20,7 +20,7 @@ let create_cure3 = function (stretchingNum3, cnt3) {
                 "status": cnt3,
                 "user_email": localStorage.getItem('key')
             }),
-            url: 'http://107.21.77.37/cure/',
+            url: 'http://3.94.248.115/cure/',
             dataType: "json",
             accept: "application/json",
             //전달할 때 사용되는 파라미터 변수명
@@ -28,18 +28,8 @@ let create_cure3 = function (stretchingNum3, cnt3) {
             success: function (data, textStatus, jqXHR) {
                 console.log('success');
                 console.log(data);
-                var data1 = {
-                    id: data[0].id,
-                    craeted: data[0].created,
-                    stretch: data[0].stretch,
-                    status: data[0].status,
-                    user_email: data[0].user_email,
-                }
+                
                 // console.log(JSON.parse(data[0]));
-                console.log(data1)
-                // console.log(JSON.parse(data[0]));
-                console.log(data1)
-                $('.result').html('dfdjflks' + data1.email);
             },
             complete: function (d) {
                 console.log('d')
@@ -181,10 +171,12 @@ async function predict() {
 }
 
 
-function save(){
+function save3(){
     // 저장하고 종료하기
+    console.log("저장 버튼 눌림");
     if(creatchk3===true && cnt3!=0){
-        create_cure(stretchingNum,cnt3);
+        console.log("스트레칭 저장")
+        create_cure3(stretchingNum3,cnt3);
         creatchk3= false;
     }
     location.href = '../index.html';
