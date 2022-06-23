@@ -39,14 +39,14 @@ let user_cure = function (user_email,index,isEnd) {  //해당 유저 이메일, 
             // 이 속성을 생략하면 callback 파라미터 변수명으로 전달된다.
             success: function (data, textStatus, jqXHR) {
                 // stretchs.push(data);
-                // console.log('사용자들 : ',stretchs);
-                count_date(index,data);
+                //console.log('사용자들 : ',stretchs);
+                count_date(index,data); // 한 날짜 구하기
                 call_cnt+=1;
                 if(call_cnt===isEnd){ // 호출횟수가 길이랑 같으면
                     // 프로그래스 데이터 표시
                     call_progress();
                 }
-                // console.log(JSON.parse(data[0]));
+                // //console.log(JSON.parse(data[0]));
             },
             complete: function (d) {
             },
@@ -61,7 +61,7 @@ let user_cure = function (user_email,index,isEnd) {  //해당 유저 이메일, 
 
 // 수정 ajax
 let edit_turtle = function (email, name, num) {
-    console.log(email)
+    //console.log(email)
     $(document).ready(function () {
         $.ajax({
             type: "PUT",
@@ -86,11 +86,8 @@ let edit_turtle = function (email, name, num) {
                 setCookie("ease", data.ease, 100);
                 setCookie("best", data.best, 100);
                 setCookie("created", data.created, 100);
-                console.log(document.cookie);
-                // console.log(JSON.parse(data[0]));
-            },
-            complete: function (d) {
-                console.log('d')
+                //console.log(document.cookie);
+                // //console.log(JSON.parse(data[0]));
             },
             error: function (xhr, textStatus, error) {
                 console.log(xhr.responseText);
@@ -103,7 +100,7 @@ let edit_turtle = function (email, name, num) {
 
 // 수정 ajax
 let edit_complate_turtle = function (date) {
-    console.log(email)
+    //console.log(email)
     $(document).ready(function () {
         $.ajax({
             type: "PUT",
@@ -128,11 +125,8 @@ let edit_complate_turtle = function (date) {
                 setCookie("ease", data.ease, 100);
                 setCookie("best", data.best);
                 setCookie("created", data.created, 100);
-                console.log(document.cookie);
-                // console.log(JSON.parse(data[0]));
-            },
-            complete: function (d) {
-                console.log('d')
+                //console.log(document.cookie);
+                // //console.log(JSON.parse(data[0]));
             },
             error: function (xhr, textStatus, error) {
                 console.log(xhr.responseText);
@@ -156,11 +150,8 @@ let get_start_turtle = function () {
             success: function (data, textStatus, jqXHR) {
                 console.log('success');
                 console.log('데이터',data);
-                // console.log(JSON.parse(data[0]));
+                // //console.log(JSON.parse(data[0]));
                 getProgressData(data);
-            },
-            complete: function (d) {
-                console.log('d')
             },
             error: function (xhr, textStatus, error) {
                 console.log(xhr.responseText);
@@ -176,7 +167,7 @@ function countDownTimer(_sdate) {
     let id = 'todo-date';
     let sdate = new Date(_sdate);
     let edate = new Date(sdate.setDate(sdate.getDate() + 99));
-    console.log(edate);
+    //console.log(edate);
     let _second = 1000;
     let _minute = _second * 60;
     let _hour = _minute * 60;
@@ -190,11 +181,11 @@ function countDownTimer(_sdate) {
 
         if (disDt < 0) {
             clearInterval(timer);
-            // console.log("타이머0");
+            // //console.log("타이머0");
             document.getElementById(id).textContent = '0일 0시간 0분';
             return;
         }
-        // console.log("타이머");
+        // //console.log("타이머");
         let days = Math.floor(disDt / _day);
         let hours = Math.floor((disDt % _day) / _hour);
         let minutes = Math.floor((disDt % _hour) / _minute);
@@ -215,18 +206,18 @@ function dateCalcul(_sdate) {
     let syear = sdate.getFullYear();
     let smonth = sdate.getMonth() + 1;
     let sday = sdate.getDate();
-    console.log(sdate, syear, smonth, sday);
+    //console.log(sdate, syear, smonth, sday);
 
 
     document.getElementById('start-day').textContent = syear + '년 ' + smonth + '월 ' + sday + '일 ';
     let today = new Date();
-    // console.log(today);
+    // //console.log(today);
     let edate = new Date(sdate.setDate(sdate.getDate() + 99));
 
     let eyear = edate.getFullYear();
     let emonth = edate.getMonth() + 1;
     let eday = edate.getDate();
-    console.log(edate, emonth, eday);
+    //console.log(edate, emonth, eday);
     document.getElementById('end-day').textContent = eyear + '년 ' + emonth + '월 ' + eday + '일';
 }
 
@@ -234,7 +225,7 @@ function dateCalcul(_sdate) {
 function save_info() {
     let name = name_info()
     const char = $('input[name="chk_char"]:checked').val();
-    console.log(char);
+    //console.log(char);
 
     // 수정함수 호출
     let user_email = localStorage.getItem('key');
@@ -243,7 +234,7 @@ function save_info() {
 
 function name_info() {
     let name = document.getElementById('name-info').value;
-    console.log(name);
+    //console.log(name);
     if (name != '') {
         document.getElementById('show-name').innerHTML = name;
     }
@@ -275,8 +266,8 @@ function getToday() {
 function call_progress(){
     // data : [유저이름, 진행율, 캐릭터, 이메일]
     users.forEach((data,i)=>{
-        console.log(i,data)
-        console.log('쿠키',document.cookie);
+        //console.log(i,data)
+        //console.log('쿠키',document.cookie);
 
         if(data[3]==getCookie("email")){
             if(getCookie("best").length<9 && data[1] ===100){   // 수정 전이고, 완주했을때
@@ -291,7 +282,7 @@ function call_progress(){
 }
 function my_progressMove(my) {
     // const d_day = _cnt_date;
-    // console.log(d_day);
+    // //console.log(d_day);
 
     let my_profile = my[2];
     let my_img = document.getElementById("my_progressImg");
@@ -370,7 +361,7 @@ function user_progressMove(user){
             user_progressImg.src = '/assets/images/progress_tutle4.png';
         }
         user_name.innerHTML = user[0];
-        console.log(parent);
+        //console.log(parent);
 
         var width = 0;
         var id = setInterval(frame, 50);
@@ -435,10 +426,11 @@ function mypage_data() {
     const start = document.getElementById("start-day");
     const end = document.getElementById("end-day");
     const percent_text = document.querySelector(".percent");
-    console.log(name, start, end)
+    //console.log(name, start, end)
     name.innerText = getCookie("name");
     start.innerText = getCookie("created");
     percent_text.innerText = getCookie("ease")+"%";
+    //console.log("데이터 테스트",getCookie("ease"));
 
     var days = getCookie("created");
     const strArr = days.split('-');

@@ -26,9 +26,6 @@ let create_cure2 = function (stretchingNum2, cnt2) {
             success: function (data, textStatus, jqXHR) {
                 console.log('success');
             },
-            complete: function (d) {
-                console.log('d')
-            },
             error: function (xhr, textStatus, error) {
                 console.log(xhr.responseText);
                 console.log(textStatus);
@@ -177,7 +174,7 @@ async function predict() {
     for (let i = 0; i < maxPredictions; i++) {
         const classPrediction =
             prediction[i].className + ": " + prediction[i].probability.toFixed(2);
-        console.log(classPrediction);
+        //console.log(classPrediction);
     }
 
     // finally draw the poses

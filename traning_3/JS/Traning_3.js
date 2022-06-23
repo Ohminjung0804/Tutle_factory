@@ -31,9 +31,6 @@ let create_cure3 = function (stretchingNum3, cnt3) {
                 
                 // console.log(JSON.parse(data[0]));
             },
-            complete: function (d) {
-                console.log('d')
-            },
             error: function (xhr, textStatus, error) {
                 console.log(xhr.responseText);
                 console.log(textStatus);

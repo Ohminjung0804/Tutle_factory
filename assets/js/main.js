@@ -15,8 +15,8 @@ let user_day_cure_main = function (date) {
             success: function (data, textStatus, jqXHR) {
                 console.log('success');
                 stretchs = data; // 전역변수 생성
-                // console.log(JSON.parse(data[0]));
-                // console.log(JSON.parse(data[0]));
+                // //console.log(JSON.parse(data[0]));
+                // //console.log(JSON.parse(data[0]));
                 today_chk(); // 차트 데이터 넣기 
             },
             complete: function (d) {
@@ -41,11 +41,11 @@ let all_turtle = function () {
             // 이 속성을 생략하면 callback 파라미터 변수명으로 전달된다.
             success: function (data, textStatus, jqXHR) {
                 console.log('success');
-                // console.log(JSON.parse(data[0]));
+                //console.log(JSON.parse(data[0]));
                 getComplateTurtle(data);
             },
             complete: function (d) {
-                console.log('d')
+                //console.log('d')
             },
             error: function (d) {
                 console.log('실패' + d.responseText)
@@ -280,12 +280,12 @@ function ani() {
 
 // 한날 안한날 체크
 function today_chk() {
-    console.log("chart")
+    //console.log("chart")
     let one = stretchs.filter(data => data.stretch == 1)
     let two = stretchs.filter(data => data.stretch == 2)
     let three = stretchs.filter(data => data.stretch == 3)
 
-    console.log(one,two,three)
+    //console.log(one,two,three)
     if(one.length>=1){
         testChk(1);
     }
@@ -300,10 +300,10 @@ function today_chk() {
 // 체크박스
 function testChk(num) {
     let getClassName = "testchk" + num;
-    console.log(getClassName);
+    //console.log(getClassName);
     if (num == 1) {
         let getClass = document.getElementById(getClassName);
-        console.log(getClass);
+        //console.log(getClass);
         getClass.style.display = 'inline-block';
     } else if (num == 2) {
         let getClass = document.getElementById(getClassName);
@@ -344,9 +344,9 @@ function history(user){
         history_ul.appendChild(date_li);
         img_li.appendChild(user_img);
 
-        console.log(user);
+        //console.log(user);
         for(let j = 0; j< user[i].length; j++){
-            console.log(user[i][j]);
+            //console.log(user[i][j]);
             if(j == 0){
                 if(user[i][j] == 1){
                     user_img.src = 'assets/images/progress_tutle1.png';
@@ -371,7 +371,7 @@ function history(user){
 //     let idName = 'best-record' + num;
 
 //     let recordText = document.getElementById(idName);
-//     console.log(recordText);
+//     //console.log(recordText);
 //     recordText.style.display = 'inline-block';
 // }
 ani();

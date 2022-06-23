@@ -29,9 +29,6 @@ let create_cure = function (stretchingNum, cnt) {
                 console.log('success');
                 console.log(data);
             },
-            complete: function (d) {
-                console.log('d')
-            },
             error: function (xhr, textStatus, error) {
                 console.log(xhr.responseText);
                 console.log(textStatus);

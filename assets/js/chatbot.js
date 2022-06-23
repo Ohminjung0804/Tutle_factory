@@ -6,12 +6,12 @@ const Chat = (function () {
         const chat_ul = document.querySelector(".chat-text");
         const qnas = document.querySelectorAll(".ask");
         const vals = qnas[0].innerText;
-        // console.log('버튼들',qnas,vals);
+        // //console.log('버튼들',qnas,vals);
 
         // 질문 버튼 클릭 시
         qnas.forEach(btn => {
             btn.addEventListener('click',(e)=>{
-                console.log('scroll',document.querySelector(".chat-text").scrollHeight,document.querySelector(".chat-text").scrollTop);
+                //console.log('scroll',document.querySelector(".chat-text").scrollHeight,document.querySelector(".chat-text").scrollTop);
 
                 // 2. 추가할 li element 생성
                 // 2-1. 추가할 li element 생성
@@ -23,7 +23,7 @@ const Chat = (function () {
     
                 li.innerHTML = `<div class="chat-li">${qnas[e.target.id].innerText}</div>`
                 
-                console.log(li);
+                //console.log(li);
                 chat_ul.appendChild(li);
                 
                 let answer_text = "";
@@ -98,7 +98,7 @@ const Chat = (function () {
                         <img src="./assets/images/turtlebot.png" alt="로봇" width="25px" style="margin-right: 2px;">
                         <div class="chat-li">${answer_text2}</div>`
                         
-                        console.log(answer_li);
+                        //console.log(answer_li);
                         chat_ul.appendChild(answer_li);
                     }
                 },1000)
@@ -123,7 +123,7 @@ const Chat = (function () {
         
         // 스크롤 최하단 고정
         document.querySelector(".chat-text").scrollTop = document.querySelector(".chat-text").scrollHeight; 
-        console.log('scroll',document.querySelector(".chat-text").scrollTop);
+        //console.log('scroll',document.querySelector(".chat-text").scrollTop);
 
     }
 
@@ -203,7 +203,7 @@ Chat.init();
 function putText(e){
     const chat_ul = document.querySelector(".chat-text");
     let line = document.getElementById("input-ask");
-    console.log('라인',line);
+    //console.log('라인',line);
 
     if((line.value).length <=0){
         return
@@ -217,7 +217,7 @@ function putText(e){
 
     li.innerHTML = `<div class="chat-li">${line.value}</div>`
     
-    console.log(li);
+    //console.log(li);
     chat_ul.appendChild(li);
 
     line.value = ''; // 비우기
@@ -225,7 +225,7 @@ function putText(e){
     // 답변 넣기
     setTimeout(function(){
         let answer_text = "버튼의 질문 외에 문의사항/건의사항이 있으시다면 [w2015@e-mirim.hs.kr]로 부탁드립니다^^";
-        console.log('답변 ',answer_text);
+        //console.log('답변 ',answer_text);
         const answer_li = document.createElement("li");
         answer_li.classList.add("content");
         answer_li.classList.add("left");

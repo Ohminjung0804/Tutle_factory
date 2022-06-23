@@ -375,9 +375,6 @@
 		<br /><br />
 		<br />
 
-
-
-
 		<!--Pricing Section-->
 		<section id="contact" class="page-section">
 			<div class="container m-top-300">
@@ -476,12 +473,12 @@
 			if(show){	// 화면 닫히게 하기
 				icon.src = './assets/images/turtlebot.png';
 				icon.style.width = "160px";
-				console.log(icon.width);
+				//console.log(icon.width);
 				document.querySelector(".chat-container").style.display = 'none';
 			}else{		// 화면 열리게 하기
 				icon.src = './assets/images/turtlebot_click.png';
 				icon.style.width = "100px";
-				console.log(icon.width);
+				//console.log(icon.width);
 				document.querySelector(".chat-container").style.display = '';
 			}
 			show = !show;
@@ -552,7 +549,7 @@
 			// 선택된 데이터의 텍스트값 가져오기
 			const email = e.options[e.selectedIndex].text;
 			create_turtle(email);
-			// console.log(text);
+			// //console.log(text);
 		}
 		
 		function setCookie(key, value, expiredays) {
@@ -590,20 +587,17 @@
 							best: data.best,
 							created: data.created,
 						}
-						console.log(data1)
+						//console.log(data1)
 						setCookie("email",data.email,100);
 						setCookie("name",data.name,100);
 						setCookie("num",data.num,100);
 						setCookie("ease",data.ease,100);
 						setCookie("best",data.best,100);
 						setCookie("created",data.created,100);
-						console.log('쿠키',document.cookie);
+						//console.log('쿠키',document.cookie);
 						localStorage.setItem("key", email);
 						window.location.href='/mypage.html'
 
-					},
-					complete: function (d) {
-						console.log('d')
 					},
 					error: function (xhr, textStatus, error) {
 						console.log(xhr.responseText);
@@ -615,7 +609,7 @@
 		}
 
 		Kakao.init('c550e7389ae587f38e4478dd047e9df0');
-		console.log(Kakao.isInitialized());
+		//console.log(Kakao.isInitialized());
 
 		Kakao.Auth.createLoginButton({
 			container: '#kakao-login-btns',

@@ -3,7 +3,7 @@ const user_id = localStorage.getItem("key",'');
 function getCookie(key) {
     var result = null;
     var cookie = document.cookie.split(';');
-    console.log(cookie);
+    //console.log(cookie);
     cookie.some(function (item) {
         // 공백을 제거
         item = item.replace(' ', '');
@@ -29,13 +29,13 @@ function getCookie(key) {
 function modify_data(){
     const user_name = document.getElementById("name-info");
     const user_char = document.querySelector(".radio-div");
-    console.log(user_name)
+    //console.log(user_name)
     user_name.value = getCookie("name");
     $(`input[name='chk_char'][value=${getCookie("num")}]`).prop("checked", true);
 }
 function domcheck(){
-    console.log(logintag);
-    console.log(user_id);
+    //console.log(logintag);
+    //console.log(user_id);
     if(user_id){
         logintag.innerHTML = `<button id="myBtn">${user_id}</button>`;
     }else{
