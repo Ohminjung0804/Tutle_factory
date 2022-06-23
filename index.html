@@ -100,6 +100,10 @@
 						<li class="testLogin">
 							<select name="language" onchange="handleOnChange(this)">
 								<option value="korean">테스트 로그인</option>
+								<option value="joyuna0402@naver.com">joyuna0402@naver.com</option>
+								<option value="w2015@e-mirim.hs.kr">w2015@e-mirim.hs.kr</option>
+								<option value="jeon1310@gmail.com">jeon1310@gmail.com</option>
+								<option value="mineight@naver.com">mineight@naver.com</option>
 								<option value="email1234@gmail.com">email1234@gmail.com</option>
 								<option value="w2033@e-mirim.hs.kr">w2033@e-mirim.hs.kr</option>
 								<option value="mirim1234@gmail.com">mirim1234@gmail.com</option>
@@ -593,7 +597,7 @@
 						setCookie("ease",data.ease,100);
 						setCookie("best",data.best,100);
 						setCookie("created",data.created,100);
-						console.log(document.cookie);
+						console.log('쿠키',document.cookie);
 						localStorage.setItem("key", email);
 						window.location.href='/mypage.html'
 

@@ -6,18 +6,18 @@
 const URL = "./my_model/";
 // import { create_cure } from "../../JS/tranings.js";
 let model, webcam, ctx, labelContainer, maxPredictions;
-let creatchk = true;
+let creatchk3 = true;
 
 // 스트레칭 생성
-let create_cure = function (stretchingNum, cnt) {
+let create_cure3 = function (stretchingNum3, cnt3) {
     var data1 = null
     $(document).ready(function () {
         $.ajax({
             type: "POST",
             contentType: "application/json; charset=utf-8",
             data: JSON.stringify({
-                "stretch": stretchingNum,
-                "status": cnt,
+                "stretch": stretchingNum3,
+                "status": cnt3,
                 "user_email": localStorage.getItem('key')
             }),
             url: 'http://107.21.77.37/cure/',
@@ -54,9 +54,9 @@ let create_cure = function (stretchingNum, cnt) {
 }
 
 // 스트레칭 번호
-const stretchingNum = 3;
+const stretchingNum3 = 3;
 // 스트레칭 개수
-var cnt = 0;
+var cnt3 = 0;
 
 function pause() {
     webcam.pause();
@@ -147,30 +147,26 @@ async function predict() {
 
     } else if (prediction[1].probability.toFixed(2) == 1) {
         if (posture == "up") {
-            cnt++;
-            var audio = new Audio('../count/' + cnt % 10 + '.mp3');
+            cnt3++;
+            var audio = new Audio('../count/' + cnt3 % 10 + '.mp3');
             audio.play();
         }
         posture = "down"
     }
 
-    labelContainer.innerHTML = cnt + "개";
+    labelContainer.innerHTML = cnt3 + "개";
 
     // 창 닫을 때 alert창
     window.addEventListener("beforeunload", function (event) {
 
         event.returnValue = "나가겠습니까?";
         // 전유리 함수 호출
-        if(creatchk===true && cnt!=0){
-            create_cure(stretchingNum,cnt);
-            creatchk= false;
+        if(creatchk3===true && cnt3!=0){
+            create_cure3(stretchingNum3,cnt3);
+            creatchk3= false;
         }
     });
 
-    if (cnt == 10) {
-        // 전유리 이거 넣으면 에러 남
-        // create_cure(stretchingNum,cnt);
-    }
 
     // 무슨 동작을 하는지 적힘
     // for (let i = 0; i < maxPredictions; i++) {
@@ -187,9 +183,9 @@ async function predict() {
 
 function save(){
     // 저장하고 종료하기
-    if(creatchk===true && cnt!=0){
-        create_cure(stretchingNum,cnt);
-        creatchk= false;
+    if(creatchk3===true && cnt3!=0){
+        create_cure(stretchingNum,cnt3);
+        creatchk3= false;
     }
     location.href = '../index.html';
 }

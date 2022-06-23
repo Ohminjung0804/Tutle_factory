@@ -251,15 +251,15 @@ function name_info() {
 }
 
 // let my = ["거북이",60, 2];
-let user = ["거북이2", 50,1];
-let user2 = ["거북이3", 10,4];
-let user3= ["거북이4", 80,3];
-let user4 = ["거북이5", 60,4];
+// let user = ["거북이2", 50,1];
+// let user2 = ["거북이3", 10,4];
+// let user3= ["거북이4", 80,3];
+// let user4 = ["거북이5", 60,4];
 // my_progressMove(my);
-user_progressMove(user);
-user_progressMove(user2);
-user_progressMove(user3);
-user_progressMove(user4);
+// user_progressMove(user);
+// user_progressMove(user2);
+// user_progressMove(user3);
+// user_progressMove(user4);
 // progress 진행도 표시
 
 // 오늘 날짜 구하기
@@ -275,7 +275,10 @@ function getToday() {
 function call_progress(){
     // data : [유저이름, 진행율, 캐릭터, 이메일]
     users.forEach((data,i)=>{
-        if(i===0){
+        console.log(i,data)
+        console.log('쿠키',document.cookie);
+
+        if(data[3]==getCookie("email")){
             if(getCookie("best").length<9 && data[1] ===100){   // 수정 전이고, 완주했을때
                 let tday = getToday();
                 edit_complate_turtle(tday); // 완료날짜로 수정
@@ -319,13 +322,12 @@ function my_progressMove(my) {
         var imgDivW = 0;
         var width = 0;
         var id = setInterval(frame, 50);
-        console.log("asdf");
         function frame() {
-            if (width >= my[1]) {
+            if (width >= (my[1]+10)) {
                 clearInterval(id);
                 i = 0;
             } else {
-                width = 0;
+                width++;
 
                 elem.style.width = width + "%";
                 elem.innerHTML = width + "%";
@@ -383,8 +385,8 @@ function user_progressMove(user){
                 width ++;
 
                 progressImgDiv.style.width = width + "%";
-                // elem.innerHTML = width + "%";
-                // user_progressImg.style.width = width + "%";
+                elem.innerHTML = width + "%";
+                user_progressImg.style.width = width + "%";
             }
         }
     }
@@ -453,7 +455,6 @@ function mypage_data() {
     dateCalcul(days);   // 날짜 계산하기
     countDownTimer(dateString); // 남은 일수 입력
     char_img(getCookie("num")); // 캐릭터 이미지 넣기
-    // user_cure(); // user 데이터 가져와서 진행도 표시
     get_start_turtle(); // 거북이경주
 }
 
