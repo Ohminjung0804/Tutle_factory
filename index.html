@@ -100,6 +100,10 @@
 						<li class="testLogin">
 							<select name="language" onchange="handleOnChange(this)">
 								<option value="korean">테스트 로그인</option>
+								<option value="joyuna0402@naver.com">joyuna0402@naver.com</option>
+								<option value="w2015@e-mirim.hs.kr">w2015@e-mirim.hs.kr</option>
+								<option value="jeon1310@gmail.com">jeon1310@gmail.com</option>
+								<option value="mineight@naver.com">mineight@naver.com</option>
 								<option value="email1234@gmail.com">email1234@gmail.com</option>
 								<option value="w2033@e-mirim.hs.kr">w2033@e-mirim.hs.kr</option>
 								<option value="mirim1234@gmail.com">mirim1234@gmail.com</option>
@@ -149,7 +153,7 @@
 
 		<section id="hello" class="home bg-mega" >
 			<div class="main-btn">
-				<a class="btn btn-default btn-my" href="#service">스트레칭 하러가기</a>
+				<a class="btn btn-default btn-my" href="#service" style="margin-left: 65px;">스트레칭 하러가기</a>
 				<a class="btn btn-default btn-my" href="/mypage.html" style="margin-left:5px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;마이페이지&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
 			</div>
 			<div class="container">
@@ -371,9 +375,6 @@
 		<br /><br />
 		<br />
 
-
-
-
 		<!--Pricing Section-->
 		<section id="contact" class="page-section">
 			<div class="container m-top-300">
@@ -426,11 +427,11 @@
 			<div class="qna_list" style="display: none;">
 				<ul>
 					<li style="border: none;" class="ask ask1" id="0">거북목치료센터 이용방법(가이드)</li>
-					<li class="ask ask6" id="5">거북목치료센터란 무엇인가요?</li>
-					<li class="ask ask2" id="1">거북목이란 무엇인가요?</li>
-					<li class="ask ask3" id="2">거북목 증상에 대해 더 알고싶어요.</li>
-					<li class="ask ask4" id="3">거북목은 무엇이 원인인지 궁금해요.</li>
-					<li class="ask ask5" id="4">일자목과 거북목의 차이는 무엇인가요?</li>
+					<li class="ask ask6" id="1">거북목치료센터란 무엇인가요?</li>
+					<li class="ask ask2" id="2">거북목이란 무엇인가요?</li>
+					<li class="ask ask3" id="3">거북목 증상에 대해 더 알고싶어요.</li>
+					<li class="ask ask4" id="4">거북목은 무엇이 원인인지 궁금해요.</li>
+					<li class="ask ask5" id="5">일자목과 거북목의 차이는 무엇인가요?</li>
 				</ul>
 			</div>
 			<div class="chat_screen" >
@@ -472,12 +473,12 @@
 			if(show){	// 화면 닫히게 하기
 				icon.src = './assets/images/turtlebot.png';
 				icon.style.width = "160px";
-				console.log(icon.width);
+				//console.log(icon.width);
 				document.querySelector(".chat-container").style.display = 'none';
 			}else{		// 화면 열리게 하기
 				icon.src = './assets/images/turtlebot_click.png';
 				icon.style.width = "100px";
-				console.log(icon.width);
+				//console.log(icon.width);
 				document.querySelector(".chat-container").style.display = '';
 			}
 			show = !show;
@@ -548,7 +549,7 @@
 			// 선택된 데이터의 텍스트값 가져오기
 			const email = e.options[e.selectedIndex].text;
 			create_turtle(email);
-			// console.log(text);
+			// //console.log(text);
 		}
 		
 		function setCookie(key, value, expiredays) {
@@ -586,20 +587,17 @@
 							best: data.best,
 							created: data.created,
 						}
-						console.log(data1)
+						//console.log(data1)
 						setCookie("email",data.email,100);
 						setCookie("name",data.name,100);
 						setCookie("num",data.num,100);
 						setCookie("ease",data.ease,100);
 						setCookie("best",data.best,100);
 						setCookie("created",data.created,100);
-						console.log(document.cookie);
+						//console.log('쿠키',document.cookie);
 						localStorage.setItem("key", email);
 						window.location.href='/mypage.html'
 
-					},
-					complete: function (d) {
-						console.log('d')
 					},
 					error: function (xhr, textStatus, error) {
 						console.log(xhr.responseText);
@@ -611,7 +609,7 @@
 		}
 
 		Kakao.init('c550e7389ae587f38e4478dd047e9df0');
-		console.log(Kakao.isInitialized());
+		//console.log(Kakao.isInitialized());
 
 		Kakao.Auth.createLoginButton({
 			container: '#kakao-login-btns',

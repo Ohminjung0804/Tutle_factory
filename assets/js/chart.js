@@ -18,7 +18,6 @@ let user_day_cure = function (date) {
       success: function (data, textStatus, jqXHR) {
         stretchs = data; // 전역변수 생성
         // console.log(JSON.parse(data[0]));
-        console.log(stretchs)
         // console.log(JSON.parse(data[0]));
         chart_data(); // 차트 데이터 넣기 
       },
@@ -220,7 +219,6 @@ function line_chart(today, best) {
 
 // 차트에 데이터 넣기 : 몇번 시도했는지, 이름
 function chart_data() {
-  console.log("chart")
   let one = stretchs.filter(data => data.stretch == 1).map((data) => data.status);
   let two = stretchs.filter(data => data.stretch == 2).map((data) => data.status);
   let three = stretchs.filter(data => data.stretch == 3).map((data) => data.status);
@@ -268,7 +266,6 @@ function chart_data() {
 // circle_chart();
 
 let thisday = getToday();
-console.log(thisday);
 user_day_cure(thisday);
 
 var imgArray = new Array();
@@ -292,93 +289,91 @@ function show() {
   var result = document.getElementById('result-container');
   var first = '';
   var start = '';
-  var end = '';
+  var end = `오늘도 열심히 활동하는 ${userName}님! 멋져요`;
   var max = 0;
   var min = 0;
 
-  if (tryNum <= 2){
-
+  if (tryNum <= 2 ){
     start = '조금만 더 힘을 내는 거북이가 됩시다!<br> ' + userName + '님은 스트레칭을 총 ' + tryNum + '번 진행했어요!<br>오늘은 ';
 
-    if (best[0] > best[1] && best[0] > best[2]){
+    if (best[0] >= best[1] && best[0] >= best[2]){
       first = start + '목의 앞,뒤,옆 근육의 긴장을 풀어주는 도리도리 운동을 가장 많이 했어요!<br>';
 
-    } else if(best[1] > best[0] && best[1] > best[2]){
+    } else if(best[1] >= best[0] && best[1] >= best[2]){
       first = start + '목 뼈를 유연하게 하고 목 근육을 풀어주는 앞뒤 운동을 가장 많이 했어요!<br>';
       
 
-    } else if(best[2] > best[0] && best[2] > best[1]){
+    } else if(best[2] >= best[0] && best[2] >= best[1]){
       first = start + '어깨에 힘을 빼고 목을 가볍게 풀어주는 으쓱으쓱 운동을 가장 많이 했어요!<br>';
       
     }
 
-    if(worst[0] < worst[1] && worst[0] < worst[2]){
+    if(worst[0] <= worst[1] && worst[0] <= worst[2]){
       end = first + worst[0] + '반면에 도리도리 운동을 가장 적게했군요!<br>도리도리 운동은 목의 앞,뒤,옆에 있는 근육들의 긴장을 모두 풀어줘요!<br>같이 도리도리 운동을 해봅시다!<br>아래 이미지를 클릭해 새로운 스트레칭을 배워보아요!';
       
-    } else if(worst[1] < worst[0] && worst[1] < worst[2]){
+    } else if(worst[1] <= worst[0] && worst[1] <= worst[2]){
       end = first + '반면에 앞뒤 운동을 가장 적게했군요!<br>앞뒤 운동은 목 뼈를 유연하게 하고 목 근육을 풀어줘요!<br>앞뒤 운동은 같이 해봅시다!<br>아래 이미지를 클릭해 새로운 스트레칭을 배워보아요!';
       
-    } else if(worst[2] < worst[0] && worst[2] < worst[1]){
+    } else if(worst[2] <= worst[0] && worst[2] <= worst[1]){
       end = first + '반면에 으쓱으쓱 운동을 가장 적게했군요!<br>으쓱으쓱 운동은 어깨에 힘을 빼고 가볍게 진행하면 돼요!<br>으쓱으쓱 운동을 같이 해봅시다!<br>아래 이미지를 클릭해 새로운 스트레칭을 배워보아요!';
       
     }
-
-    
-  } else if (tryNum <= 4){
-
+  } else if (tryNum <= 4){    
     start = '성장하고 있는 거북이군요!<br> ' + userName + '님은 스트레칭을 총 ' + tryNum + '번 진행했어요!<br>오늘은 ';
 
-    if (best[0] > best[1] && best[0] > best[2]){
+    if (best[0] >= best[1] && best[0] >= best[2]){
       first = start + '도리도리 운동을 가장 많이 했어요!<br>간단해보이지만 꾸준히 하면 목의 근육을 풀어주는 좋은 효과가 있어요!<br>';
 
-    } else if(best[1] > best[0] && best[1] > best[2]){
+    } else if(best[1] >= best[0] && best[1] >= best[2]){
       first = start + '앞뒤 운동을 가장 많이 했어요!<br>목을 앞뒤로 열심히 젖히다 보면 거북목이 나아질거에요!<br>';
       
 
-    } else if(best[2] > best[0] && best[2] > best[1]){
+    } else if(best[2] >= best[0] && best[2] >= best[1]){
       first = start + '으쓱으쓱 운동을 가장 많이 했어요!<br>어깨를 으쓱으쓱! 가볍게 흔들어 뭉친 어깨를 풀어보아요!<br>';
       
     }
 
-    if(worst[0] < worst[1] && worst[0] < worst[2]){
+    if(worst[0] <= worst[1] && worst[0] <= worst[2]){
       end = first + '도리도리 운동을 가장 적게했군요!<br>도리도리 운동은 목의 앞,뒤,옆에 있는 근육들의 긴장을 모두 풀어줘요!<br>다시 한번 해봅시다!<br>아래 이미지를 클릭해 새로운 스트레칭을 배워보아요!';
       
-    } else if(worst[1] < worst[0] && worst[1] < worst[2]){
+    } else if(worst[1] <= worst[0] && worst[1] <= worst[2]){
       end = first + '앞뒤 운동을 가장 적게했군요!<br> 생각보다 어려운 앞뒤 운동! 꾸준히 해서 목 뼈를 유연하게 만들어봐요!<br>다시 한번 해봅시다!<br>아래 이미지를 클릭해 새로운 스트레칭을 배워보아요!';
       
-    } else if(worst[2] < worst[0] && worst[2] < worst[1]){
+    } else if(worst[2] <= worst[0] && worst[2] <= worst[1]){
       end = first + '으쓱으쓱 운동을 가장 적게했군요!<br>으쓱으쓱 운동은 간단하고 효과 좋은 스트레칭이에요!<br>다시 한번 해봅시다!<br>아래 이미지를 클릭해 새로운 스트레칭을 배워보아요!';
       
     }
+
 
   } else if(tryNum >= 5) {
 
     start = '거북이가 아니라 사람일지도..?!<br> ' + userName + '님은 스트레칭을 총 ' + tryNum + '번 진행했어요!<br>오늘은 ';
     
-    if (best[0] > best[1] && best[0] > best[2]){
+    if (best[0] >= best[1] && best[0] >= best[2]){
       first = start + '도리도리 운동을 가장 많이 했군요!<br> 도리도리 운동쯤은 이제 껌이죠?!<br> 진짜 거북이를 벗어날 때까지 꾸준히 해봐요!<br>';
 
-    } else if(best[1] > best[0] && best[1] > best[2]){
+    } else if(best[1] >= best[0] && best[1] >= best[2]){
       first = start + '앞뒤 운동을 가장 많이 했어요!<br>과도하게 끄덕이면 오히려 안좋아요!<br>적당히 천천히 고개를 끄덕여봐요!<br>';
       
 
-    } else if(best[2] > best[0] && best[2] > best[1]){
+    } else if(best[2] >= best[0] && best[2] >= best[1]){
       first = start + '으쓱으쓱 운동을 가장 많이 했어요!<br>이제 어깨가 아프지 않을거에요!<br>';
       
     }
 
-    if(worst[0] < worst[1] && worst[0] < worst[2]){
+    if(worst[0] <= worst[1] && worst[0] <= worst[2]){
       end = first + worst[0] + '이번에 도리도리 운동을 가장 적게했군요!<br>우둑우둑 소리가 나도록 하는 것을 잘 못된 방법이에요.<br>올바른 자세로 꾸준히 같이 해봐요!<br>아래 이미지를 클릭해 새로운 스트레칭을 배워보아요!';
       
-    } else if(worst[1] < worst[0] && worst[1] < worst[2]){
+    } else if(worst[1] <= worst[0] && worst[1] <= worst[2]){
       end = first + '이번에 앞뒤 운동을 가장 적게했군요!<br>앞뒤 운동은 허리를 목과 함께 곧게 피고 꾸준히!<br>또 같이 해요!<br>아래 이미지를 클릭해 새로운 스트레칭을 배워보아요!';
       
-    } else if(worst[2] < worst[0] && worst[2] < worst[1]){
+    } else if(worst[2] <= worst[0] && worst[2] <= worst[1]){
       end = first + '이번에 으쓱으쓱 운동을 가장 적게했군요!<br>으쓱으쓱 운동은 간단해 보여도 중요해요!<br>꾸준히 해봅시다!<br>아래 이미지를 클릭해 새로운 스트레칭을 배워보아요!';
       
     }
 
   }
+
 
   result.innerHTML = end;
 

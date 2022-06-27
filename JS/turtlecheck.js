@@ -2,7 +2,7 @@
 // https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/pose
 
 // the link to your model provided by Teachable Machine export panel
-// console.log("init 실행시키기");
+// //console.log("init 실행시키기");
 
 const URL = "./my_model/";
 // import { edit_ease_turtle } from "../JS/turtles.js";
@@ -59,7 +59,7 @@ function setCookie(key, value, expiredays) {
 function getCookie(key) {
     var result = null;
     var cookie = document.cookie.split(';');
-    console.log(cookie);
+    //console.log(cookie);
     cookie.some(function (item) {
         // 공백을 제거
         item = item.replace(' ', '');
@@ -75,12 +75,12 @@ function getCookie(key) {
 }
 
 // 데이터 변경
-let edit_turtle = function (email, ease) {
-    console.log(email)
+let edit_turtle_check = function (email, ease) {
+    ////console.log(email)
     $(document).ready(function () {
         $.ajax({
             type: "PUT",
-            url: 'http://107.21.77.37/turtle/user?user_email=' + email,
+            url: 'http://3.94.248.115/turtle/user?user_email=' + email,
             dataType: "json",
             accept: "application/json",
             data: JSON.stringify({
@@ -93,19 +93,16 @@ let edit_turtle = function (email, ease) {
             //전달할 때 사용되는 파라미터 변수명
             // 이 속성을 생략하면 callback 파라미터 변수명으로 전달된다.
             success: function (data, textStatus, jqXHR) {
-                console.log('success');
-                console.log(data)
+                //console.log('success');
+                //console.log('테스트 데이터 ',data)
                 setCookie("email",data.email,100);
                 setCookie("name",data.name,100);
                 setCookie("num",data.num,100);
                 setCookie("ease",data.ease,100);
                 setCookie("best",data.best,100);
                 setCookie("created",data.created,100);
-                console.log(document.cookie);
-                // console.log(JSON.parse(data[0]));
-            },
-            complete: function (d) {
-                console.log('d')
+                //console.log(document.cookie);
+                //console.log(JSON.parse(data[0]));
             },
             error: function (xhr, textStatus, error) {
                 console.log(xhr.responseText);
@@ -127,8 +124,8 @@ async function loop(timestamp) {
     if(call_cnt>=80){
         window.cancelAnimationFrame(t);
         let user_email = localStorage.getItem("key",''); // 이메일 가져오기
-        console.log(user_email);
-        edit_turtle(user_email,percent); // 테스트 데이터 저장부분 수정
+        //console.log(user_email);
+        edit_turtle_check(user_email,percent); // 테스트 데이터 저장부분 수정
     }
 }
 
@@ -157,7 +154,7 @@ async function predict() {
         labelContainer.innerHTML = "우측을 바라보고 서주세요.";
     }
     
-    percent = turtle;
+    percent = Math.round(turtle);
     // finally draw the poses
     drawPose(pose);
 }

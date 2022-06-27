@@ -5,42 +5,26 @@
 const URL = "./my_model/";
 // import { create_cure } from "../../JS/tranings.js";
 let model, webcam, ctx, labelContainer, maxPredictions;
-let creatchk = true;
+let creatchk2 = true;
 // 스트레칭 생성
-let create_cure = function (stretchingNum, cnt) {
+let create_cure2 = function (stretchingNum2, cnt2) {
     var data1 = null
     $(document).ready(function () {
         $.ajax({
             type: "POST",
             contentType: "application/json; charset=utf-8",
             data: JSON.stringify({
-                "stretch": stretchingNum,
-                "status": cnt,
+                "stretch": stretchingNum2,
+                "status": cnt2,
                 "user_email": localStorage.getItem('key')
             }),
-            url: 'http://107.21.77.37/cure/',
+            url: 'http://3.94.248.115/cure/',
             dataType: "json",
             accept: "application/json",
             //전달할 때 사용되는 파라미터 변수명
             // 이 속성을 생략하면 callback 파라미터 변수명으로 전달된다.
             success: function (data, textStatus, jqXHR) {
                 console.log('success');
-                console.log(data);
-                var data1 = {
-                    id: data[0].id,
-                    craeted: data[0].created,
-                    stretch: data[0].stretch,
-                    status: data[0].status,
-                    user_email: data[0].user_email,
-                }
-                // console.log(JSON.parse(data[0]));
-                console.log(data1)
-                // console.log(JSON.parse(data[0]));
-                console.log(data1)
-                $('.result').html('dfdjflks' + data1.email);
-            },
-            complete: function (d) {
-                console.log('d')
             },
             error: function (xhr, textStatus, error) {
                 console.log(xhr.responseText);
@@ -52,9 +36,9 @@ let create_cure = function (stretchingNum, cnt) {
 }
 
 // 스트레칭 번호
-const stretchingNum = 2;
+const stretchingNum2 = 2;
 // 스트레칭 개수
-var cnt = 0;
+var cnt2 = 0;
 
 function pause() {
     webcam.pause();
@@ -152,8 +136,8 @@ async function predict() {
     } else if (prediction[1].probability.toFixed(2) >= 0.9) {
 
         if (posture == "down") {
-            cnt++
-            var audio = new Audio('../count/' + cnt % 10 + '.mp3');
+            cnt2++
+            var audio = new Audio('../count/' + cnt2 % 10 + '.mp3');
             audio.play();
         }
 
@@ -180,17 +164,17 @@ async function predict() {
     // 창 닫을 때 alert창
     window.addEventListener("beforeunload", function (event) {
 
-        event.returnValue = "나가겠습니까?";
-        if (creatchk === true && cnt != 0) {
-            create_cure(stretchingNum, cnt);
-            creatchk = false;
+        if (creatchk2 === true && cnt2 != 0) {
+            event.returnValue = "나가겠습니까?";
+            create_cure2(stretchingNum2, cnt2);
+            creatchk2 = false;
         }
     });
     // 무슨 동작을 하는지 적힘
     for (let i = 0; i < maxPredictions; i++) {
         const classPrediction =
             prediction[i].className + ": " + prediction[i].probability.toFixed(2);
-        console.log(classPrediction);
+        //console.log(classPrediction);
     }
 
     // finally draw the poses
@@ -198,11 +182,11 @@ async function predict() {
 }
 
 
-function save(){
+function save2(){
     // 저장하고 종료하기
-    if(creatchk===true && cnt!=0){
-        create_cure(stretchingNum,cnt);
-        creatchk= false;
+    if(creatchk2===true && cnt2!=0){
+        create_cure2(stretchingNum2,cnt2);
+        creatchk2= false;
     }
     location.href = '../index.html';
 }

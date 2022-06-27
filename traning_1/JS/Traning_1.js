@@ -28,21 +28,6 @@ let create_cure = function (stretchingNum, cnt) {
             success: function (data, textStatus, jqXHR) {
                 console.log('success');
                 console.log(data);
-                var data1 = {
-                    id: data[0].id,
-                    craeted: data[0].created,
-                    stretch: data[0].stretch,
-                    status: data[0].status,
-                    user_email: data[0].user_email,
-                }
-                // console.log(JSON.parse(data[0]));
-                console.log(data1)
-                // console.log(JSON.parse(data[0]));
-                console.log(data1)
-                $('.result').html('dfdjflks' + data1.email);
-            },
-            complete: function (d) {
-                console.log('d')
             },
             error: function (xhr, textStatus, error) {
                 console.log(xhr.responseText);
